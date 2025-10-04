@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
@@ -15,6 +15,7 @@ import { useOutlineStreaming } from "../hooks/useOutlineStreaming";
 import { useOutlineManagement } from "../hooks/useOutlineManagement";
 import { usePresentationGeneration } from "../hooks/usePresentationGeneration";
 import TemplateSelection from "./TemplateSelection";
+import { useLayout } from "../../context/LayoutContext";
 
 const OutlinePage: React.FC = () => {
   const { presentation_id, outlines } = useSelector(
@@ -23,6 +24,9 @@ const OutlinePage: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState<string>(TABS.OUTLINE);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  
+  const { getLayoutsByTemplateID } = useLayout();
+  
   // Custom hooks
   const streamState = useOutlineStreaming(presentation_id);
   const { handleDragEnd, handleAddSlide } = useOutlineManagement(outlines);
@@ -32,6 +36,20 @@ const OutlinePage: React.FC = () => {
     selectedTemplate,
     setActiveTab
   );
+
+  // Update selectedTemplate slides when layout data changes
+  useEffect(() => {
+    if (selectedTemplate) {
+      const slides = getLayoutsByTemplateID(selectedTemplate.id);
+      if (slides.length !== (selectedTemplate.slides?.length || 0)) {
+        setSelectedTemplate({
+          ...selectedTemplate,
+          slides: slides,
+        });
+      }
+    }
+  }, [selectedTemplate, getLayoutsByTemplateID]);
+
   if (!presentation_id) {
     return <EmptyStateView />;
   }

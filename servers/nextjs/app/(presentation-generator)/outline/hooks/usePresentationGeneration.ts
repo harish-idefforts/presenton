@@ -38,7 +38,7 @@ export const usePresentationGeneration = (
       });
       return false;
     }
-    if (!selectedTemplate.slides.length) {
+    if (!selectedTemplate.slides || !selectedTemplate.slides.length) {
       toast.error("No Slide Schema found", {
         description: "Please select a Group before generating presentation",
       });
