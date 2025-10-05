@@ -1,0 +1,289 @@
+import React from 'react';
+import * as z from "zod";
+import { IconSchema, ImageSchema } from '@/presentation-templates/defaultSchemes';
+import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
+
+export const layoutId = '05-key-points-with-icons-slide';
+export const layoutName = 'Key Points with Icons';
+export const layoutDescription = 'Numbered or bulleted list with icons and descriptions. Perfect for highlighting important concepts, steps, or principles with visual emphasis.';
+
+const professionalColors = {
+  background: "#f8f7f4",
+  primaryText: "#2d3436",
+  secondaryText: "#636e72",
+  accent: "#0984e3",
+  success: "#00b894",
+  warning: "#fdcb6e",
+  danger: "#d63031",
+  cardBg: "#ffffff",
+  borderLight: "#dfe6e9",
+};
+
+const Schema = z.object({
+  title: z.string().min(3).max(80).default('Key Points to Remember').meta({
+    description: "Main title for the slide",
+  }),
+  subtitle: z.string().min(10).max(200).optional().default('Essential concepts that form the foundation of our approach').meta({
+    description: "Optional subtitle or description",
+  }),
+  listType: z.enum(['numbered', 'bulleted']).default('numbered').meta({
+    description: "List style - numbered or bulleted",
+  }),
+  supportingImage: ImageSchema.optional().default({
+    __image_url__: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40',
+    __image_prompt__: 'Professional workspace with notes and planning'
+  }).meta({
+    description: "Optional supporting image",
+  }),
+  points: z.array(z.object({
+    title: z.string().min(3).max(80),
+    description: z.string().min(10).max(200),
+    icon: IconSchema.default({
+      __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/check-circle-bold.svg',
+      __icon_query__: 'check point item'
+    })
+  })).min(3).max(6).default([
+    {
+      title: 'Clear Communication',
+      description: 'Establish transparent channels and regular updates to ensure alignment across all stakeholders',
+      icon: {
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg',
+        __icon_query__: 'chat communication message'
+      }
+    },
+    {
+      title: 'Data-Driven Decisions',
+      description: 'Leverage analytics and metrics to guide strategic choices and measure success effectively',
+      icon: {
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chart-bar-bold.svg',
+        __icon_query__: 'chart data analytics'
+      }
+    },
+    {
+      title: 'Continuous Improvement',
+      description: 'Foster a culture of learning and adaptation to stay ahead in evolving markets',
+      icon: {
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/trending-up-bold.svg',
+        __icon_query__: 'trending up growth improvement'
+      }
+    },
+    {
+      title: 'Team Collaboration',
+      description: 'Build strong partnerships and encourage cross-functional cooperation for optimal results',
+      icon: {
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/users-bold.svg',
+        __icon_query__: 'users team collaboration'
+      }
+    },
+    {
+      title: 'Customer Focus',
+      description: 'Prioritize user needs and feedback to deliver exceptional value and experiences',
+      icon: {
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/heart-bold.svg',
+        __icon_query__: 'heart customer care focus'
+      }
+    }
+  ]).meta({
+    description: "List of key points with titles, descriptions, and icons",
+  }),
+});
+
+export { Schema };
+export type KeyPointsWithIconsSlideData = z.infer<typeof Schema>;
+
+interface KeyPointsWithIconsSlideProps {
+  data?: Partial<KeyPointsWithIconsSlideData>;
+}
+
+const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data: slideData }) => {
+  const points = slideData?.points || [];
+  const isNumbered = slideData?.listType === 'numbered';
+
+  return (
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div
+        className="w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video relative z-20 mx-auto overflow-hidden flex flex-col"
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          backgroundColor: professionalColors.background
+        }}
+      >
+        {/* Header */}
+        <div className="px-12 pt-10 pb-4">
+          <h1
+            className="text-4xl lg:text-5xl font-bold mb-2"
+            style={{ color: professionalColors.primaryText }}
+          >
+            {slideData?.title || 'Key Points to Remember'}
+          </h1>
+          {slideData?.subtitle && (
+            <p
+              className="text-lg mt-2"
+              style={{ color: professionalColors.secondaryText }}
+            >
+              {slideData.subtitle}
+            </p>
+          )}
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-4" />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 px-12 pb-20 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+            {/* Points List - Takes 2 columns */}
+            <div className="lg:col-span-2">
+              <div className="grid gap-4">
+                {points.map((point, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-4 p-4 rounded-xl transition-all hover:shadow-md"
+                    style={{
+                      backgroundColor: professionalColors.cardBg,
+                      borderLeft: `3px solid ${professionalColors.accent}`
+                    }}
+                  >
+                    {/* Number or Icon */}
+                    <div className="flex-shrink-0">
+                      {isNumbered ? (
+                        <div
+                          className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl"
+                          style={{
+                            backgroundColor: `${professionalColors.accent}15`,
+                            color: professionalColors.accent
+                          }}
+                        >
+                          {index + 1}
+                        </div>
+                      ) : (
+                        <div
+                          className="w-12 h-12 rounded-lg flex items-center justify-center"
+                          style={{ backgroundColor: `${professionalColors.accent}15` }}
+                        >
+                          <RemoteSvgIcon
+                            url={point.icon.__icon_url__}
+                            strokeColor="currentColor"
+                            className="w-6 h-6"
+                            color={professionalColors.accent}
+                            title={point.icon.__icon_query__}
+                          />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3
+                        className="text-lg font-semibold mb-1"
+                        style={{ color: professionalColors.primaryText }}
+                      >
+                        {point.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{ color: professionalColors.secondaryText }}
+                      >
+                        {point.description}
+                      </p>
+                    </div>
+
+                    {/* Icon (if numbered list) */}
+                    {isNumbered && (
+                      <div
+                        className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                        style={{ backgroundColor: `${professionalColors.success}10` }}
+                      >
+                        <RemoteSvgIcon
+                          url={point.icon.__icon_url__}
+                          strokeColor="currentColor"
+                          className="w-5 h-5"
+                          color={professionalColors.success}
+                          title={point.icon.__icon_query__}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Supporting Image - Takes 1 column */}
+            <div className="lg:col-span-1 flex items-center">
+              {slideData?.supportingImage?.__image_url__ && (
+                <div className="relative w-full h-full max-h-96">
+                  <div
+                    className="absolute inset-0 rounded-2xl"
+                    style={{
+                      backgroundColor: professionalColors.accent,
+                      transform: 'rotate(3deg)'
+                    }}
+                  />
+                  <img
+                    src={slideData.supportingImage.__image_url__}
+                    alt={slideData.supportingImage.__image_prompt__ || ''}
+                    className="relative w-full h-full object-cover rounded-2xl shadow-lg"
+                  />
+
+                  {/* Decorative element */}
+                  <div
+                    className="absolute -top-4 -right-4 w-12 h-12 rounded-full"
+                    style={{ backgroundColor: professionalColors.warning }}
+                  >
+                    <svg
+                      className="w-full h-full p-3"
+                      viewBox="0 0 24 24"
+                      fill={professionalColors.cardBg}
+                    >
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                  </div>
+                </div>
+              )}
+
+              {/* If no image, show decorative element */}
+              {!slideData?.supportingImage?.__image_url__ && (
+                <div className="w-full flex items-center justify-center">
+                  <div className="relative">
+                    <div
+                      className="w-48 h-48 rounded-full opacity-10"
+                      style={{ backgroundColor: professionalColors.accent }}
+                    />
+                    <div
+                      className="absolute inset-8 rounded-full opacity-20"
+                      style={{ backgroundColor: professionalColors.success }}
+                    />
+                    <div
+                      className="absolute inset-16 rounded-full opacity-30"
+                      style={{ backgroundColor: professionalColors.warning }}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-20 z-20 flex items-center justify-between px-8"
+          style={{ backgroundColor: professionalColors.background }}
+        >
+          <span className="text-xs" style={{ color: professionalColors.secondaryText }}>
+            Do not share without permission
+          </span>
+          <span className="text-xs" style={{ color: professionalColors.secondaryText }}>
+            © 2025 AB4C Compliance & Customer Relations. All rights reserved.
+          </span>
+          <img
+            src="/ab4c-logo.png"
+            alt="AB4C Logo"
+            className="h-14 w-14 object-contain"
+          />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default KeyPointsWithIconsSlide;
