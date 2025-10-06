@@ -63,7 +63,7 @@ const Schema = z.object({
       title: 'Continuous Improvement',
       description: 'Foster a culture of learning and adaptation to stay ahead in evolving markets',
       icon: {
-        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/trending-up-bold.svg',
+        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chart-line-bold.svg',
         __icon_query__: 'trending up growth improvement'
       }
     },

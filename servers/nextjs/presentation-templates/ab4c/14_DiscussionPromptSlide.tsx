@@ -1,0 +1,293 @@
+import React from 'react';
+import { z } from 'zod';
+import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
+
+export const layoutId = '14-discussion-prompt';
+export const layoutName = 'Discussion Prompt';
+
+// Professional color palette
+const professionalColors = {
+  background: "#f8f7f4",
+  primaryText: "#2d3436",
+  secondaryText: "#636e72",
+  accent: "#0984e3",
+  success: "#00b894",
+  warning: "#fdcb6e",
+  danger: "#d63031",
+  cardBg: "#ffffff",
+  borderLight: "#dfe6e9",
+};
+
+// Icon Schema for AI-generated content
+const IconSchema = z.object({
+  __icon_url__: z.string().default('https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg'),
+  __icon_query__: z.string().default('discussion icon'),
+});
+
+// Schema for AI content generation
+const Schema = z.object({
+  topic: z.string().min(10).max(100).default('Improving Cross-Department Communication').meta({
+    description: "Discussion topic. Max 100 characters",
+  }),
+  mainQuestion: z.string().min(20).max(300).default('How can we better facilitate information sharing between departments while maintaining compliance standards?').meta({
+    description: "Main discussion question. Max 300 characters",
+  }),
+  discussionPoints: z.array(z.object({
+    point: z.string().min(10).max(200).meta({
+      description: "Discussion point or sub-question. Max 200 characters",
+    }),
+    icon: IconSchema.meta({
+      description: "Icon for this discussion point",
+    }),
+  })).min(3).max(5).default([
+    {
+      point: 'What are the current barriers to effective communication in your department?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/warning-bold.svg', __icon_query__: 'barriers' },
+    },
+    {
+      point: 'Share a successful collaboration experience with another department.',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg', __icon_query__: 'collaboration' },
+    },
+    {
+      point: 'What tools or processes would help improve information flow?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/wrench-bold.svg', __icon_query__: 'tools' },
+    },
+    {
+      point: 'How do we balance transparency with confidentiality requirements?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/eye-bold.svg', __icon_query__: 'balance' },
+    },
+  ]).meta({
+    description: "3-5 discussion points or questions",
+  }),
+  timeAllocation: z.string().min(5).max(20).default('15 minutes').meta({
+    description: "Time allocated for discussion",
+  }),
+  groupInstructions: z.string().min(20).max(200).optional().default('Break into groups of 4-5 people. Discuss each point and be prepared to share key insights with the larger group.').meta({
+    description: "Optional group activity instructions. Max 200 characters",
+  }),
+});
+
+interface DiscussionPromptSlideProps {
+  data?: Partial<DiscussionPromptSlideData>;
+}
+
+const DiscussionPromptSlide: React.FC<DiscussionPromptSlideProps> = ({ data: slideData }) => {
+  const topic = slideData?.topic || 'Improving Cross-Department Communication';
+  const mainQuestion = slideData?.mainQuestion || 'How can we better facilitate information sharing between departments while maintaining compliance standards?';
+  const discussionPoints = slideData?.discussionPoints || [
+    {
+      point: 'What are the current barriers to effective communication in your department?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/warning-bold.svg', __icon_query__: 'barriers' },
+    },
+    {
+      point: 'Share a successful collaboration experience with another department.',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg', __icon_query__: 'collaboration' },
+    },
+    {
+      point: 'What tools or processes would help improve information flow?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/wrench-bold.svg', __icon_query__: 'tools' },
+    },
+    {
+      point: 'How do we balance transparency with confidentiality requirements?',
+      icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/eye-bold.svg', __icon_query__: 'balance' },
+    },
+  ];
+  const timeAllocation = slideData?.timeAllocation || '15 minutes';
+  const groupInstructions = slideData?.groupInstructions;
+
+  return (
+    <div className="relative flex flex-col h-screen overflow-hidden" style={{ backgroundColor: professionalColors.background }}>
+      {/* Main Content Area */}
+      <div className="flex-1 px-16 pt-16 pb-24">
+        {/* Header Section */}
+        <div className="mb-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center"
+                   style={{ backgroundColor: professionalColors.accent }}>
+                <RemoteSvgIcon
+                  url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg"
+                  strokeColor="currentColor"
+                  className="w-8 h-8"
+                  color="#ffffff"
+                  title="Group Discussion"
+                />
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider"
+                   style={{ color: professionalColors.accent }}>
+                  GROUP DISCUSSION
+                </p>
+                <h1 className="text-4xl font-bold" style={{ color: professionalColors.primaryText }}>
+                  {topic}
+                </h1>
+              </div>
+            </div>
+
+            {/* Time Allocation Badge */}
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full"
+                 style={{ backgroundColor: professionalColors.warning + '20' }}>
+              <RemoteSvgIcon
+                url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/play-bold.svg"
+                strokeColor="currentColor"
+                className="w-5 h-5"
+                color={professionalColors.warning}
+                title="Time"
+              />
+              <span className="font-semibold text-sm" style={{ color: professionalColors.primaryText }}>
+                {timeAllocation}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Question */}
+        <div className="mb-10 p-8 rounded-xl shadow-lg"
+             style={{
+               background: `linear-gradient(135deg, ${professionalColors.accent}15 0%, ${professionalColors.accent}05 100%)`,
+               borderLeft: `4px solid ${professionalColors.accent}`,
+             }}>
+          <div className="flex items-start gap-4">
+            <RemoteSvgIcon
+              url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg"
+              strokeColor="currentColor"
+              className="w-8 h-8 mt-1 flex-shrink-0"
+              color={professionalColors.accent}
+              title="Main Question"
+            />
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wider mb-2"
+                 style={{ color: professionalColors.accent }}>
+                CENTRAL QUESTION
+              </p>
+              <p className="text-2xl font-semibold leading-relaxed"
+                 style={{ color: professionalColors.primaryText }}>
+                {mainQuestion}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Discussion Points Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {discussionPoints.map((point, index) => (
+            <div
+              key={index}
+              className="p-6 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02]"
+              style={{ backgroundColor: professionalColors.cardBg }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full flex-shrink-0"
+                     style={{ backgroundColor: professionalColors.accent + '15' }}>
+                  <span className="font-bold text-lg" style={{ color: professionalColors.accent }}>
+                    {index + 1}
+                  </span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <RemoteSvgIcon
+                      url={point.icon.__icon_url__}
+                      strokeColor="currentColor"
+                      className="w-5 h-5"
+                      color={professionalColors.accent}
+                      title={point.icon.__icon_query__}
+                    />
+                    <span className="text-xs font-semibold uppercase tracking-wider"
+                          style={{ color: professionalColors.accent }}>
+                      DISCUSSION POINT
+                    </span>
+                  </div>
+                  <p className="text-base leading-relaxed"
+                     style={{ color: professionalColors.primaryText }}>
+                    {point.point}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Group Instructions */}
+        {groupInstructions && (
+          <div className="p-6 rounded-xl"
+               style={{ backgroundColor: professionalColors.success + '15' }}>
+            <div className="flex items-start gap-4">
+              <RemoteSvgIcon
+                url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/users-bold.svg"
+                strokeColor="currentColor"
+                className="w-6 h-6 mt-1 flex-shrink-0"
+                color={professionalColors.success}
+                title="Group Activity"
+              />
+              <div>
+                <h3 className="text-lg font-bold mb-2" style={{ color: professionalColors.primaryText }}>
+                  Activity Instructions
+                </h3>
+                <p className="text-base" style={{ color: professionalColors.secondaryText }}>
+                  {groupInstructions}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Engagement Tips */}
+        <div className="mt-8 flex items-center justify-center gap-8">
+          <div className="flex items-center gap-2">
+            <RemoteSvgIcon
+              url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/megaphone-bold.svg"
+              strokeColor="currentColor"
+              className="w-5 h-5"
+              color={professionalColors.secondaryText}
+              title="Share"
+            />
+            <span className="text-sm" style={{ color: professionalColors.secondaryText }}>
+              Share experiences
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <RemoteSvgIcon
+              url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/lightbulb-bold.svg"
+              strokeColor="currentColor"
+              className="w-5 h-5"
+              color={professionalColors.secondaryText}
+              title="Ideas"
+            />
+            <span className="text-sm" style={{ color: professionalColors.secondaryText }}>
+              Propose solutions
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <RemoteSvgIcon
+              url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg"
+              strokeColor="currentColor"
+              className="w-5 h-5"
+              color={professionalColors.secondaryText}
+              title="Collaborate"
+            />
+            <span className="text-sm" style={{ color: professionalColors.secondaryText }}>
+              Build consensus
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 z-20 flex items-center justify-between px-8"
+           style={{ backgroundColor: professionalColors.background }}>
+        <span className="text-xs" style={{ color: professionalColors.secondaryText }}>
+          Do not share without permission
+        </span>
+        <span className="text-xs" style={{ color: professionalColors.secondaryText }}>
+          © 2025 AB4C Compliance & Customer Relations. All rights reserved.
+        </span>
+        <img src="/ab4c-logo.png" alt="AB4C Logo" className="h-14 w-14 object-contain" />
+      </div>
+    </div>
+  );
+};
+
+export { Schema };
+export type DiscussionPromptSlideData = z.infer<typeof Schema>;
+
+export default DiscussionPromptSlide;
