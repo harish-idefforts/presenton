@@ -8,15 +8,15 @@ export const layoutName = 'Training Objectives';
 export const layoutDescription = 'Display training goals, duration, target audience, and expected outcomes with visual icons. Essential for setting expectations at the beginning of any professional training session.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -134,7 +134,7 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={professionalColors.accent}
+                      stroke={professionalColors.secondaryText}
                       strokeWidth="2"
                     >
                       <circle cx="12" cy="12" r="10"/>
@@ -258,7 +258,7 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
                         url={objective.icon.__icon_url__}
                         strokeColor="currentColor"
                         className="w-6 h-6"
-                        color={professionalColors.accent}
+                        color={professionalColors.secondaryText}
                         title={objective.icon.__icon_query__}
                       />
                     </div>
@@ -268,7 +268,7 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
                       <div className="flex items-baseline gap-3 mb-2">
                         <span
                           className="text-2xl font-bold"
-                          style={{ color: professionalColors.accent }}
+                          style={{ color: professionalColors.secondaryText }}
                         >
                           {objective.number}
                         </span>

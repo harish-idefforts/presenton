@@ -8,15 +8,15 @@ export const layoutName = 'Key Points with Icons';
 export const layoutDescription = 'Numbered or bulleted list with icons and descriptions. Perfect for highlighting important concepts, steps, or principles with visual emphasis.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -165,7 +165,7 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                             url={point.icon.__icon_url__}
                             strokeColor="currentColor"
                             className="w-6 h-6"
-                            color={professionalColors.accent}
+                            color={professionalColors.secondaryText}
                             title={point.icon.__icon_query__}
                           />
                         </div>

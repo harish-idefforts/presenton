@@ -8,15 +8,15 @@ export const layoutName = 'Process Flow';
 export const layoutDescription = 'Step-by-step workflow visualization with arrows and icons. Ideal for explaining procedures, methodologies, or sequential processes in training.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -113,20 +113,20 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
         {/* Header */}
         <div className="px-12 pt-10 pb-4">
           <h1
-            className="text-4xl lg:text-5xl font-bold mb-2"
+            className="text-4xl lg:text-5xl font-bold mb-3"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.processTitle || 'Implementation Process'}
           </h1>
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mb-4" />
           {slideData?.processDescription && (
             <p
-              className="text-base mt-2"
+              className="text-base"
               style={{ color: professionalColors.secondaryText }}
             >
               {slideData.processDescription}
             </p>
           )}
-          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-4" />
         </div>
 
         {/* Process Flow Content */}
@@ -134,10 +134,10 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
           {isHorizontal ? (
             // Horizontal Flow
             <div className="w-full">
-              <div className="flex items-center justify-between relative">
+              <div className="flex items-start justify-between relative pt-2">
                 {/* Connection Line */}
                 <div
-                  className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2 z-0"
+                  className="absolute top-12 left-0 right-0 h-0.5 z-0"
                   style={{ backgroundColor: professionalColors.borderLight }}
                 />
 
@@ -145,7 +145,7 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
                   <div key={index} className="relative z-10 flex flex-col items-center">
                     {/* Step Circle */}
                     <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg mb-4"
+                      className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg mb-8"
                       style={{
                         backgroundColor: professionalColors.cardBg,
                         border: `3px solid ${professionalColors.accent}`
@@ -155,7 +155,7 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
                         url={step.icon.__icon_url__}
                         strokeColor="currentColor"
                         className="w-10 h-10"
-                        color={professionalColors.accent}
+                        color={professionalColors.secondaryText}
                         title={step.icon.__icon_query__}
                       />
                     </div>
@@ -244,7 +244,7 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
                             url={step.icon.__icon_url__}
                             strokeColor="currentColor"
                             className="w-6 h-6"
-                            color={professionalColors.accent}
+                            color={professionalColors.secondaryText}
                             title={step.icon.__icon_query__}
                           />
                         </div>

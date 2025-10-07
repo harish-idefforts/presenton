@@ -8,15 +8,15 @@ export const layoutName = 'Grid Layout';
 export const layoutDescription = 'Grid of cards for teams, departments, or categories with icons and descriptions. Perfect for showing organizational structure, team roles, or multiple related concepts.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -189,18 +189,18 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                 }}
               >
                 {/* Card Header */}
-                <div className="flex items-start gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-4">
                   <div
                     className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{
-                      backgroundColor: `${card.color || professionalColors.accent}15`
+                      backgroundColor: professionalColors.accent
                     }}
                   >
                     <RemoteSvgIcon
                       url={card.icon.__icon_url__}
                       strokeColor="currentColor"
                       className="w-6 h-6"
-                      color={card.color || professionalColors.accent}
+                      color={professionalColors.secondaryText}
                       title={card.icon.__icon_query__}
                     />
                   </div>
@@ -214,7 +214,7 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                     {card.role && (
                       <p
                         className="text-xs mt-0.5"
-                        style={{ color: card.color || professionalColors.accent }}
+                        style={{ color: professionalColors.secondaryText }}
                       >
                         {card.role}
                       </p>
@@ -228,7 +228,7 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                     <div key={idx} className="flex items-start gap-2">
                       <div
                         className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: card.color || professionalColors.accent }}
+                        style={{ backgroundColor: professionalColors.secondaryText }}
                       />
                       <span
                         className="text-xs leading-relaxed"
@@ -252,7 +252,7 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                         height="14"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke={card.color || professionalColors.accent}
+                        stroke={professionalColors.secondaryText}
                         strokeWidth="2"
                       >
                         <rect x="2" y="4" width="20" height="16" rx="2"/>

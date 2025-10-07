@@ -8,15 +8,15 @@ export const layoutName = 'Agenda Timeline';
 export const layoutDescription = 'Visual timeline showing training sections, durations, and progression. Perfect for outlining the structure of any training session with clear time allocations.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -144,7 +144,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                   height="20"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke={professionalColors.accent}
+                  stroke={professionalColors.secondaryText}
                   strokeWidth="2"
                 >
                   <circle cx="12" cy="12" r="10"/>
@@ -191,7 +191,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                         url={section.icon.__icon_url__}
                         strokeColor="currentColor"
                         className="w-7 h-7"
-                        color={section.isBreak ? professionalColors.warning : professionalColors.accent}
+                        color={section.isBreak ? professionalColors.warning : professionalColors.secondaryText}
                         title={section.icon.__icon_query__}
                       />
                     </div>
@@ -229,10 +229,10 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                         style={{
                           backgroundColor: section.isBreak
                             ? `${professionalColors.warning}20`
-                            : `${professionalColors.accent}15`,
+                            : `${professionalColors.accent}`,
                           color: section.isBreak
                             ? professionalColors.warning
-                            : professionalColors.accent
+                            : professionalColors.secondaryText
                         }}
                       >
                         {section.duration}

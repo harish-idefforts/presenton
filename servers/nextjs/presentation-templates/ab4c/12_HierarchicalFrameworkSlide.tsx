@@ -8,15 +8,15 @@ export const layoutDescription = 'Multi-level structure showing parent-child rel
 
 // Professional color palette
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 // Schema for AI content generation
@@ -80,13 +80,13 @@ const HierarchicalFrameworkSlide: React.FC<HierarchicalFrameworkSlideProps> = ({
   // Sort levels to ensure proper order (1 = top)
   const sortedLevels = [...levels].sort((a, b) => a.level - b.level);
 
-  // Define pyramid colors (darker at top, lighter at bottom)
+  // Define level colors (darker at top, lighter at bottom)
   const pyramidColors = [
+    professionalColors.secondaryText,
+    professionalColors.warning,
+    professionalColors.success,
     professionalColors.accent,
-    '#3498db',
-    '#5dade2',
-    '#85c1e2',
-    '#aed6f1',
+    professionalColors.borderLight,
   ];
 
   return (
@@ -102,13 +102,13 @@ const HierarchicalFrameworkSlide: React.FC<HierarchicalFrameworkSlideProps> = ({
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/crown-bold.svg"
                 strokeColor="currentColor"
                 className="w-8 h-8"
-                color="#ffffff"
+                color={professionalColors.secondaryText}
                 title="Framework"
               />
             </div>
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider"
-                 style={{ color: professionalColors.accent }}>
+                 style={{ color: professionalColors.secondaryText }}>
                 ORGANIZATIONAL STRUCTURE
               </p>
               <h1 className="text-4xl font-bold" style={{ color: professionalColors.primaryText }}>
@@ -201,7 +201,7 @@ const HierarchicalFrameworkSlide: React.FC<HierarchicalFrameworkSlideProps> = ({
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/gear-bold.svg"
                   strokeColor="currentColor"
                   className="w-6 h-6 mt-1"
-                  color={professionalColors.accent}
+                  color={professionalColors.secondaryText}
                   title="Key Principles"
                 />
                 <h3 className="text-lg font-bold" style={{ color: professionalColors.primaryText }}>

@@ -8,15 +8,15 @@ export const layoutDescription = 'Open-ended question or prompt for group intera
 
 // Professional color palette
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 // Icon Schema for AI-generated content
@@ -110,13 +110,13 @@ const DiscussionPromptSlide: React.FC<DiscussionPromptSlideProps> = ({ data: sli
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg"
                   strokeColor="currentColor"
                   className="w-8 h-8"
-                  color="#ffffff"
+                  color={professionalColors.secondaryText}
                   title="Group Discussion"
                 />
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider"
-                   style={{ color: professionalColors.accent }}>
+                   style={{ color: professionalColors.secondaryText }}>
                   GROUP DISCUSSION
                 </p>
                 <h1 className="text-4xl font-bold" style={{ color: professionalColors.primaryText }}>
@@ -153,12 +153,12 @@ const DiscussionPromptSlide: React.FC<DiscussionPromptSlideProps> = ({ data: sli
               url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg"
               strokeColor="currentColor"
               className="w-8 h-8 mt-1 flex-shrink-0"
-              color={professionalColors.accent}
+              color={professionalColors.secondaryText}
               title="Main Question"
             />
             <div>
               <p className="text-sm font-semibold uppercase tracking-wider mb-2"
-                 style={{ color: professionalColors.accent }}>
+                 style={{ color: professionalColors.secondaryText }}>
                 CENTRAL QUESTION
               </p>
               <p className="text-2xl font-semibold leading-relaxed"
@@ -179,8 +179,8 @@ const DiscussionPromptSlide: React.FC<DiscussionPromptSlideProps> = ({ data: sli
             >
               <div className="flex items-start gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full flex-shrink-0"
-                     style={{ backgroundColor: professionalColors.accent + '15' }}>
-                  <span className="font-bold text-lg" style={{ color: professionalColors.accent }}>
+                     style={{ backgroundColor: professionalColors.accent }}>
+                  <span className="font-bold text-lg" style={{ color: professionalColors.secondaryText }}>
                     {index + 1}
                   </span>
                 </div>
@@ -190,11 +190,11 @@ const DiscussionPromptSlide: React.FC<DiscussionPromptSlideProps> = ({ data: sli
                       url={point.icon.__icon_url__}
                       strokeColor="currentColor"
                       className="w-5 h-5"
-                      color={professionalColors.accent}
+                      color={professionalColors.secondaryText}
                       title={point.icon.__icon_query__}
                     />
                     <span className="text-xs font-semibold uppercase tracking-wider"
-                          style={{ color: professionalColors.accent }}>
+                          style={{ color: professionalColors.secondaryText }}>
                       DISCUSSION POINT
                     </span>
                   </div>

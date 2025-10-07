@@ -8,15 +8,15 @@ export const layoutName = 'Section Header';
 export const layoutDescription = 'Clean section divider with section number, title, and description. Use to separate major parts of your training presentation with visual clarity.';
 
 const professionalColors = {
-  background: "#f8f7f4",
-  primaryText: "#2d3436",
-  secondaryText: "#636e72",
-  accent: "#0984e3",
-  success: "#00b894",
-  warning: "#fdcb6e",
-  danger: "#d63031",
-  cardBg: "#ffffff",
-  borderLight: "#dfe6e9",
+  background: "#f5f5f0",
+  primaryText: "#4a4035",
+  secondaryText: "#6b5d52",
+  accent: "#e8e4dc",
+  success: "#8a7967",
+  warning: "#A89078",
+  danger: "#8B6B6B",
+  cardBg: "#ebe9e3",
+  borderLight: "#d4cfc7",
 };
 
 const Schema = z.object({
@@ -156,7 +156,7 @@ const SectionHeaderSlide: React.FC<SectionHeaderSlideProps> = ({ data: slideData
                   url={slideData?.icon?.__icon_url__ || ''}
                   strokeColor="currentColor"
                   className="w-12 h-12"
-                  color={professionalColors.accent}
+                  color={professionalColors.secondaryText}
                   title={slideData?.icon?.__icon_query__ || ''}
                 />
               </div>
