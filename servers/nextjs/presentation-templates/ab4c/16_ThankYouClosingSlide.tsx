@@ -94,10 +94,16 @@ const ThankYouClosingSlide: React.FC<ThankYouClosingSlideProps> = ({
   const feedbackUrl = slideData?.feedbackUrl;
 
   return (
-    <div
-      className="relative flex flex-col h-screen overflow-hidden"
-      style={{ backgroundColor: professionalColors.background }}
-    >
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div
+        className="w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video relative z-20 mx-auto overflow-hidden flex flex-col"
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          backgroundColor: professionalColors.background
+        }}
+      >
       {/* Decorative Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -172,7 +178,8 @@ const ThankYouClosingSlide: React.FC<ThankYouClosingSlideProps> = ({
           className="h-14 w-14 object-contain"
         />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

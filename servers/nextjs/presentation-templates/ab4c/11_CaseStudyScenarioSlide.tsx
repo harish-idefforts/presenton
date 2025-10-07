@@ -73,28 +73,37 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
   const learnings = slideData?.learnings;
 
   return (
-    <div className="relative flex flex-col h-screen overflow-hidden" style={{ backgroundColor: professionalColors.background }}>
-      {/* Main Content Area */}
-      <div className="flex-1 px-16 pt-16 pb-24">
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div
+        className="w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video relative z-20 mx-auto overflow-hidden flex flex-col"
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          backgroundColor: professionalColors.background
+        }}
+      >
+        {/* Main Content Area */}
+        <div className="flex-1 px-12 pt-6 pb-20">
         {/* Header Section */}
-        <div className="mb-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-xl flex items-center justify-center"
+        <div className="mb-4">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                  style={{ backgroundColor: professionalColors.accent }}>
               <RemoteSvgIcon
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/bookmark-bold.svg"
                 strokeColor="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
                 color="#ffffff"
                 title="Case Study"
               />
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider"
+              <p className="text-xs font-semibold uppercase tracking-wider"
                  style={{ color: professionalColors.secondaryText }}>
                 CASE STUDY
               </p>
-              <h1 className="text-4xl font-bold" style={{ color: professionalColors.primaryText }}>
+              <h1 className="text-3xl font-bold" style={{ color: professionalColors.primaryText }}>
                 {title}
               </h1>
             </div>
@@ -102,99 +111,99 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* Left Column - Scenario & Challenge */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Scenario Card */}
-            <div className="p-6 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.cardBg }}>
-              <div className="flex items-start gap-4 mb-4">
+            <div className="p-4 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.cardBg }}>
+              <div className="flex items-start gap-3 mb-2">
                 <RemoteSvgIcon
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/eye-bold.svg"
                   strokeColor="currentColor"
-                  className="w-6 h-6 mt-1 flex-shrink-0"
+                  className="w-5 h-5 mt-1 flex-shrink-0"
                   color={professionalColors.secondaryText}
                   title="Scenario"
                 />
-                <h2 className="text-xl font-bold" style={{ color: professionalColors.primaryText }}>
+                <h2 className="text-lg font-bold" style={{ color: professionalColors.primaryText }}>
                   Scenario
                 </h2>
               </div>
-              <p className="text-base leading-relaxed" style={{ color: professionalColors.secondaryText }}>
+              <p className="text-sm leading-snug" style={{ color: professionalColors.secondaryText }}>
                 {scenario}
               </p>
             </div>
 
             {/* Challenge Card */}
-            <div className="p-6 rounded-xl shadow-md"
+            <div className="p-4 rounded-xl shadow-md"
                  style={{
                    backgroundColor: professionalColors.cardBg,
                    borderLeft: `4px solid ${professionalColors.warning}`
                  }}>
-              <div className="flex items-start gap-4 mb-4">
+              <div className="flex items-start gap-3 mb-2">
                 <RemoteSvgIcon
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/warning-bold.svg"
                   strokeColor="currentColor"
-                  className="w-6 h-6 mt-1 flex-shrink-0"
+                  className="w-5 h-5 mt-1 flex-shrink-0"
                   color={professionalColors.warning}
                   title="Challenge"
                 />
-                <h2 className="text-xl font-bold" style={{ color: professionalColors.primaryText }}>
+                <h2 className="text-lg font-bold" style={{ color: professionalColors.primaryText }}>
                   Challenge
                 </h2>
               </div>
-              <p className="text-base leading-relaxed" style={{ color: professionalColors.secondaryText }}>
+              <p className="text-sm leading-snug" style={{ color: professionalColors.secondaryText }}>
                 {challenge}
               </p>
             </div>
           </div>
 
           {/* Right Column - Solution & Outcomes */}
-          <div className="space-y-6">
+          <div className="space-y-3">
             {/* Solution Card */}
-            <div className="p-6 rounded-xl shadow-md"
+            <div className="p-4 rounded-xl shadow-md"
                  style={{
                    backgroundColor: professionalColors.cardBg,
                    borderLeft: `4px solid ${professionalColors.success}`
                  }}>
-              <div className="flex items-start gap-4 mb-4">
+              <div className="flex items-start gap-3 mb-2">
                 <RemoteSvgIcon
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/lightbulb-bold.svg"
                   strokeColor="currentColor"
-                  className="w-6 h-6 mt-1 flex-shrink-0"
+                  className="w-5 h-5 mt-1 flex-shrink-0"
                   color={professionalColors.success}
                   title="Solution"
                 />
-                <h2 className="text-xl font-bold" style={{ color: professionalColors.primaryText }}>
+                <h2 className="text-lg font-bold" style={{ color: professionalColors.primaryText }}>
                   Solution
                 </h2>
               </div>
-              <p className="text-base leading-relaxed" style={{ color: professionalColors.secondaryText }}>
+              <p className="text-sm leading-snug" style={{ color: professionalColors.secondaryText }}>
                 {solution}
               </p>
             </div>
 
             {/* Outcomes Card */}
-            <div className="p-6 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.success + '10' }}>
-              <div className="flex items-start gap-4 mb-4">
+            <div className="p-4 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.success + '10' }}>
+              <div className="flex items-start gap-3 mb-2">
                 <RemoteSvgIcon
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chart-line-bold.svg"
                   strokeColor="currentColor"
-                  className="w-6 h-6 mt-1 flex-shrink-0"
+                  className="w-5 h-5 mt-1 flex-shrink-0"
                   color={professionalColors.success}
                   title="Outcomes"
                 />
-                <h2 className="text-xl font-bold" style={{ color: professionalColors.primaryText }}>
+                <h2 className="text-lg font-bold" style={{ color: professionalColors.primaryText }}>
                   Results
                 </h2>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {outcomes.map((outcome, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 rounded-lg"
+                  <div key={index} className="flex items-center justify-between p-2 rounded-lg"
                        style={{ backgroundColor: professionalColors.cardBg }}>
-                    <span className="text-sm font-semibold" style={{ color: professionalColors.secondaryText }}>
+                    <span className="text-xs font-semibold" style={{ color: professionalColors.secondaryText }}>
                       {outcome.metric}
                     </span>
-                    <span className="text-base font-bold" style={{ color: professionalColors.success }}>
+                    <span className="text-sm font-bold" style={{ color: professionalColors.success }}>
                       {outcome.value}
                     </span>
                   </div>
@@ -206,24 +215,24 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
 
         {/* Key Learnings Section */}
         {learnings && learnings.length > 0 && (
-          <div className="mt-8 p-6 rounded-xl" style={{ backgroundColor: professionalColors.accent + '10' }}>
-            <div className="flex items-start gap-4">
+          <div className="mt-3 p-3 rounded-xl" style={{ backgroundColor: professionalColors.accent + '10' }}>
+            <div className="flex items-start gap-3">
               <RemoteSvgIcon
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/book-bold.svg"
                 strokeColor="currentColor"
-                className="w-6 h-6 mt-1 flex-shrink-0"
+                className="w-5 h-5 mt-1 flex-shrink-0"
                 color={professionalColors.secondaryText}
                 title="Key Learnings"
               />
               <div className="flex-1">
-                <h3 className="text-lg font-bold mb-3" style={{ color: professionalColors.primaryText }}>
+                <h3 className="text-base font-bold mb-2" style={{ color: professionalColors.primaryText }}>
                   Key Learnings
                 </h3>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
                   {learnings.map((learning, index) => (
-                    <div key={index} className="flex items-start gap-2">
-                      <span className="text-lg font-bold" style={{ color: professionalColors.accent }}>•</span>
-                      <span className="text-sm" style={{ color: professionalColors.secondaryText }}>
+                    <div key={index} className="flex items-start gap-1.5">
+                      <span className="text-base font-bold" style={{ color: professionalColors.accent }}>•</span>
+                      <span className="text-xs leading-snug" style={{ color: professionalColors.secondaryText }}>
                         {learning}
                       </span>
                     </div>
@@ -246,7 +255,8 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
         </span>
         <img src="/ab4c-logo.png" alt="AB4C Logo" className="h-14 w-14 object-contain" />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

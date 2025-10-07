@@ -35,7 +35,7 @@ const Schema = z.object({
       __icon_query__: 'check success do'
     }),
     examples: z.array(z.string().min(5).max(100)).min(1).max(3).optional()
-  })).min(3).max(6).default([
+  })).min(3).max(5).default([
     {
       type: 'do',
       title: 'Communicate Clearly',
@@ -151,9 +151,9 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
         }}
       >
         {/* Header */}
-        <div className="px-12 pt-10 pb-4">
+        <div className="px-12 pt-6 pb-3">
           <h1
-            className="text-4xl lg:text-5xl font-bold mb-2"
+            className="text-4xl font-bold mb-2"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.title || 'Best Practices'}
@@ -166,12 +166,12 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
               {slideData.subtitle}
             </p>
           )}
-          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-4" />
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-2" />
         </div>
 
         {/* Practice Cards */}
-        <div className="flex-1 px-12 pb-20 overflow-y-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="flex-1 px-12 pb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {practices.map((practice, index) => {
               const typeColor = getTypeColor(practice.type);
 
@@ -183,23 +183,23 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
                 >
                   {/* Card Header with Type */}
                   <div
-                    className="px-4 py-2 flex items-center justify-between"
+                    className="px-3 py-1.5 flex items-center justify-between"
                     style={{ backgroundColor: `${typeColor}15` }}
                   >
                     <span
-                      className="text-xs font-bold tracking-wider"
+                      className="text-sm font-bold tracking-wider"
                       style={{ color: typeColor }}
                     >
                       {getTypeLabel(practice.type)}
                     </span>
                     <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center"
+                      className="w-7 h-7 rounded-full flex items-center justify-center"
                       style={{ backgroundColor: typeColor }}
                     >
                       <RemoteSvgIcon
                         url={practice.icon.__icon_url__}
                         strokeColor="currentColor"
-                        className="w-5 h-5"
+                        className="w-4 h-4"
                         color={professionalColors.cardBg}
                         title={practice.icon.__icon_query__}
                       />
@@ -207,16 +207,16 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-4">
+                  <div className="p-3">
                     <h3
-                      className="font-semibold text-base mb-2"
+                      className="font-semibold text-base mb-1.5"
                       style={{ color: professionalColors.primaryText }}
                     >
                       {practice.title}
                     </h3>
 
                     <p
-                      className="text-sm leading-relaxed mb-3"
+                      className="text-sm leading-snug mb-2"
                       style={{ color: professionalColors.secondaryText }}
                     >
                       {practice.description}
@@ -225,18 +225,18 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
                     {/* Examples */}
                     {practice.examples && practice.examples.length > 0 && (
                       <div
-                        className="pt-3 border-t"
+                        className="pt-2 border-t"
                         style={{ borderColor: professionalColors.borderLight }}
                       >
-                        <div className="space-y-1">
+                        <div className="space-y-0.5">
                           {practice.examples.map((example, idx) => (
-                            <div key={idx} className="flex items-start gap-2">
+                            <div key={idx} className="flex items-start gap-1.5">
                               <div
-                                className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                                className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0"
                                 style={{ backgroundColor: typeColor }}
                               />
                               <span
-                                className="text-xs"
+                                className="text-xs leading-tight"
                                 style={{ color: professionalColors.secondaryText }}
                               >
                                 {example}
@@ -256,46 +256,6 @@ const BestPracticesCardsSlide: React.FC<BestPracticesCardsSlideProps> = ({ data:
                 </div>
               );
             })}
-          </div>
-
-          {/* Legend */}
-          <div className="mt-6 flex justify-center gap-6">
-            <div className="flex items-center gap-2">
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: professionalColors.success }}
-              />
-              <span
-                className="text-xs"
-                style={{ color: professionalColors.secondaryText }}
-              >
-                Recommended Actions
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: professionalColors.danger }}
-              />
-              <span
-                className="text-xs"
-                style={{ color: professionalColors.secondaryText }}
-              >
-                Actions to Avoid
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div
-                className="w-3 h-3 rounded-full"
-                style={{ backgroundColor: professionalColors.warning }}
-              />
-              <span
-                className="text-xs"
-                style={{ color: professionalColors.secondaryText }}
-              >
-                Helpful Tips
-              </span>
-            </div>
           </div>
         </div>
 

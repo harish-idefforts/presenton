@@ -91,56 +91,65 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
   const yPositions = ['high', 'medium', 'low']; // Reversed for visual layout (high at top)
 
   return (
-    <div className="relative flex flex-col h-screen overflow-hidden" style={{ backgroundColor: professionalColors.background }}>
-      {/* Main Content Area */}
-      <div className="flex-1 px-16 pt-16 pb-24">
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div
+        className="w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video relative z-20 mx-auto overflow-hidden flex flex-col"
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          backgroundColor: professionalColors.background
+        }}
+      >
+        {/* Main Content Area */}
+        <div className="flex-1 px-12 pt-6 pb-20">
         {/* Header Section */}
-        <div className="mb-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-xl flex items-center justify-center"
+        <div className="mb-4">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                  style={{ backgroundColor: professionalColors.accent }}>
               <RemoteSvgIcon
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chart-bar-bold.svg"
                 strokeColor="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
                 color="#ffffff"
                 title="Assessment Matrix"
               />
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider"
+              <p className="text-xs font-semibold uppercase tracking-wider"
                  style={{ color: professionalColors.secondaryText }}>
                 ASSESSMENT TOOL
               </p>
-              <h1 className="text-4xl font-bold" style={{ color: professionalColors.primaryText }}>
+              <h1 className="text-3xl font-bold" style={{ color: professionalColors.primaryText }}>
                 {matrixTitle}
               </h1>
             </div>
           </div>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex gap-4">
           {/* Matrix Grid */}
           <div className="flex-1">
             <div className="relative">
               {/* Y-Axis Label */}
-              <div className="absolute -left-16 top-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
-                <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: professionalColors.secondaryText }}>
+              <div className="absolute -left-12 top-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap">
+                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: professionalColors.secondaryText }}>
                   {yAxisLabel}
                 </span>
               </div>
 
               {/* Y-Axis Values */}
-              <div className="absolute -left-10 top-0 bottom-0 flex flex-col justify-around py-8">
+              <div className="absolute -left-8 top-0 bottom-0 flex flex-col justify-around py-4">
                 {yPositions.map((label) => (
-                  <span key={label} className="text-sm font-medium capitalize" style={{ color: professionalColors.secondaryText }}>
+                  <span key={label} className="text-xs font-medium capitalize" style={{ color: professionalColors.secondaryText }}>
                     {label}
                   </span>
                 ))}
               </div>
 
               {/* Matrix Grid */}
-              <div className="grid grid-cols-3 gap-2 p-2 rounded-xl" style={{ backgroundColor: professionalColors.cardBg }}>
+              <div className="grid grid-cols-3 gap-1.5 p-1.5 rounded-xl" style={{ backgroundColor: professionalColors.cardBg }}>
                 {yPositions.map((yPos) => (
                   xPositions.map((xPos) => {
                     const cellItems = getItemsForCell(xPos, yPos);
@@ -149,7 +158,7 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
                     return (
                       <div
                         key={`${xPos}-${yPos}`}
-                        className="relative min-h-[140px] p-4 rounded-lg border transition-all"
+                        className="relative min-h-[85px] p-2 rounded-lg border"
                         style={{
                           backgroundColor: cellColor,
                           borderColor: professionalColors.borderLight,
@@ -158,13 +167,13 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
                         {cellItems.map((item, index) => (
                           <div
                             key={index}
-                            className="mb-2 p-2 rounded bg-white/80 shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                            className="mb-1.5 p-1.5 rounded bg-white/80 shadow-sm"
                           >
-                            <p className="text-xs font-semibold" style={{ color: professionalColors.primaryText }}>
+                            <p className="text-xs font-semibold leading-tight" style={{ color: professionalColors.primaryText }}>
                               {item.name}
                             </p>
                             {item.description && (
-                              <p className="text-xs mt-1 opacity-75" style={{ color: professionalColors.secondaryText }}>
+                              <p className="text-xs mt-0.5 opacity-75 leading-tight" style={{ color: professionalColors.secondaryText }}>
                                 {item.description}
                               </p>
                             )}
@@ -177,17 +186,17 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
               </div>
 
               {/* X-Axis Values */}
-              <div className="flex justify-around mt-2 px-2">
+              <div className="flex justify-around mt-1.5 px-1.5">
                 {xPositions.map((label) => (
-                  <span key={label} className="text-sm font-medium capitalize" style={{ color: professionalColors.secondaryText }}>
+                  <span key={label} className="text-xs font-medium capitalize" style={{ color: professionalColors.secondaryText }}>
                     {label}
                   </span>
                 ))}
               </div>
 
               {/* X-Axis Label */}
-              <div className="text-center mt-4">
-                <span className="text-sm font-semibold uppercase tracking-wider" style={{ color: professionalColors.secondaryText }}>
+              <div className="text-center mt-2">
+                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: professionalColors.secondaryText }}>
                   {xAxisLabel}
                 </span>
               </div>
@@ -195,52 +204,52 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
           </div>
 
           {/* Legend and Info Panel */}
-          <div className="w-80 space-y-6">
+          <div className="w-64 space-y-3">
             {/* Risk Level Legend */}
-            <div className="p-6 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.cardBg }}>
-              <h3 className="text-lg font-bold mb-4" style={{ color: professionalColors.primaryText }}>
+            <div className="p-3 rounded-xl shadow-md" style={{ backgroundColor: professionalColors.cardBg }}>
+              <h3 className="text-base font-bold mb-2" style={{ color: professionalColors.primaryText }}>
                 Risk Levels
               </h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded" style={{ backgroundColor: professionalColors.danger + '20' }}></div>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded" style={{ backgroundColor: professionalColors.danger + '20' }}></div>
                   <div>
-                    <p className="text-sm font-semibold" style={{ color: professionalColors.primaryText }}>Critical Risk</p>
-                    <p className="text-xs" style={{ color: professionalColors.secondaryText }}>Immediate action required</p>
+                    <p className="text-xs font-semibold leading-tight" style={{ color: professionalColors.primaryText }}>Critical Risk</p>
+                    <p className="text-xs leading-tight" style={{ color: professionalColors.secondaryText }}>Immediate action required</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded" style={{ backgroundColor: professionalColors.warning + '20' }}></div>
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded" style={{ backgroundColor: professionalColors.warning + '20' }}></div>
                   <div>
-                    <p className="text-sm font-semibold" style={{ color: professionalColors.primaryText }}>Moderate Risk</p>
-                    <p className="text-xs" style={{ color: professionalColors.secondaryText }}>Planned mitigation needed</p>
+                    <p className="text-xs font-semibold leading-tight" style={{ color: professionalColors.primaryText }}>Moderate Risk</p>
+                    <p className="text-xs leading-tight" style={{ color: professionalColors.secondaryText }}>Planned mitigation needed</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded" style={{ backgroundColor: professionalColors.success + '20' }}></div>
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded" style={{ backgroundColor: professionalColors.success + '20' }}></div>
                   <div>
-                    <p className="text-sm font-semibold" style={{ color: professionalColors.primaryText }}>Low Risk</p>
-                    <p className="text-xs" style={{ color: professionalColors.secondaryText }}>Monitor and maintain</p>
+                    <p className="text-xs font-semibold leading-tight" style={{ color: professionalColors.primaryText }}>Low Risk</p>
+                    <p className="text-xs leading-tight" style={{ color: professionalColors.secondaryText }}>Monitor and maintain</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Action Guidelines */}
-            <div className="p-6 rounded-xl" style={{ backgroundColor: professionalColors.accent + '10' }}>
-              <div className="flex items-start gap-3 mb-3">
+            <div className="p-3 rounded-xl" style={{ backgroundColor: professionalColors.accent + '10' }}>
+              <div className="flex items-start gap-2 mb-2">
                 <RemoteSvgIcon
                   url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/lightbulb-bold.svg"
                   strokeColor="currentColor"
-                  className="w-5 h-5 mt-0.5"
+                  className="w-4 h-4 mt-0.5"
                   color={professionalColors.secondaryText}
                   title="Guidelines"
                 />
-                <h4 className="text-base font-bold" style={{ color: professionalColors.primaryText }}>
+                <h4 className="text-sm font-bold" style={{ color: professionalColors.primaryText }}>
                   Action Guidelines
                 </h4>
               </div>
-              <ul className="space-y-2 text-sm" style={{ color: professionalColors.secondaryText }}>
+              <ul className="space-y-1.5 text-xs leading-snug" style={{ color: professionalColors.secondaryText }}>
                 <li className="flex items-start gap-2">
                   <span>•</span>
                   <span>Focus on high impact/high likelihood items first</span>
@@ -270,7 +279,8 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
         </span>
         <img src="/ab4c-logo.png" alt="AB4C Logo" className="h-14 w-14 object-contain" />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -35,7 +35,7 @@ const Schema = z.object({
       __icon_query__: 'presentation section'
     }),
     isBreak: z.boolean().optional().default(false)
-  })).min(3).max(8).default([
+  })).min(3).max(6).default([
     {
       title: 'Introduction & Welcome',
       duration: '10 min',
@@ -123,11 +123,11 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
         }}
       >
         {/* Header */}
-        <div className="px-12 pt-10 pb-6">
+        <div className="px-12 pt-6 pb-4">
           <div className="flex items-end justify-between">
             <div>
               <h1
-                className="text-4xl lg:text-5xl font-bold mb-2"
+                className="text-4xl font-bold mb-2"
                 style={{ color: professionalColors.primaryText }}
               >
                 {slideData?.title || 'Training Agenda'}
@@ -135,13 +135,13 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
               <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24" />
             </div>
             <div
-              className="px-4 py-2 rounded-lg"
+              className="px-3 py-2 rounded-lg"
               style={{ backgroundColor: `${professionalColors.accent}15` }}
             >
               <div className="flex items-center gap-2">
                 <svg
-                  width="20"
-                  height="20"
+                  width="18"
+                  height="18"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke={professionalColors.secondaryText}
@@ -151,7 +151,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                   <polyline points="12 6 12 12 16 14"/>
                 </svg>
                 <span
-                  className="font-semibold"
+                  className="font-semibold text-sm"
                   style={{ color: professionalColors.primaryText }}
                 >
                   Total: {slideData?.totalDuration || '90 minutes'}
@@ -162,22 +162,22 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
         </div>
 
         {/* Timeline Content */}
-        <div className="flex-1 px-12 pb-20 overflow-y-auto">
+        <div className="flex-1 px-12 pb-20">
           <div className="relative">
             {/* Timeline Line */}
             <div
-              className="absolute left-8 top-0 bottom-0 w-0.5"
+              className="absolute left-6 top-0 bottom-0 w-0.5"
               style={{ backgroundColor: professionalColors.borderLight }}
             />
 
             {/* Timeline Items */}
-            <div className="space-y-6">
+            <div className="space-y-3.5">
               {sections.map((section, index) => (
-                <div key={index} className="relative flex items-start gap-6">
+                <div key={index} className="relative flex items-start gap-4">
                   {/* Timeline Node */}
                   <div className="relative z-10">
                     <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center shadow-md ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center shadow-md ${
                         section.isBreak ? 'opacity-70' : ''
                       }`}
                       style={{
@@ -190,7 +190,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                       <RemoteSvgIcon
                         url={section.icon.__icon_url__}
                         strokeColor="currentColor"
-                        className="w-7 h-7"
+                        className="w-5 h-5"
                         color={section.isBreak ? professionalColors.warning : professionalColors.secondaryText}
                         title={section.icon.__icon_query__}
                       />
@@ -199,7 +199,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                     {/* Connector to next item */}
                     {index < sections.length - 1 && (
                       <div
-                        className="absolute top-16 left-1/2 transform -translate-x-1/2 w-0.5 h-6"
+                        className="absolute top-12 left-1/2 transform -translate-x-1/2 w-0.5 h-3.5"
                         style={{ backgroundColor: professionalColors.borderLight }}
                       />
                     )}
@@ -207,7 +207,7 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
 
                   {/* Content Card */}
                   <div
-                    className={`flex-1 p-5 rounded-xl shadow-sm transition-all hover:shadow-md ${
+                    className={`flex-1 p-3.5 rounded-xl shadow-sm ${
                       section.isBreak ? 'opacity-85' : ''
                     }`}
                     style={{
@@ -217,15 +217,15 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                       borderLeft: `4px solid ${section.isBreak ? professionalColors.warning : professionalColors.accent}`
                     }}
                   >
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex items-start justify-between mb-1.5">
                       <h3
-                        className="text-lg font-semibold"
+                        className="text-base font-semibold"
                         style={{ color: professionalColors.primaryText }}
                       >
                         {section.title}
                       </h3>
                       <span
-                        className="px-3 py-1 rounded-full text-sm font-medium"
+                        className="px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0 ml-2"
                         style={{
                           backgroundColor: section.isBreak
                             ? `${professionalColors.warning}20`
@@ -240,30 +240,12 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                     </div>
                     {section.description && (
                       <p
-                        className="text-sm leading-relaxed"
+                        className="text-xs leading-snug"
                         style={{ color: professionalColors.secondaryText }}
                       >
                         {section.description}
                       </p>
                     )}
-
-                    {/* Progress indicator */}
-                    <div className="mt-3">
-                      <div
-                        className="h-1 rounded-full overflow-hidden"
-                        style={{ backgroundColor: professionalColors.borderLight }}
-                      >
-                        <div
-                          className="h-full rounded-full transition-all"
-                          style={{
-                            width: `${((index + 1) / sections.length) * 100}%`,
-                            backgroundColor: section.isBreak
-                              ? professionalColors.warning
-                              : professionalColors.accent
-                          }}
-                        />
-                      </div>
-                    </div>
                   </div>
                 </div>
               ))}

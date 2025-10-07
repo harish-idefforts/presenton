@@ -34,7 +34,7 @@ const Schema = z.object({
     icon: IconSchema.meta({
       description: "Icon to represent this takeaway",
     }),
-  })).min(3).max(5).default([
+  })).min(3).max(4).default([
     {
       point: 'Always document compliance issues through proper channels',
       icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/clipboard-bold.svg', __icon_query__: 'documentation' },
@@ -48,14 +48,7 @@ const Schema = z.object({
       icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg', __icon_query__: 'collaboration' },
     },
   ]).meta({
-    description: "3-5 key takeaway points with icons",
-  }),
-  actionItems: z.array(z.string().min(10).max(150)).optional().default([
-    'Review your department\'s current compliance procedures',
-    'Schedule team training session within next 30 days',
-    'Update documentation templates with new standards',
-  ]).meta({
-    description: "Optional action items for participants. Max 150 characters each",
+    description: "3-4 key takeaway points with icons",
   }),
   nextSteps: z.string().min(20).max(300).optional().default('Apply these principles in your daily work. Your next training session is scheduled for Q2 2025.').meta({
     description: "Optional next steps or follow-up information. Max 300 characters",
@@ -81,32 +74,40 @@ const KeyTakeawaysSlide: React.FC<KeyTakeawaysSlideProps> = ({ data: slideData }
       icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg', __icon_query__: 'collaboration' },
     },
   ];
-  const actionItems = slideData?.actionItems;
   const nextSteps = slideData?.nextSteps;
 
   return (
-    <div className="relative flex flex-col h-screen overflow-hidden" style={{ backgroundColor: professionalColors.background }}>
-      {/* Main Content Area */}
-      <div className="flex-1 px-16 pt-16 pb-24">
+    <>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <div
+        className="w-full rounded-sm max-w-[1280px] shadow-lg max-h-[720px] aspect-video relative z-20 mx-auto overflow-hidden flex flex-col"
+        style={{
+          fontFamily: 'Inter, sans-serif',
+          backgroundColor: professionalColors.background
+        }}
+      >
+        {/* Main Content Area */}
+        <div className="flex-1 px-12 pt-6 pb-20">
         {/* Header Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-16 h-16 rounded-xl flex items-center justify-center"
+        <div className="mb-4">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                  style={{ backgroundColor: professionalColors.accent }}>
               <RemoteSvgIcon
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/target-bold.svg"
                 strokeColor="currentColor"
-                className="w-8 h-8"
+                className="w-6 h-6"
                 color="#ffffff"
                 title="Key Takeaways"
               />
             </div>
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider"
+              <p className="text-xs font-semibold uppercase tracking-wider"
                  style={{ color: professionalColors.secondaryText }}>
                 SUMMARY
               </p>
-              <h1 className="text-5xl font-bold" style={{ color: professionalColors.primaryText }}>
+              <h1 className="text-3xl font-bold" style={{ color: professionalColors.primaryText }}>
                 Key Takeaways
               </h1>
             </div>
@@ -114,25 +115,25 @@ const KeyTakeawaysSlide: React.FC<KeyTakeawaysSlideProps> = ({ data: slideData }
         </div>
 
         {/* Main Takeaways */}
-        <div className="grid grid-cols-1 gap-5 mb-10">
+        <div className="grid grid-cols-1 gap-3 mb-4">
           {takeaways.map((takeaway, index) => (
             <div
               key={index}
-              className="flex items-start gap-6 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+              className="flex items-start gap-3 p-3 rounded-xl shadow-md"
               style={{ backgroundColor: professionalColors.cardBg }}
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full flex-shrink-0"
+              <div className="flex items-center justify-center w-10 h-10 rounded-full flex-shrink-0"
                    style={{ backgroundColor: professionalColors.accent + '15' }}>
                 <RemoteSvgIcon
                   url={takeaway.icon.__icon_url__}
                   strokeColor="currentColor"
-                  className="w-7 h-7"
+                  className="w-5 h-5"
                   color={professionalColors.secondaryText}
                   title={takeaway.icon.__icon_query__}
                 />
               </div>
               <div className="flex-1">
-                <p className="text-lg font-semibold leading-relaxed"
+                <p className="text-base font-semibold leading-snug"
                    style={{ color: professionalColors.primaryText }}>
                   {takeaway.point}
                 </p>
@@ -141,57 +142,26 @@ const KeyTakeawaysSlide: React.FC<KeyTakeawaysSlideProps> = ({ data: slideData }
           ))}
         </div>
 
-        {/* Action Items Section */}
-        {actionItems && actionItems.length > 0 && (
-          <div className="mb-8 p-6 rounded-xl"
-               style={{ backgroundColor: professionalColors.warning + '15' }}>
-            <div className="flex items-start gap-4">
-              <RemoteSvgIcon
-                url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/play-bold.svg"
-                strokeColor="currentColor"
-                className="w-6 h-6 mt-1 flex-shrink-0"
-                color={professionalColors.warning}
-                title="Action Items"
-              />
-              <div className="flex-1">
-                <h2 className="text-xl font-bold mb-3" style={{ color: professionalColors.primaryText }}>
-                  Action Items
-                </h2>
-                <ul className="space-y-2">
-                  {actionItems.map((item, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-sm mt-0.5" style={{ color: professionalColors.warning }}>▸</span>
-                      <span className="text-base" style={{ color: professionalColors.primaryText }}>
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Next Steps Section */}
         {nextSteps && (
-          <div className="p-6 rounded-xl"
+          <div className="p-3 rounded-xl"
                style={{
                  backgroundColor: professionalColors.success + '15',
-                 borderLeft: `4px solid ${professionalColors.success}`
+                 borderLeft: `3px solid ${professionalColors.success}`
                }}>
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-3">
               <RemoteSvgIcon
                 url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/arrow-right-bold.svg"
                 strokeColor="currentColor"
-                className="w-6 h-6 mt-1 flex-shrink-0"
+                className="w-5 h-5 mt-0.5 flex-shrink-0"
                 color={professionalColors.success}
                 title="Next Steps"
               />
               <div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: professionalColors.primaryText }}>
+                <h3 className="text-base font-bold mb-1" style={{ color: professionalColors.primaryText }}>
                   Next Steps
                 </h3>
-                <p className="text-base leading-relaxed" style={{ color: professionalColors.secondaryText }}>
+                <p className="text-sm leading-snug" style={{ color: professionalColors.secondaryText }}>
                   {nextSteps}
                 </p>
               </div>
@@ -211,7 +181,8 @@ const KeyTakeawaysSlide: React.FC<KeyTakeawaysSlideProps> = ({ data: slideData }
         </span>
         <img src="/ab4c-logo.png" alt="AB4C Logo" className="h-14 w-14 object-contain" />
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

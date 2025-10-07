@@ -42,7 +42,7 @@ const Schema = z.object({
       __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/check-circle-bold.svg',
       __icon_query__: 'check point item'
     })
-  })).min(3).max(6).default([
+  })).min(3).max(5).default([
     {
       title: 'Clear Communication',
       description: 'Establish transparent channels and regular updates to ensure alignment across all stakeholders',
@@ -74,14 +74,6 @@ const Schema = z.object({
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/users-bold.svg',
         __icon_query__: 'users team collaboration'
       }
-    },
-    {
-      title: 'Customer Focus',
-      description: 'Prioritize user needs and feedback to deliver exceptional value and experiences',
-      icon: {
-        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/heart-bold.svg',
-        __icon_query__: 'heart customer care focus'
-      }
     }
   ]).meta({
     description: "List of key points with titles, descriptions, and icons",
@@ -111,34 +103,34 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
         }}
       >
         {/* Header */}
-        <div className="px-12 pt-10 pb-4">
+        <div className="px-12 pt-6 pb-3">
           <h1
-            className="text-4xl lg:text-5xl font-bold mb-2"
+            className="text-4xl font-bold mb-2"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.title || 'Key Points to Remember'}
           </h1>
           {slideData?.subtitle && (
             <p
-              className="text-lg mt-2"
+              className="text-base mt-2"
               style={{ color: professionalColors.secondaryText }}
             >
               {slideData.subtitle}
             </p>
           )}
-          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-4" />
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-2" />
         </div>
 
         {/* Main Content */}
         <div className="flex-1 px-12 pb-20 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
             {/* Points List - Takes 2 columns */}
             <div className="lg:col-span-2">
-              <div className="grid gap-4">
+              <div className="grid gap-2">
                 {points.map((point, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 rounded-xl transition-all hover:shadow-md"
+                    className="flex items-start gap-2.5 p-2.5 rounded-xl"
                     style={{
                       backgroundColor: professionalColors.cardBg,
                       borderLeft: `3px solid ${professionalColors.accent}`
@@ -148,7 +140,7 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                     <div className="flex-shrink-0">
                       {isNumbered ? (
                         <div
-                          className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl"
+                          className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm"
                           style={{
                             backgroundColor: `${professionalColors.accent}15`,
                             color: professionalColors.accent
@@ -158,13 +150,13 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                         </div>
                       ) : (
                         <div
-                          className="w-12 h-12 rounded-lg flex items-center justify-center"
+                          className="w-9 h-9 rounded-lg flex items-center justify-center"
                           style={{ backgroundColor: `${professionalColors.accent}15` }}
                         >
                           <RemoteSvgIcon
                             url={point.icon.__icon_url__}
                             strokeColor="currentColor"
-                            className="w-6 h-6"
+                            className="w-4 h-4"
                             color={professionalColors.secondaryText}
                             title={point.icon.__icon_query__}
                           />
@@ -175,13 +167,13 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                     {/* Content */}
                     <div className="flex-1">
                       <h3
-                        className="text-lg font-semibold mb-1"
+                        className="text-sm font-semibold mb-0.5 leading-tight"
                         style={{ color: professionalColors.primaryText }}
                       >
                         {point.title}
                       </h3>
                       <p
-                        className="text-sm leading-relaxed"
+                        className="text-xs leading-tight"
                         style={{ color: professionalColors.secondaryText }}
                       >
                         {point.description}
@@ -191,13 +183,13 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                     {/* Icon (if numbered list) */}
                     {isNumbered && (
                       <div
-                        className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
+                        className="flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center"
                         style={{ backgroundColor: `${professionalColors.success}10` }}
                       >
                         <RemoteSvgIcon
                           url={point.icon.__icon_url__}
                           strokeColor="currentColor"
-                          className="w-5 h-5"
+                          className="w-4 h-4"
                           color={professionalColors.success}
                           title={point.icon.__icon_query__}
                         />
@@ -211,27 +203,27 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
             {/* Supporting Image - Takes 1 column */}
             <div className="lg:col-span-1 flex items-center">
               {slideData?.supportingImage?.__image_url__ && (
-                <div className="relative w-full h-full max-h-96">
+                <div className="relative w-full h-full max-h-80">
                   <div
-                    className="absolute inset-0 rounded-2xl"
+                    className="absolute inset-0 rounded-xl"
                     style={{
                       backgroundColor: professionalColors.accent,
-                      transform: 'rotate(3deg)'
+                      transform: 'rotate(2deg)'
                     }}
                   />
                   <img
                     src={slideData.supportingImage.__image_url__}
                     alt={slideData.supportingImage.__image_prompt__ || ''}
-                    className="relative w-full h-full object-cover rounded-2xl shadow-lg"
+                    className="relative w-full h-full object-cover rounded-xl shadow-lg"
                   />
 
                   {/* Decorative element */}
                   <div
-                    className="absolute -top-4 -right-4 w-12 h-12 rounded-full"
+                    className="absolute -top-3 -right-3 w-10 h-10 rounded-full"
                     style={{ backgroundColor: professionalColors.warning }}
                   >
                     <svg
-                      className="w-full h-full p-3"
+                      className="w-full h-full p-2.5"
                       viewBox="0 0 24 24"
                       fill={professionalColors.cardBg}
                     >
@@ -246,15 +238,15 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                 <div className="w-full flex items-center justify-center">
                   <div className="relative">
                     <div
-                      className="w-48 h-48 rounded-full opacity-10"
+                      className="w-40 h-40 rounded-full opacity-10"
                       style={{ backgroundColor: professionalColors.accent }}
                     />
                     <div
-                      className="absolute inset-8 rounded-full opacity-20"
+                      className="absolute inset-6 rounded-full opacity-20"
                       style={{ backgroundColor: professionalColors.success }}
                     />
                     <div
-                      className="absolute inset-16 rounded-full opacity-30"
+                      className="absolute inset-12 rounded-full opacity-30"
                       style={{ backgroundColor: professionalColors.warning }}
                     />
                   </div>
