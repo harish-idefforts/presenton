@@ -30,7 +30,6 @@ const Schema = z.object({
     description: "Direction of process flow",
   }),
   steps: z.array(z.object({
-    number: z.number().int().min(1).max(8),
     title: z.string().min(3).max(50),
     description: z.string().min(10).max(150),
     icon: IconSchema.default({
@@ -39,7 +38,6 @@ const Schema = z.object({
     })
   })).min(3).max(6).default([
     {
-      number: 1,
       title: 'Analysis',
       description: 'Assess current situation and identify opportunities for improvement',
       icon: {
@@ -48,7 +46,6 @@ const Schema = z.object({
       }
     },
     {
-      number: 2,
       title: 'Planning',
       description: 'Develop comprehensive strategy and allocate necessary resources',
       icon: {
@@ -57,7 +54,6 @@ const Schema = z.object({
       }
     },
     {
-      number: 3,
       title: 'Execution',
       description: 'Implement the plan with clear milestones and accountability',
       icon: {
@@ -66,7 +62,6 @@ const Schema = z.object({
       }
     },
     {
-      number: 4,
       title: 'Monitoring',
       description: 'Track progress and adjust approach based on real-time feedback',
       icon: {
@@ -75,7 +70,6 @@ const Schema = z.object({
       }
     },
     {
-      number: 5,
       title: 'Optimization',
       description: 'Refine processes and implement continuous improvements',
       icon: {
@@ -160,17 +154,6 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
                       />
                     </div>
 
-                    {/* Step Number */}
-                    <div
-                      className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-                      style={{
-                        backgroundColor: professionalColors.success,
-                        color: professionalColors.cardBg
-                      }}
-                    >
-                      {step.number}
-                    </div>
-
                     {/* Step Content */}
                     <div className="text-center max-w-[180px]">
                       <h3
@@ -208,16 +191,22 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
               {steps.map((step, index) => (
                 <div key={index} className="relative">
                   <div className="flex items-start gap-6">
-                    {/* Step Number & Line */}
+                    {/* Step Icon & Line */}
                     <div className="flex flex-col items-center">
                       <div
-                        className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl shadow-md"
+                        className="w-14 h-14 rounded-full flex items-center justify-center shadow-md"
                         style={{
-                          backgroundColor: professionalColors.accent,
-                          color: professionalColors.cardBg
+                          backgroundColor: professionalColors.cardBg,
+                          border: `3px solid ${professionalColors.accent}`
                         }}
                       >
-                        {step.number}
+                        <RemoteSvgIcon
+                          url={step.icon.__icon_url__}
+                          strokeColor="currentColor"
+                          className="w-7 h-7"
+                          color={professionalColors.secondaryText}
+                          title={step.icon.__icon_query__}
+                        />
                       </div>
                       {index < steps.length - 1 && (
                         <div
