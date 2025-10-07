@@ -4,6 +4,7 @@ import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '13-matrix-assessment';
 export const layoutName = 'Matrix Assessment';
+export const layoutDescription = 'Grid or matrix for comparing items across criteria. Use for evaluations, comparisons, or decision frameworks.';
 
 // Professional color palette
 const professionalColors = {

@@ -4,6 +4,7 @@ import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '12-hierarchical-framework';
 export const layoutName = 'Hierarchical Framework';
+export const layoutDescription = 'Multi-level structure showing parent-child relationships. Use for organizational charts, decision trees, or layered models.';
 
 // Professional color palette
 const professionalColors = {

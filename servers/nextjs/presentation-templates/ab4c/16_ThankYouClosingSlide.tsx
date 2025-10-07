@@ -4,6 +4,7 @@ import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '16-thank-you-closing';
 export const layoutName = 'Thank You & Closing';
+export const layoutDescription = 'Final slide with closing message and call-to-action. Use as the last slide of the presentation.';
 
 // Professional color palette
 const professionalColors = {

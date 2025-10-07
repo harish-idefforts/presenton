@@ -4,6 +4,7 @@ import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '11-case-study-scenario';
 export const layoutName = 'Case Study Scenario';
+export const layoutDescription = 'Scenario-based content with situation, challenge, and resolution. Use for real-world examples and practical application.';
 
 // Professional color palette
 const professionalColors = {

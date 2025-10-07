@@ -4,6 +4,7 @@ import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '15-resources-contacts';
 export const layoutName = 'Resources & Contacts';
+export const layoutDescription = 'List of references, materials, and contact information. Use near the end to provide follow-up resources.';
 
 // Professional color palette
 const professionalColors = {
