@@ -36,7 +36,7 @@ const Schema = z.object({
       __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/target-bold.svg',
       __icon_query__: 'target goal objective'
     })
-  })).min(3).max(6).default([
+  })).min(3).max(5).default([
     {
       number: 1,
       text: 'Understand core concepts and foundational principles',
@@ -104,24 +104,24 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
         }}
       >
         {/* Header Section */}
-        <div className="px-12 pt-10">
+        <div className="px-12 pt-6">
           <h1
             className="text-4xl lg:text-5xl font-bold mb-2"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.title || 'Training Objectives'}
           </h1>
-          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mb-6" />
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mb-4" />
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 px-12 pb-20 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
+        <div className="flex-1 px-12 pb-6 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
             {/* Left Column - Duration & Audience */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-4">
               {/* Duration Card */}
               <div
-                className="p-6 rounded-xl shadow-sm"
+                className="p-4 rounded-xl shadow-sm"
                 style={{ backgroundColor: professionalColors.cardBg }}
               >
                 <div className="flex items-start gap-4">
@@ -160,7 +160,7 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
 
               {/* Target Audience Card */}
               <div
-                className="p-6 rounded-xl shadow-sm"
+                className="p-4 rounded-xl shadow-sm"
                 style={{ backgroundColor: professionalColors.cardBg }}
               >
                 <div className="flex items-start gap-4">
@@ -202,7 +202,7 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
               {/* Expected Outcomes */}
               {outcomes.length > 0 && (
                 <div
-                  className="p-6 rounded-xl shadow-sm"
+                  className="p-4 rounded-xl shadow-sm"
                   style={{ backgroundColor: professionalColors.cardBg }}
                 >
                   <h3
@@ -239,11 +239,11 @@ const TrainingObjectivesSlide: React.FC<TrainingObjectivesSlideProps> = ({ data:
 
             {/* Right Column - Objectives */}
             <div className="lg:col-span-2">
-              <div className="grid gap-4">
+              <div className="grid gap-3">
                 {objectives.map((objective, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-5 rounded-xl shadow-sm transition-all hover:shadow-md"
+                    className="flex items-start gap-4 p-4 rounded-xl shadow-sm transition-all hover:shadow-md"
                     style={{
                       backgroundColor: professionalColors.cardBg,
                       borderLeft: `4px solid ${professionalColors.accent}`
