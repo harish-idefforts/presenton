@@ -31,12 +31,6 @@ const Schema = z.object({
   }).meta({
     description: "Background image for visual appeal",
   }),
-  companyLogo: ImageSchema.optional().default({
-    __image_url__: 'https://via.placeholder.com/150x50/0984e3/ffffff?text=COMPANY',
-    __image_prompt__: 'Company logo'
-  }).meta({
-    description: "Company or organization logo",
-  }),
 });
 
 export { Schema };
@@ -65,30 +59,28 @@ const ProfessionalTitleSlide: React.FC<ProfessionalTitleSlideProps> = ({ data: s
               <img
                 src={slideData.backgroundImage.__image_url__}
                 alt={slideData.backgroundImage.__image_prompt__ || ''}
-                className="w-full h-full object-cover opacity-10"
+                className="w-full h-full object-cover opacity-30"
               />
             </div>
           )}
           {/* Decorative gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-blue-50/30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/40 to-blue-50/20" />
         </div>
 
         {/* Main Content Container */}
         <div className="relative z-10 h-full flex flex-col">
-          {/* Top Section with Logo */}
-          <div className="px-12 pt-12">
-            {slideData?.companyLogo?.__image_url__ && (
-              <img
-                src={slideData.companyLogo.__image_url__}
-                alt="Company Logo"
-                className="h-12 object-contain"
-              />
-            )}
-          </div>
-
           {/* Center Content */}
           <div className="flex-1 flex items-center justify-center px-12">
             <div className="text-center max-w-4xl">
+              {/* Company Logo */}
+              <div className="flex justify-center mb-8">
+                <img
+                  src="/ab4c-logo.png"
+                  alt="AB4C Logo"
+                  className="h-20 w-20 object-contain"
+                />
+              </div>
+
               {/* Decorative Line */}
               <div className="flex items-center justify-center mb-8">
                 <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-20" />
