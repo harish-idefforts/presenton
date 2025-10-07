@@ -1,6 +1,5 @@
 import React from 'react';
 import { z } from 'zod';
-import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
 export const layoutId = '09-quiz-assessment';
 export const layoutName = 'Quiz Assessment';
@@ -30,15 +29,6 @@ const Schema = z.object({
   description: z.string().min(20).max(300).optional().default('This assessment evaluates understanding of key concepts covered in training. Each question reflects real-world scenarios.').meta({
     description: "Brief description of the quiz purpose. Max 300 characters",
   }),
-  instructions: z.array(z.string().min(5).max(100)).min(3).max(6).default([
-    '10 multiple-choice questions covering all training modules',
-    'Each question has one correct answer',
-    'Take your time to consider each option carefully',
-    'Passing score: 80% (8 out of 10 correct answers)',
-    'Immediate feedback provided after completion',
-  ]).meta({
-    description: "3-6 instruction bullet points. Max 100 characters each",
-  }),
   questions: z.array(z.object({
     number: z.number().int().min(1).max(20).meta({
       description: "Question number",
@@ -62,7 +52,7 @@ const Schema = z.object({
     correctAnswer: z.enum(['A', 'B', 'C', 'D']).meta({
       description: "The correct answer letter (A, B, C, or D)",
     }),
-  })).min(3).max(5).default([
+  })).min(3).max(4).default([
     {
       number: 1,
       title: 'Regulatory Foundations',
@@ -121,7 +111,6 @@ const QuizAssessmentSlide: React.FC<QuizAssessmentSlideProps> = ({ data: slideDa
   const title = slideData?.title || 'Knowledge Assessment Quiz';
   const subtitle = slideData?.subtitle || 'Test Your Understanding';
   const description = slideData?.description;
-  const instructions = slideData?.instructions || [];
   const questions = slideData?.questions || [];
   const answerKey = slideData?.answerKey;
   const showAnswers = slideData?.showAnswers !== false;
@@ -138,22 +127,22 @@ const QuizAssessmentSlide: React.FC<QuizAssessmentSlideProps> = ({ data: slideDa
         }}
       >
         {/* Header Section */}
-        <div className="px-12 pt-6 pb-4">
+        <div className="px-12 pt-6 pb-3">
           <h1
-            className="text-4xl lg:text-5xl font-bold mb-2"
+            className="text-4xl font-bold mb-1"
             style={{ color: professionalColors.primaryText }}
           >
             {title}
           </h1>
           <p
-            className="text-xl mb-2"
+            className="text-base"
             style={{ color: professionalColors.secondaryText }}
           >
             {subtitle}
           </p>
           {description && (
             <p
-              className="text-sm leading-relaxed"
+              className="text-xs mt-1"
               style={{ color: professionalColors.secondaryText }}
             >
               {description}
@@ -162,98 +151,54 @@ const QuizAssessmentSlide: React.FC<QuizAssessmentSlideProps> = ({ data: slideDa
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 px-12 pb-6 overflow-hidden">
-          <div className="h-full flex gap-6">
-            {/* Left Column - Instructions */}
-            <div className="w-2/5">
+        <div className="flex-1 px-12 pb-20">
+          <div className="grid grid-cols-2 gap-3 h-full">
+            {questions.map((q, qIndex) => (
               <div
-                className="p-4 rounded-xl h-full"
-                style={{ backgroundColor: professionalColors.cardBg }}
+                key={qIndex}
+                className="p-3 rounded-xl"
+                style={{
+                  backgroundColor: professionalColors.cardBg,
+                  borderLeft: `4px solid ${professionalColors.accent}`
+                }}
               >
-                <h3
-                  className="font-semibold mb-3 text-lg"
-                  style={{ color: professionalColors.primaryText }}
-                >
-                  Quiz Instructions
-                </h3>
-                <ul className="space-y-2">
-                  {instructions.map((instruction, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <div
-                        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: professionalColors.accent }}
-                      />
+                {/* Question Header */}
+                <div className="mb-2">
+                  <h4
+                    className="font-semibold text-xs mb-1"
+                    style={{ color: professionalColors.primaryText }}
+                  >
+                    {q.title}
+                  </h4>
+                  <p
+                    className="text-sm leading-snug"
+                    style={{ color: professionalColors.primaryText }}
+                  >
+                    {q.question}
+                  </p>
+                </div>
+
+                {/* Options */}
+                <div className="space-y-1">
+                  {q.options.map((option, oIndex) => (
+                    <div key={oIndex} className="flex items-start gap-2">
                       <span
-                        className="text-sm leading-relaxed"
+                        className="text-xs font-semibold flex-shrink-0"
                         style={{ color: professionalColors.secondaryText }}
                       >
-                        {instruction}
+                        {option.letter})
                       </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Right Column - Questions */}
-            <div className="flex-1">
-              <div className="grid gap-4 h-full overflow-auto">
-                {questions.map((q, qIndex) => (
-                  <div
-                    key={qIndex}
-                    className="p-4 rounded-xl"
-                    style={{
-                      backgroundColor: professionalColors.cardBg,
-                      borderLeft: `4px solid ${professionalColors.accent}`
-                    }}
-                  >
-                    {/* Question Header */}
-                    <div className="flex items-baseline gap-3 mb-2">
                       <span
-                        className="text-2xl font-bold flex-shrink-0"
-                        style={{ color: professionalColors.accent }}
+                        className="text-xs leading-snug"
+                        style={{ color: professionalColors.secondaryText }}
                       >
-                        {q.number}
+                        {option.text}
                       </span>
-                      <div className="flex-1">
-                        <h4
-                          className="font-semibold text-sm mb-1"
-                          style={{ color: professionalColors.primaryText }}
-                        >
-                          {q.title}
-                        </h4>
-                        <p
-                          className="text-sm leading-snug mb-2"
-                          style={{ color: professionalColors.primaryText }}
-                        >
-                          {q.question}
-                        </p>
-                      </div>
                     </div>
-
-                    {/* Options */}
-                    <div className="ml-8 space-y-1">
-                      {q.options.map((option, oIndex) => (
-                        <div key={oIndex} className="flex items-start gap-2">
-                          <span
-                            className="text-xs font-semibold flex-shrink-0"
-                            style={{ color: professionalColors.secondaryText }}
-                          >
-                            {option.letter})
-                          </span>
-                          <span
-                            className="text-xs leading-tight"
-                            style={{ color: professionalColors.secondaryText }}
-                          >
-                            {option.text}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -277,7 +222,7 @@ const QuizAssessmentSlide: React.FC<QuizAssessmentSlideProps> = ({ data: slideDa
 
         {/* Footer */}
         <div
-          className="h-16 flex items-center justify-between px-8"
+          className="absolute bottom-0 left-0 right-0 h-20 z-20 flex items-center justify-between px-8"
           style={{ backgroundColor: professionalColors.background }}
         >
           <span className="text-xs" style={{ color: professionalColors.secondaryText }}>
