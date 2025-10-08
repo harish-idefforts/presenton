@@ -201,7 +201,7 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
             </div>
 
             {/* Supporting Image - Takes 1 column */}
-            <div className="lg:col-span-1 flex items-center">
+            <div className="lg:col-span-1 flex items-start pt-4">
               {slideData?.supportingImage?.__image_url__ && (
                 <div className="relative w-full h-full max-h-80">
                   <div

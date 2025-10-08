@@ -24,35 +24,35 @@ const Schema = z.object({
   title: z.string().min(10).max(100).default('Implementing Cross-Department Compliance').meta({
     description: "Case study title. Max 100 characters",
   }),
-  scenario: z.string().min(50).max(400).default('A multinational corporation faced challenges in maintaining consistent compliance standards across five different departments, each with unique regulatory requirements and operational processes.').meta({
-    description: "Scenario description. Max 400 characters",
+  scenario: z.string().min(50).max(200).default('A multinational corporation faced challenges in maintaining consistent compliance standards across five different departments, each with unique regulatory requirements.').meta({
+    description: "Scenario description. Max 200 characters",
   }),
-  challenge: z.string().min(50).max(400).default('Departments were operating in silos with different documentation systems, leading to audit failures and increased regulatory risks. Communication gaps resulted in duplicated efforts and inconsistent policy implementation.').meta({
-    description: "Challenge description. Max 400 characters",
+  challenge: z.string().min(50).max(200).default('Departments were operating in silos with different documentation systems, leading to audit failures and increased regulatory risks.').meta({
+    description: "Challenge description. Max 200 characters",
   }),
-  solution: z.string().min(50).max(400).default('Implemented a unified compliance framework with standardized documentation templates, regular cross-department meetings, and a centralized tracking system. Established clear escalation procedures and accountability metrics.').meta({
-    description: "Solution approach. Max 400 characters",
+  solution: z.string().min(50).max(200).default('Implemented a unified compliance framework with standardized documentation templates, regular cross-department meetings, and a centralized tracking system.').meta({
+    description: "Solution approach. Max 200 characters",
   }),
   outcomes: z.array(z.object({
-    metric: z.string().min(5).max(50).meta({
-      description: "Metric or KPI name",
+    metric: z.string().min(5).max(40).meta({
+      description: "Metric or KPI name (e.g., 'Audit Pass Rate', 'Response Time'). Short label only, max 40 characters.",
     }),
-    value: z.string().min(3).max(50).meta({
-      description: "Metric value or result",
+    value: z.string().min(3).max(40).meta({
+      description: "Metric value or result (e.g., 'Increased from 65% to 95%', 'Reduced by 30%'). Short value only, max 40 characters.",
     }),
   })).min(2).max(4).default([
     { metric: 'Audit Pass Rate', value: 'Increased from 65% to 95%' },
     { metric: 'Compliance Costs', value: 'Reduced by 30%' },
     { metric: 'Response Time', value: 'Improved by 50%' },
   ]).meta({
-    description: "2-4 outcome metrics with values",
+    description: "Array of 2-4 outcome metrics. Each must have a 'metric' (short label) and 'value' (short result). Do NOT use paragraph text - use structured metric/value pairs only.",
   }),
-  learnings: z.array(z.string().min(20).max(150)).optional().default([
+  learnings: z.array(z.string().min(20).max(80)).optional().default([
     'Early stakeholder engagement is critical for success',
-    'Standardization improves efficiency without sacrificing flexibility',
+    'Standardization improves efficiency',
     'Regular training reinforces best practices',
   ]).meta({
-    description: "Optional key learnings. Max 150 characters each",
+    description: "Optional key learnings. Max 80 characters each",
   }),
 });
 

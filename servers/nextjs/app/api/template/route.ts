@@ -71,6 +71,7 @@ export async function GET(request: Request) {
         name: slide.name,
         description: slide.description,
         json_schema: slide.json_schema,
+        isTerminal: slide.isTerminal ?? false,
       })),
     };
 

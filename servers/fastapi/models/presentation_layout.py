@@ -10,6 +10,7 @@ class SlideLayoutModel(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     json_schema: dict
+    isTerminal: bool = Field(default=False)
 
 
 class PresentationLayoutModel(BaseModel):

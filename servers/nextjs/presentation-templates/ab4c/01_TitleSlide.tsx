@@ -23,7 +23,7 @@ const Schema = z.object({
     description: "Main training title. Max 100 characters for optimal display",
   }),
   subtitle: z.string().min(10).max(300).default('Empowering teams with essential skills and knowledge for success in today\'s dynamic business environment').meta({
-    description: "Training subtitle or description. Max 300 characters",
+    description: "Training subtitle or tagline - a compelling description of what the training covers. DO NOT include date, time, or duration information here (that belongs in the Training Objectives slide). Max 300 characters",
   }),
   backgroundImage: ImageSchema.optional().default({
     __image_url__: 'https://images.unsplash.com/photo-1552664730-d307ca884978',

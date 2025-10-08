@@ -24,6 +24,7 @@ export interface LayoutInfo {
   json_schema: any;
   templateID: string;
   templateName?: string;
+  isTerminal?: boolean;
 }
 export interface FullDataInfo {
   name: string;
@@ -118,11 +119,12 @@ const compileCustomLayout = (layoutCode: string, React: any, z: any) => {
 
       /* everything declared in the string is in scope here */
       return {
-        __esModule: true,   
+        __esModule: true,
         default: typeof dynamicSlideLayout !== 'undefined' ? dynamicSlideLayout : (typeof DefaultLayout !== 'undefined' ? DefaultLayout : undefined),
         layoutName,
         layoutId,
         layoutDescription,
+        isTerminal,
         Schema
       };
     `
@@ -228,6 +230,7 @@ export const LayoutProvider: React.FC<{
               json_schema: jsonSchema,
               templateID: template.templateID,
               templateName: template.templateName,
+              isTerminal: module.isTerminal ?? false,
             };
 
             const sampleData = module.Schema.parse({});

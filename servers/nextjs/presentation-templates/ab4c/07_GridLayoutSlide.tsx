@@ -36,10 +36,10 @@ const Schema = z.object({
       __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/user-bold.svg',
       __icon_query__: 'user person team'
     }),
-    responsibilities: z.array(z.string().min(5).max(100)).min(2).max(4),
+    responsibilities: z.array(z.string().min(5).max(100)).min(2).max(3),
     contact: z.string().min(5).max(50).optional(),
     color: z.string().optional()
-  })).min(4).max(9).default([
+  })).min(4).max(6).default([
     {
       name: 'Leadership Team',
       role: 'Strategic Direction',
@@ -158,40 +158,40 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
         }}
       >
         {/* Header */}
-        <div className="px-12 pt-10 pb-4">
+        <div className="px-12 pt-6 pb-3">
           <h1
-            className="text-4xl lg:text-5xl font-bold mb-2"
+            className="text-3xl font-bold mb-2"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.title || 'Key Stakeholders'}
           </h1>
           {slideData?.subtitle && (
             <p
-              className="text-base mt-2"
+              className="text-sm mt-1"
               style={{ color: professionalColors.secondaryText }}
             >
               {slideData.subtitle}
             </p>
           )}
-          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-4" />
+          <div style={{ backgroundColor: professionalColors.accent }} className="h-1 w-24 mt-2" />
         </div>
 
         {/* Grid Content */}
-        <div className="flex-1 px-12 pb-20 overflow-y-auto">
-          <div className={`grid gap-4 ${columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+        <div className="flex-1 px-12 pb-20 overflow-hidden">
+          <div className={`grid gap-3 ${columns === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
             {cards.map((card, index) => (
               <div
                 key={index}
-                className="rounded-xl shadow-sm hover:shadow-md transition-all p-5"
+                className="rounded-xl shadow-sm hover:shadow-md transition-all p-3"
                 style={{
                   backgroundColor: professionalColors.cardBg,
                   borderTop: `4px solid ${card.color || professionalColors.accent}`
                 }}
               >
                 {/* Card Header */}
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-2 mb-2">
                   <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{
                       backgroundColor: professionalColors.accent
                     }}
@@ -199,14 +199,14 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                     <RemoteSvgIcon
                       url={card.icon.__icon_url__}
                       strokeColor="currentColor"
-                      className="w-6 h-6"
+                      className="w-5 h-5"
                       color={professionalColors.secondaryText}
                       title={card.icon.__icon_query__}
                     />
                   </div>
                   <div className="flex-1">
                     <h3
-                      className="font-semibold text-base"
+                      className="font-semibold text-sm"
                       style={{ color: professionalColors.primaryText }}
                     >
                       {card.name}
@@ -223,15 +223,15 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                 </div>
 
                 {/* Responsibilities */}
-                <div className="space-y-2 mb-3">
+                <div className="space-y-1 mb-2">
                   {card.responsibilities.map((resp, idx) => (
                     <div key={idx} className="flex items-start gap-2">
                       <div
-                        className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
+                        className="w-1 h-1 rounded-full mt-1.5 flex-shrink-0"
                         style={{ backgroundColor: professionalColors.secondaryText }}
                       />
                       <span
-                        className="text-xs leading-relaxed"
+                        className="text-xs leading-snug"
                         style={{ color: professionalColors.secondaryText }}
                       >
                         {resp}
@@ -243,7 +243,7 @@ const GridLayoutSlide: React.FC<GridLayoutSlideProps> = ({ data: slideData }) =>
                 {/* Contact */}
                 {card.contact && (
                   <div
-                    className="pt-3 border-t"
+                    className="pt-2 border-t"
                     style={{ borderColor: professionalColors.borderLight }}
                   >
                     <div className="flex items-center gap-2">

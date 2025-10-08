@@ -199,7 +199,7 @@ const professionalColors = {
 **Purpose**: Numbered or bulleted list with visual emphasis
 **Key Elements**:
 - Main title
-- 3-5 key points
+- 3-5 key points (max 5 to prevent overflow)
 - Icons for each point
 - Supporting descriptions
 - Visual hierarchy
@@ -207,7 +207,9 @@ const professionalColors = {
 **Schema Fields**:
 ```typescript
 - title: z.string()
+- subtitle: z.string().optional()
 - listType: z.enum(['numbered', 'bulleted'])
+- supportingImage: ImageSchema.optional()
 - points: z.array(z.object({
   title: z.string(),
   description: z.string(),
@@ -218,21 +220,25 @@ const professionalColors = {
 ### 8. 08_BestPracticesCardsSlide.tsx ✅
 **Purpose**: Highlight do's and don'ts
 **Key Elements**:
-- 3-4 practice cards
+- 3-5 practice cards (max 5 to prevent overflow)
 - Icons for each practice
-- Do/Don't indicators
+- Do/Don't/Tip indicators
 - Brief descriptions
-- Color coding (green/red)
+- Color coding (brown tones)
+- Example lists for each practice
+- No legend section (removed for cleaner design)
 
 **Schema Fields**:
 ```typescript
 - title: z.string()
+- subtitle: z.string().optional()
 - practices: z.array(z.object({
   type: z.enum(['do', 'dont', 'tip']),
   title: z.string(),
   description: z.string(),
-  icon: IconSchema
-})).min(3).max(4)
+  icon: IconSchema,
+  examples: z.array(z.string()).optional()
+})).min(3).max(5)
 ```
 
 ### 9. 09_QuizAssessmentSlide.tsx ✅
@@ -267,18 +273,17 @@ const professionalColors = {
 **Purpose**: Summarize main points
 **Key Elements**:
 - "Key Takeaways" header
-- 3-5 main points with icons
-- Action items section
-- Next steps
+- 3-4 main points with icons (max 4 to prevent overflow)
+- Next steps section (optional)
 - Visual emphasis
+- No action items section (removed to save space)
 
 **Schema Fields**:
 ```typescript
 - takeaways: z.array(z.object({
   point: z.string(),
   icon: IconSchema
-})).min(3).max(5)
-- actionItems: z.array(z.string()).optional()
+})).min(3).max(4)
 - nextSteps: z.string().optional()
 ```
 
@@ -566,15 +571,35 @@ refresh-bold.svg → No replacement
    - **Quiz Assessment**: Removed instructions section, optimized for 3-4 questions max, 2-column layout
    - **Agenda Timeline**: Reduced max from 8 to 6 sections, removed progress bars, tighter spacing
    - **Resources**: Removed contacts section, focus only on resource links (3-10 items)
+   - **Best Practices Cards**: Removed legend section, increased font sizes for better readability (max 5 items)
+   - **Key Points with Icons**: Reduced max from 6 to 5 points to prevent overflow
+   - **Key Takeaways**: Reduced max from 5 to 4 takeaways, removed action items section
 
 3. **Text Visibility Improvements**:
    - Fixed "CASE STUDY", "ASSESSMENT TOOL", "SUMMARY", "REFERENCE MATERIALS" labels
    - Changed from light accent color to secondaryText for better readability
 
-4. **Spacing Adjustments**:
-   - Process Flow: Added proper spacing between title and decorative line
-   - Quiz Assessment: Reduced all spacing to fit 4 questions without scrolling
-   - Agenda Timeline: Optimized spacing for 6 items without scrolling
+4. **Container Standardization**:
+   - Fixed 6 slides using `h-screen` (full viewport height) to standard container:
+     - `max-h-[720px] aspect-video` (16:9 ratio, 1280x720)
+     - Slides fixed: Case Study, Key Takeaways, Hierarchical Framework, Matrix Assessment, Discussion Prompt, Thank You
+   - All slides now have consistent presentation dimensions
+
+5. **Comprehensive Spacing Optimizations**:
+   - **All slides**: Reduced container padding from `px-16 pt-16 pb-24` to `px-12 pt-6 pb-20`
+   - **Headers**: Icon size `w-16 h-16` → `w-12 h-12`, titles `text-4xl/5xl` → `text-3xl`
+   - **Case Study Scenario**: All cards, spacing, and text reduced; icons `w-8` → `w-6`
+   - **Discussion Prompt**: Main question, discussion points, and engagement tips all compacted
+   - **Hierarchical Framework**: Pyramid layers `min-h-80px` → `60px`, sidebar narrowed, all text reduced
+   - **Matrix Assessment**: Matrix cells `min-h-140px` → `85px`, sidebar `w-80` → `w-64`, all spacing tightened
+   - **Key Takeaways**: Cards, action items, and next steps all significantly reduced in spacing
+   - **Key Points with Icons**: Content tightly spaced while maintaining consistent header styling
+
+6. **Typography Standardization**:
+   - Body text: `text-base/lg` → `text-sm/base` with `leading-snug/tight`
+   - Small text: `text-sm` → `text-xs`
+   - All slides use Inter font family consistently
+   - Improved readability through better line-height control
 
 ## 🚀 Current Status
 
