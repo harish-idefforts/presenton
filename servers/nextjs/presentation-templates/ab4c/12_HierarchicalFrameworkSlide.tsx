@@ -34,28 +34,28 @@ const Schema = z.object({
     title: z.string().min(5).max(50).meta({
       description: "Level title. Keep short and clear. Max 50 characters",
     }),
-    description: z.string().min(10).max(100).meta({
-      description: "Level description. MUST be concise - one brief sentence only. Max 100 characters",
+    description: z.string().min(10).max(60).meta({
+      description: "Level description. MUST be SHORT - maximum 60 characters total. Write ONE short phrase only, NOT a full sentence or paragraph.",
     }),
   })).min(3).max(5).default([
-    { level: 1, title: 'Strategic Leadership', description: 'Board and C-Suite oversight, setting compliance vision and culture' },
-    { level: 2, title: 'Policy & Governance', description: 'Framework development, policy creation, and governance structure' },
-    { level: 3, title: 'Operational Management', description: 'Implementation, monitoring, and day-to-day compliance activities' },
-    { level: 4, title: 'Risk & Controls', description: 'Risk assessment, control implementation, and mitigation strategies' },
-    { level: 5, title: 'Frontline Execution', description: 'Daily compliance practices, documentation, and reporting' },
+    { level: 1, title: 'Strategic Leadership', description: 'Board oversight and compliance vision setting' },
+    { level: 2, title: 'Policy & Governance', description: 'Framework and policy development' },
+    { level: 3, title: 'Operational Management', description: 'Day-to-day compliance implementation' },
+    { level: 4, title: 'Risk & Controls', description: 'Risk assessment and control measures' },
+    { level: 5, title: 'Frontline Execution', description: 'Daily practices and documentation' },
   ]).meta({
     description: "3-5 hierarchy levels",
   }),
   supportingPoints: z.array(z.object({
-    title: z.string().min(5).max(50).meta({
-      description: "Supporting point title. Max 50 characters",
+    title: z.string().min(5).max(40).meta({
+      description: "Supporting point title. Max 40 characters",
     }),
-    description: z.string().min(10).max(100).meta({
-      description: "Supporting point description. Be concise. Max 100 characters",
+    description: z.string().min(10).max(60).meta({
+      description: "Supporting point description. MUST be SHORT - max 60 characters. Brief phrase only.",
     }),
   })).optional().default([
-    { title: 'Communication Flow', description: 'Bi-directional information sharing across all levels' },
-    { title: 'Accountability', description: 'Clear ownership and responsibility at each level' },
+    { title: 'Communication Flow', description: 'Information sharing across all levels' },
+    { title: 'Accountability', description: 'Clear ownership at each level' },
   ]).meta({
     description: "Optional supporting information",
   }),

@@ -25,8 +25,8 @@ const Schema = z.object({
     description: "Matrix title. Max 100 characters",
   }),
   items: z.array(z.object({
-    name: z.string().min(3).max(50).meta({
-      description: "Item name. Max 50 characters",
+    name: z.string().min(3).max(40).meta({
+      description: "Item name. Keep very short. Max 40 characters",
     }),
     xValue: z.enum(['low', 'medium', 'high']).meta({
       description: "X-axis value (horizontal position)",
@@ -34,15 +34,15 @@ const Schema = z.object({
     yValue: z.enum(['low', 'medium', 'high']).meta({
       description: "Y-axis value (vertical position)",
     }),
-    description: z.string().min(10).max(150).optional().meta({
-      description: "Optional item description. Max 150 characters",
+    description: z.string().min(10).max(80).optional().meta({
+      description: "Optional item description. MUST be SHORT - max 80 characters. Use brief phrases, NO full sentences or paragraphs.",
     }),
   })).min(3).max(9).default([
-    { name: 'Data Breach', xValue: 'high', yValue: 'high', description: 'Critical risk requiring immediate attention' },
-    { name: 'Documentation Gaps', xValue: 'medium', yValue: 'medium', description: 'Moderate risk with scheduled remediation' },
-    { name: 'Training Updates', xValue: 'low', yValue: 'medium', description: 'Preventive measure for compliance' },
+    { name: 'Data Breach', xValue: 'high', yValue: 'high', description: 'Critical risk needing immediate action' },
+    { name: 'Documentation Gaps', xValue: 'medium', yValue: 'medium', description: 'Moderate risk with planned remediation' },
+    { name: 'Training Updates', xValue: 'low', yValue: 'medium', description: 'Preventive compliance measure' },
     { name: 'Policy Review', xValue: 'medium', yValue: 'low', description: 'Routine governance activity' },
-    { name: 'System Upgrade', xValue: 'high', yValue: 'medium', description: 'Technology modernization initiative' },
+    { name: 'System Upgrade', xValue: 'high', yValue: 'medium', description: 'Technology modernization' },
   ]).meta({
     description: "3-9 items to place on the matrix",
   }),
@@ -61,11 +61,11 @@ interface MatrixAssessmentSlideProps {
 const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: slideData }) => {
   const matrixTitle = slideData?.matrixTitle || 'Risk Impact Assessment Matrix';
   const items = slideData?.items || [
-    { name: 'Data Breach', xValue: 'high', yValue: 'high', description: 'Critical risk requiring immediate attention' },
-    { name: 'Documentation Gaps', xValue: 'medium', yValue: 'medium', description: 'Moderate risk with scheduled remediation' },
-    { name: 'Training Updates', xValue: 'low', yValue: 'medium', description: 'Preventive measure for compliance' },
+    { name: 'Data Breach', xValue: 'high', yValue: 'high', description: 'Critical risk needing immediate action' },
+    { name: 'Documentation Gaps', xValue: 'medium', yValue: 'medium', description: 'Moderate risk with planned remediation' },
+    { name: 'Training Updates', xValue: 'low', yValue: 'medium', description: 'Preventive compliance measure' },
     { name: 'Policy Review', xValue: 'medium', yValue: 'low', description: 'Routine governance activity' },
-    { name: 'System Upgrade', xValue: 'high', yValue: 'medium', description: 'Technology modernization initiative' },
+    { name: 'System Upgrade', xValue: 'high', yValue: 'medium', description: 'Technology modernization' },
   ];
   const xAxisLabel = slideData?.xAxisLabel || 'Likelihood / Frequency';
   const yAxisLabel = slideData?.yAxisLabel || 'Impact / Severity';
