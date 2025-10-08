@@ -32,10 +32,10 @@ const Schema = z.object({
       description: "Level number (1 is top/highest)",
     }),
     title: z.string().min(5).max(50).meta({
-      description: "Level title. Max 50 characters",
+      description: "Level title. Keep short and clear. Max 50 characters",
     }),
-    description: z.string().min(10).max(150).meta({
-      description: "Level description. Max 150 characters",
+    description: z.string().min(10).max(100).meta({
+      description: "Level description. MUST be concise - one brief sentence only. Max 100 characters",
     }),
   })).min(3).max(5).default([
     { level: 1, title: 'Strategic Leadership', description: 'Board and C-Suite oversight, setting compliance vision and culture' },
@@ -48,10 +48,10 @@ const Schema = z.object({
   }),
   supportingPoints: z.array(z.object({
     title: z.string().min(5).max(50).meta({
-      description: "Supporting point title",
+      description: "Supporting point title. Max 50 characters",
     }),
-    description: z.string().min(10).max(150).meta({
-      description: "Supporting point description",
+    description: z.string().min(10).max(100).meta({
+      description: "Supporting point description. Be concise. Max 100 characters",
     }),
   })).optional().default([
     { title: 'Communication Flow', description: 'Bi-directional information sharing across all levels' },

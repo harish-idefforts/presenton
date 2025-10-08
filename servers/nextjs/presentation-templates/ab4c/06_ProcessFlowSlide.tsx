@@ -20,8 +20,8 @@ const professionalColors = {
 };
 
 const Schema = z.object({
-  processTitle: z.string().min(3).max(80).default('Implementation Process').meta({
-    description: "Main process title",
+  processTitle: z.string().min(3).max(60).default('Implementation Process').meta({
+    description: "Main process title. Keep concise for PPTX export - max 60 characters.",
   }),
   processDescription: z.string().min(10).max(200).optional().default('Follow these steps to ensure successful implementation and optimal results').meta({
     description: "Optional process description",
@@ -107,7 +107,7 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
         {/* Header */}
         <div className="px-12 pt-6 pb-3">
           <h1
-            className="text-3xl font-bold mb-2"
+            className="text-3xl font-bold mb-2 break-words"
             style={{ color: professionalColors.primaryText }}
           >
             {slideData?.processTitle || 'Implementation Process'}
@@ -190,11 +190,11 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
             <div className="w-full max-w-2xl mx-auto">
               {steps.map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="flex items-start gap-6">
+                  <div className="flex items-start gap-4">
                     {/* Step Icon & Line */}
                     <div className="flex flex-col items-center">
                       <div
-                        className="w-14 h-14 rounded-full flex items-center justify-center shadow-md"
+                        className="w-12 h-12 rounded-full flex items-center justify-center shadow-md"
                         style={{
                           backgroundColor: professionalColors.cardBg,
                           border: `3px solid ${professionalColors.accent}`
@@ -203,14 +203,14 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
                         <RemoteSvgIcon
                           url={step.icon.__icon_url__}
                           strokeColor="currentColor"
-                          className="w-7 h-7"
+                          className="w-6 h-6"
                           color={professionalColors.secondaryText}
                           title={step.icon.__icon_query__}
                         />
                       </div>
                       {index < steps.length - 1 && (
                         <div
-                          className="w-0.5 h-16 mt-2"
+                          className="w-0.5 h-12 mt-1.5"
                           style={{ backgroundColor: professionalColors.borderLight }}
                         />
                       )}
@@ -218,34 +218,34 @@ const ProcessFlowSlide: React.FC<ProcessFlowSlideProps> = ({ data: slideData }) 
 
                     {/* Step Card */}
                     <div
-                      className="flex-1 p-3 rounded-xl shadow-sm mb-3"
+                      className="flex-1 p-2.5 rounded-xl shadow-sm mb-2"
                       style={{
                         backgroundColor: professionalColors.cardBg,
                         borderLeft: `4px solid ${professionalColors.accent}`
                       }}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-2.5">
                         <div
-                          className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                          className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
                           style={{ backgroundColor: `${professionalColors.accent}15` }}
                         >
                           <RemoteSvgIcon
                             url={step.icon.__icon_url__}
                             strokeColor="currentColor"
-                            className="w-5 h-5"
+                            className="w-4.5 h-4.5"
                             color={professionalColors.secondaryText}
                             title={step.icon.__icon_query__}
                           />
                         </div>
                         <div>
                           <h3
-                            className="text-base font-semibold mb-1"
+                            className="text-sm font-semibold mb-0.5"
                             style={{ color: professionalColors.primaryText }}
                           >
                             {step.title}
                           </h3>
                           <p
-                            className="text-xs leading-snug"
+                            className="text-xs leading-tight"
                             style={{ color: professionalColors.secondaryText }}
                           >
                             {step.description}

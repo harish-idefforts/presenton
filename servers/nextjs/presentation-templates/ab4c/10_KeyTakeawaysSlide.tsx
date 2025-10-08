@@ -34,7 +34,7 @@ const Schema = z.object({
     icon: IconSchema.meta({
       description: "Icon to represent this takeaway",
     }),
-  })).min(3).max(4).default([
+  })).min(3).max(7).default([
     {
       point: 'Always document compliance issues through proper channels',
       icon: { __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/clipboard-bold.svg', __icon_query__: 'documentation' },

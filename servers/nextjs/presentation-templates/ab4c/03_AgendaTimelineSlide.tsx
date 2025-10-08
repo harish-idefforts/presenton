@@ -29,12 +29,11 @@ const Schema = z.object({
   sections: z.array(z.object({
     title: z.string().min(3).max(80),
     duration: z.string().min(3).max(20),
-    description: z.string().min(10).max(150).optional(),
+    description: z.string().min(10).max(100).optional(),
     icon: IconSchema.default({
       __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/presentation-bold.svg',
       __icon_query__: 'presentation section'
-    }),
-    isBreak: z.boolean().optional().default(false)
+    })
   })).min(3).max(6).default([
     {
       title: 'Introduction & Welcome',
@@ -43,8 +42,7 @@ const Schema = z.object({
       icon: {
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/handshake-bold.svg',
         __icon_query__: 'handshake welcome'
-      },
-      isBreak: false
+      }
     },
     {
       title: 'Core Concepts',
@@ -53,18 +51,7 @@ const Schema = z.object({
       icon: {
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/book-bold.svg',
         __icon_query__: 'book learning concepts'
-      },
-      isBreak: false
-    },
-    {
-      title: 'Coffee Break',
-      duration: '10 min',
-      description: 'Networking and refreshments',
-      icon: {
-        __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/coffee-bold.svg',
-        __icon_query__: 'coffee break rest'
-      },
-      isBreak: true
+      }
     },
     {
       title: 'Practical Application',
@@ -73,8 +60,7 @@ const Schema = z.object({
       icon: {
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/wrench-bold.svg',
         __icon_query__: 'tool practice application'
-      },
-      isBreak: false
+      }
     },
     {
       title: 'Group Discussion',
@@ -83,8 +69,7 @@ const Schema = z.object({
       icon: {
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/users-bold.svg',
         __icon_query__: 'users discussion group'
-      },
-      isBreak: false
+      }
     },
     {
       title: 'Q&A & Closing',
@@ -93,8 +78,7 @@ const Schema = z.object({
       icon: {
         __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/chat-bold.svg',
         __icon_query__: 'question answer qa'
-      },
-      isBreak: false
+      }
     }
   ]).meta({
     description: "List of agenda sections with durations and descriptions",
@@ -177,21 +161,17 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                   {/* Timeline Node */}
                   <div className="relative z-10">
                     <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center shadow-md ${
-                        section.isBreak ? 'opacity-70' : ''
-                      }`}
+                      className="w-12 h-12 rounded-full flex items-center justify-center shadow-md"
                       style={{
-                        backgroundColor: section.isBreak
-                          ? `${professionalColors.warning}20`
-                          : professionalColors.cardBg,
-                        border: `3px solid ${section.isBreak ? professionalColors.warning : professionalColors.accent}`
+                        backgroundColor: professionalColors.cardBg,
+                        border: `3px solid ${professionalColors.accent}`
                       }}
                     >
                       <RemoteSvgIcon
                         url={section.icon.__icon_url__}
                         strokeColor="currentColor"
                         className="w-5 h-5"
-                        color={section.isBreak ? professionalColors.warning : professionalColors.secondaryText}
+                        color={professionalColors.secondaryText}
                         title={section.icon.__icon_query__}
                       />
                     </div>
@@ -207,14 +187,10 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
 
                   {/* Content Card */}
                   <div
-                    className={`flex-1 p-3.5 rounded-xl shadow-sm ${
-                      section.isBreak ? 'opacity-85' : ''
-                    }`}
+                    className="flex-1 p-3.5 rounded-xl shadow-sm"
                     style={{
-                      backgroundColor: section.isBreak
-                        ? `${professionalColors.warning}10`
-                        : professionalColors.cardBg,
-                      borderLeft: `4px solid ${section.isBreak ? professionalColors.warning : professionalColors.accent}`
+                      backgroundColor: professionalColors.cardBg,
+                      borderLeft: `4px solid ${professionalColors.accent}`
                     }}
                   >
                     <div className="flex items-start justify-between mb-1.5">
@@ -227,12 +203,8 @@ const AgendaTimelineSlide: React.FC<AgendaTimelineSlideProps> = ({ data: slideDa
                       <span
                         className="px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0 ml-2"
                         style={{
-                          backgroundColor: section.isBreak
-                            ? `${professionalColors.warning}20`
-                            : `${professionalColors.accent}`,
-                          color: section.isBreak
-                            ? professionalColors.warning
-                            : professionalColors.secondaryText
+                          backgroundColor: professionalColors.accent,
+                          color: professionalColors.secondaryText
                         }}
                       >
                         {section.duration}

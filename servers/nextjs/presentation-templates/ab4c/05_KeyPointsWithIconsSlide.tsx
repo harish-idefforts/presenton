@@ -36,8 +36,12 @@ const Schema = z.object({
     description: "Optional supporting image",
   }),
   points: z.array(z.object({
-    title: z.string().min(3).max(80),
-    description: z.string().min(10).max(200),
+    title: z.string().min(3).max(80).meta({
+      description: "Point title. Keep concise. Max 80 characters.",
+    }),
+    description: z.string().min(10).max(200).meta({
+      description: "Point description. MUST be concise and fit within 200 characters. Be brief and direct - no long paragraphs.",
+    }),
     icon: IconSchema.default({
       __icon_url__: 'https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/check-circle-bold.svg',
       __icon_query__: 'check point item'
@@ -167,13 +171,13 @@ const KeyPointsWithIconsSlide: React.FC<KeyPointsWithIconsSlideProps> = ({ data:
                     {/* Content */}
                     <div className="flex-1">
                       <h3
-                        className="text-sm font-semibold mb-0.5 leading-tight"
+                        className="text-base font-semibold mb-1 leading-snug"
                         style={{ color: professionalColors.primaryText }}
                       >
                         {point.title}
                       </h3>
                       <p
-                        className="text-xs leading-tight"
+                        className="text-sm leading-snug"
                         style={{ color: professionalColors.secondaryText }}
                       >
                         {point.description}

@@ -47,13 +47,6 @@ const Schema = z.object({
   ]).meta({
     description: "Array of 2-4 outcome metrics. Each must have a 'metric' (short label) and 'value' (short result). Do NOT use paragraph text - use structured metric/value pairs only.",
   }),
-  learnings: z.array(z.string().min(20).max(80)).optional().default([
-    'Early stakeholder engagement is critical for success',
-    'Standardization improves efficiency',
-    'Regular training reinforces best practices',
-  ]).meta({
-    description: "Optional key learnings. Max 80 characters each",
-  }),
 });
 
 interface CaseStudyScenarioSlideProps {
@@ -70,7 +63,6 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
     { metric: 'Compliance Costs', value: 'Reduced by 30%' },
     { metric: 'Response Time', value: 'Improved by 50%' },
   ];
-  const learnings = slideData?.learnings;
 
   return (
     <>
@@ -212,36 +204,6 @@ const CaseStudyScenarioSlide: React.FC<CaseStudyScenarioSlideProps> = ({ data: s
             </div>
           </div>
         </div>
-
-        {/* Key Learnings Section */}
-        {learnings && learnings.length > 0 && (
-          <div className="mt-3 p-3 rounded-xl" style={{ backgroundColor: professionalColors.accent + '10' }}>
-            <div className="flex items-start gap-3">
-              <RemoteSvgIcon
-                url="https://presenton-public.s3.ap-southeast-1.amazonaws.com/static/icons/bold/book-bold.svg"
-                strokeColor="currentColor"
-                className="w-5 h-5 mt-1 flex-shrink-0"
-                color={professionalColors.secondaryText}
-                title="Key Learnings"
-              />
-              <div className="flex-1">
-                <h3 className="text-base font-bold mb-2" style={{ color: professionalColors.primaryText }}>
-                  Key Learnings
-                </h3>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-                  {learnings.map((learning, index) => (
-                    <div key={index} className="flex items-start gap-1.5">
-                      <span className="text-base font-bold" style={{ color: professionalColors.accent }}>•</span>
-                      <span className="text-xs leading-snug" style={{ color: professionalColors.secondaryText }}>
-                        {learning}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Footer */}
