@@ -3,7 +3,7 @@ import * as z from "zod";
 import { IconSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '03-agenda-timeline-slide';
+export const layoutId = 'agenda-timeline-slide';
 export const layoutName = 'Agenda Timeline';
 export const layoutDescription = 'Visual timeline showing training sections, durations, and progression. Perfect for outlining the structure of any training session with clear time allocations.';
 

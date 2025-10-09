@@ -209,22 +209,22 @@ async def prepare_presentation(
         if presentation_structure.slides[index] >= total_slide_layouts:
             presentation_structure.slides[index] = random_slide_index
 
-    # Detect terminal slides and truncate
-    terminal_slide_index = -1
-    for idx, slide_layout_idx in enumerate(presentation_structure.slides):
-        if slide_layout_idx < total_slide_layouts:
-            slide_layout = layout.slides[slide_layout_idx]
-            if slide_layout.isTerminal:
-                terminal_slide_index = idx
-                break
-
-    if terminal_slide_index != -1:
-        # Truncate slides and outlines after terminal slide
-        presentation_structure.slides = presentation_structure.slides[:terminal_slide_index + 1]
-        presentation_outline_model.slides = presentation_outline_model.slides[:terminal_slide_index + 1]
-        outlines = presentation_outline_model.slides
-        total_outlines = len(outlines)
-        print(f"Terminal slide detected at index {terminal_slide_index}. Truncated presentation to {total_outlines} slides.")
+    # Terminal slide detection disabled - generate all requested slides
+    # terminal_slide_index = -1
+    # for idx, slide_layout_idx in enumerate(presentation_structure.slides):
+    #     if slide_layout_idx < total_slide_layouts:
+    #         slide_layout = layout.slides[slide_layout_idx]
+    #         if slide_layout.isTerminal:
+    #             terminal_slide_index = idx
+    #             break
+    #
+    # if terminal_slide_index != -1:
+    #     # Truncate slides and outlines after terminal slide
+    #     presentation_structure.slides = presentation_structure.slides[:terminal_slide_index + 1]
+    #     presentation_outline_model.slides = presentation_outline_model.slides[:terminal_slide_index + 1]
+    #     outlines = presentation_outline_model.slides
+    #     total_outlines = len(outlines)
+    #     print(f"Terminal slide detected at index {terminal_slide_index}. Truncated presentation to {total_outlines} slides.")
 
     if presentation.include_table_of_contents:
         n_toc_slides = presentation.n_slides - total_outlines
@@ -628,21 +628,21 @@ async def generate_presentation_handler(
             if presentation_structure.slides[index] >= total_slide_layouts:
                 presentation_structure.slides[index] = random_slide_index
 
-        # Detect terminal slides and truncate
-        terminal_slide_index = -1
-        for idx, slide_layout_idx in enumerate(presentation_structure.slides):
-            if slide_layout_idx < total_slide_layouts:
-                slide_layout = layout_model.slides[slide_layout_idx]
-                if slide_layout.isTerminal:
-                    terminal_slide_index = idx
-                    break
-
-        if terminal_slide_index != -1:
-            # Truncate slides and outlines after terminal slide
-            presentation_structure.slides = presentation_structure.slides[:terminal_slide_index + 1]
-            presentation_outlines.slides = presentation_outlines.slides[:terminal_slide_index + 1]
-            total_outlines = len(presentation_outlines.slides)
-            print(f"Terminal slide detected at index {terminal_slide_index}. Truncated presentation to {total_outlines} slides.")
+        # Terminal slide detection disabled - generate all requested slides
+        # terminal_slide_index = -1
+        # for idx, slide_layout_idx in enumerate(presentation_structure.slides):
+        #     if slide_layout_idx < total_slide_layouts:
+        #         slide_layout = layout_model.slides[slide_layout_idx]
+        #         if slide_layout.isTerminal:
+        #             terminal_slide_index = idx
+        #             break
+        #
+        # if terminal_slide_index != -1:
+        #     # Truncate slides and outlines after terminal slide
+        #     presentation_structure.slides = presentation_structure.slides[:terminal_slide_index + 1]
+        #     presentation_outlines.slides = presentation_outlines.slides[:terminal_slide_index + 1]
+        #     total_outlines = len(presentation_outlines.slides)
+        #     print(f"Terminal slide detected at index {terminal_slide_index}. Truncated presentation to {total_outlines} slides.")
 
         # Injecting table of contents to the presentation structure and outlines
         if request.include_table_of_contents and not using_slides_markdown:

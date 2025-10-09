@@ -3,7 +3,7 @@ import * as z from "zod";
 import { IconSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '07-grid-layout-slide';
+export const layoutId = 'grid-layout-slide';
 export const layoutName = 'Grid Layout';
 export const layoutDescription = 'Grid of cards for teams, departments, or categories with icons and descriptions. Perfect for showing organizational structure, team roles, or multiple related concepts.';
 

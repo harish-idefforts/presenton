@@ -3,7 +3,7 @@ import * as z from "zod";
 import { IconSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '08-best-practices-cards-slide';
+export const layoutId = 'best-practices-cards-slide';
 export const layoutName = 'Best Practices Cards';
 export const layoutDescription = 'Display do\'s and don\'ts or best practices with visual cards and icons. Great for guidelines, recommendations, and practical advice in training.';
 

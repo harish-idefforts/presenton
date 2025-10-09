@@ -1,7 +1,7 @@
 import React from 'react';
 import { z } from 'zod';
 
-export const layoutId = '09-quiz-assessment';
+export const layoutId = 'quiz-assessment';
 export const layoutName = 'Quiz Assessment';
 export const layoutDescription = 'Multiple choice questions with options and answer key. Display 3-5 questions per slide for efficient knowledge checks. Use for quizzes and assessments.';
 

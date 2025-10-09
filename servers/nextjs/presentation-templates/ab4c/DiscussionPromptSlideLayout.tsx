@@ -2,7 +2,7 @@ import React from 'react';
 import { z } from 'zod';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '14-discussion-prompt';
+export const layoutId = 'discussion-prompt';
 export const layoutName = 'Discussion Prompt';
 export const layoutDescription = 'Open-ended question or prompt for group interaction. Use to facilitate discussion and participant engagement.';
 

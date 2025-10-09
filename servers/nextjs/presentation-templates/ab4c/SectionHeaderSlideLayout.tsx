@@ -6,7 +6,7 @@ import {
 } from "@/presentation-templates/defaultSchemes";
 import { RemoteSvgIcon } from "@/app/hooks/useRemoteSvgIcon";
 
-export const layoutId = "04-section-header-slide";
+export const layoutId = "section-header-slide";
 export const layoutName = "Section Header";
 export const layoutDescription =
   "Clean section divider with section number, title, and description. Use to separate major parts of your training presentation with visual clarity.";

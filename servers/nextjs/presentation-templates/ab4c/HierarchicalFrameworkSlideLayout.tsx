@@ -2,7 +2,7 @@ import React from 'react';
 import { z } from 'zod';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '12-hierarchical-framework';
+export const layoutId = 'hierarchical-framework';
 export const layoutName = 'Hierarchical Framework';
 export const layoutDescription = 'Multi-level structure showing parent-child relationships. Use for organizational charts, decision trees, or layered models.';
 

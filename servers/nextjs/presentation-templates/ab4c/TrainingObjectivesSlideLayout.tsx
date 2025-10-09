@@ -3,9 +3,9 @@ import * as z from "zod";
 import { IconSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '02-training-objectives-slide';
+export const layoutId = 'training-objectives-slide';
 export const layoutName = 'Training Objectives';
-export const layoutDescription = 'Display training goals, duration, target audience, and expected outcomes with visual icons. Essential for setting expectations at the beginning of any professional training session.';
+export const layoutDescription = 'Display training goals, duration, target audience, and expected outcomes with visual icons. Use this slide AFTER the intro/title slide to set training expectations and outline session details.';
 
 const professionalColors = {
   background: "#f5f5f0",

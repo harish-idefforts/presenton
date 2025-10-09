@@ -3,7 +3,7 @@ import * as z from "zod";
 import { IconSchema, ImageSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '05-key-points-with-icons-slide';
+export const layoutId = 'key-points-with-icons-slide';
 export const layoutName = 'Key Points with Icons';
 export const layoutDescription = 'Numbered or bulleted list with icons and descriptions. Perfect for highlighting important concepts, steps, or principles with visual emphasis.';
 

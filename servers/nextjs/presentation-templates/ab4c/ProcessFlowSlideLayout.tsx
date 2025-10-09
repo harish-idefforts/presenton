@@ -3,7 +3,7 @@ import * as z from "zod";
 import { IconSchema } from '@/presentation-templates/defaultSchemes';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '06-process-flow-slide';
+export const layoutId = 'process-flow-slide';
 export const layoutName = 'Process Flow';
 export const layoutDescription = 'Step-by-step workflow visualization with arrows and icons. Ideal for explaining procedures, methodologies, or sequential processes in training.';
 

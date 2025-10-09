@@ -2,9 +2,9 @@ import React from 'react';
 import * as z from "zod";
 import { ImageSchema } from '@/presentation-templates/defaultSchemes';
 
-export const layoutId = '01-title-slide';
-export const layoutName = 'Title Slide';
-export const layoutDescription = 'Opening slide for professional training presentations with title, subtitle, presenter info, and corporate branding. Perfect for introducing any training topic with a clean, professional appearance.';
+export const layoutId = 'ab4c-intro-slide';
+export const layoutName = 'Intro Slide';
+export const layoutDescription = 'A clean slide layout with title, description text, presenter info, and supporting image.';
 
 const professionalColors = {
   background: "#f5f5f0",
@@ -18,7 +18,7 @@ const professionalColors = {
   borderLight: "#d4cfc7",
 };
 
-const Schema = z.object({
+const introSlideSchema = z.object({
   title: z.string().min(5).max(100).default('Professional Training Workshop').meta({
     description: "Main training title. Max 100 characters for optimal display",
   }),
@@ -33,14 +33,14 @@ const Schema = z.object({
   }),
 });
 
-export { Schema };
-export type ProfessionalTitleSlideData = z.infer<typeof Schema>;
+export const Schema = introSlideSchema;
+export type IntroSlideData = z.infer<typeof introSlideSchema>;
 
-interface ProfessionalTitleSlideProps {
-  data?: Partial<ProfessionalTitleSlideData>;
+interface IntroSlideLayoutProps {
+  data?: Partial<IntroSlideData>;
 }
 
-const ProfessionalTitleSlide: React.FC<ProfessionalTitleSlideProps> = ({ data: slideData }) => {
+const IntroSlideLayout: React.FC<IntroSlideLayoutProps> = ({ data: slideData }) => {
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -133,4 +133,4 @@ const ProfessionalTitleSlide: React.FC<ProfessionalTitleSlideProps> = ({ data: s
   );
 };
 
-export default ProfessionalTitleSlide;
+export default IntroSlideLayout;

@@ -2,7 +2,7 @@ import React from 'react';
 import { z } from 'zod';
 import { RemoteSvgIcon } from '@/app/hooks/useRemoteSvgIcon';
 
-export const layoutId = '10-key-takeaways';
+export const layoutId = 'key-takeaways';
 export const layoutName = 'Key Takeaways';
 export const layoutDescription = 'Bulleted summary list of main points. Use to conclude sections or presentations and reinforce learning.';
 
