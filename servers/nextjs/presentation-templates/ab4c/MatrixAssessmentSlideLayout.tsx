@@ -164,9 +164,9 @@ const MatrixAssessmentSlide: React.FC<MatrixAssessmentSlideProps> = ({ data: sli
                           borderColor: professionalColors.borderLight,
                         }}
                       >
-                        {cellItems.map((item, index) => (
+                        {cellItems.map((item) => (
                           <div
-                            key={index}
+                            key={`${item.name}-${xPos}-${yPos}`}
                             className="mb-1.5 p-1.5 rounded bg-white/80 shadow-sm"
                           >
                             <p className="text-xs font-semibold leading-tight" style={{ color: professionalColors.primaryText }}>

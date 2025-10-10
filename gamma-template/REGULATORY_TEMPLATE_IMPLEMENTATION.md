@@ -11,21 +11,43 @@ Complete redesign of ab4c template folder to create a versatile professional tra
 - **Select "ab4c" in generator** (NOT "ab4c-new" - doesn't exist)
 
 ### Key Requirements
-1. **File names must start with numbers** (01_, 02_, etc.) for proper ordering
-2. **layoutId must match the number prefix** - e.g., '01-title-slide' for 01_TitleSlide.tsx
-3. **All footers use AB4C standard** - Three-part footer with "Do not share", copyright, and logo
-4. **Logo file required** - logo.png must be in template folder
-5. **settings.json must have `ordered: true`** - Critical for sequential slide generation
-6. **Use only valid icons** - Check icon list below to avoid 403 errors
+1. **All footers use AB4C standard** - Three-part footer with "Do not share", copyright, and logo
+2. **Logo file required** - logo.png must be in template folder
+3. **settings.json configuration** - Currently set to `"ordered": false` (layouts selected by LLM based on content)
+4. **Use only valid icons** - Check icon list below to avoid 403 errors
+5. **⚠️ CRITICAL: Schema Naming Convention** - Intro/Title slide MUST use descriptive schema names for proper identification
+
+**Note**: File names do NOT use numbered prefixes (01_, 02_, etc.). Layouts are dynamically selected by the LLM based on content and layoutDescription.
+
+### Schema Naming Pattern (CRITICAL)
+```typescript
+// ✅ CORRECT - Descriptive schema name
+const introSlideSchema = z.object({...})
+export const Schema = introSlideSchema
+
+// ❌ WRONG - Generic schema name
+const Schema = z.object({...})
+export { Schema }
+```
+
+**Why This Matters:**
+- The LLM layout selection system relies on descriptive schema names to identify intro/title layouts
+- Using generic `Schema` in IntroSlideLayout caused layout misidentification and prevented title slide generation
+- All working templates (gamma, general, modern) use descriptive naming for intro slides
+- This was the root cause of title slide not being generated when `include_title_slide=True`
+
+**Current Status**:
+- ✅ **IntroSlideLayout.tsx** - Fixed with descriptive `introSlideSchema` naming
+- ⚠️ **Other 14 layouts** - Still use generic `const Schema` pattern (not critical for layout selection)
 
 ### Project Status
-- **16 distinct slide layouts** completed ✅ (All slides implemented!)
+- **15 distinct slide layouts** completed ✅ (All slides implemented!)
 - **Icon integration** on all slides with valid S3 URLs
 - **Professional design** with consistent AB4C branding
-- **Sequential ordering** enabled with `ordered: true`
-- **Numbered file prefixes** implemented for proper sequencing
+- **Dynamic layout selection** enabled with `ordered: false` (LLM selects based on content)
 - **AB4C compliant footer** on all completed slides
 - **Support for AI-generated content** from training prompts
+- **Critical fix applied**: IntroSlideLayout now uses descriptive schema naming
 
 ## 🎨 Design System
 
@@ -60,25 +82,42 @@ const professionalColors = {
 
 ### File Naming Convention
 ```
-01_TitleSlide.tsx
-02_TrainingObjectivesSlide.tsx
-03_AgendaTimelineSlide.tsx
-...
+IntroSlideLayout.tsx
+TrainingObjectivesSlideLayout.tsx
+AgendaTimelineSlideLayout.tsx
+BestPracticesCardsSlideLayout.tsx
+CaseStudyScenarioSlideLayout.tsx
+DiscussionPromptSlideLayout.tsx
+GridLayoutSlideLayout.tsx
+HierarchicalFrameworkSlideLayout.tsx
+KeyPointsWithIconsSlideLayout.tsx
+KeyTakeawaysSlideLayout.tsx
+MatrixAssessmentSlideLayout.tsx
+ProcessFlowSlideLayout.tsx
+QuizAssessmentSlideLayout.tsx
+SectionHeaderSlideLayout.tsx
+ThankYouClosingSlideLayout.tsx
 ```
 
-### Settings Configuration
+**Note**: Files do NOT have numbered prefixes. Layout selection is dynamic based on content.
+
+### Settings Configuration (Actual)
 ```json
 {
-  "description": "Professional Training Template - Corporate Learning & Development",
-  "ordered": true,  // CRITICAL: Ensures sequential layout usage
+  "description": "AB4C Compliance & Customer Relations - Professional training template",
+  "ordered": false,
   "default": false
 }
 ```
 
+**Key Setting**: `"ordered": false` means the LLM dynamically selects layouts based on slide content and `layoutDescription`, rather than using a fixed sequential order.
+
 ## 🗂️ Slide Layouts Specification
 
-### 1. 01_TitleSlide.tsx ✅
+### 1. IntroSlideLayout.tsx ✅
+**layoutId**: `ab4c-intro-slide`
 **Purpose**: Professional opening slide with branding
+
 **Key Elements**:
 - Main title (max 100 chars)
 - Subtitle/description (max 300 chars)
@@ -88,14 +127,22 @@ const professionalColors = {
 
 **Schema Fields**:
 ```typescript
-- title: z.string().max(100)
-- subtitle: z.string().max(300)
-- backgroundImage: ImageSchema
-- date: z.string().optional()
-- presenter: z.string().optional()
+const introSlideSchema = z.object({
+  title: z.string().min(5).max(100),
+  subtitle: z.string().min(10).max(300),
+  backgroundImage: ImageSchema.optional()
+})
+export const Schema = introSlideSchema
+export type IntroSlideData = z.infer<typeof introSlideSchema>
 ```
 
-### 2. 02_TrainingObjectivesSlide.tsx ✅
+**Schema Notes**:
+- ✅ Uses descriptive `introSlideSchema` constant (CRITICAL for layout identification)
+- Only essential fields: title, subtitle, backgroundImage
+- Background image is optional with sensible defaults
+
+### 2. TrainingObjectivesSlideLayout.tsx ✅
+**layoutId**: `training-objectives-slide`
 **Purpose**: Display training goals, duration, and target audience
 **Key Elements**:
 - Section title "Training Objectives"
@@ -116,7 +163,7 @@ const professionalColors = {
 - outcomes: z.array(z.string())
 ```
 
-### 3. 03_AgendaTimelineSlide.tsx ✅
+### 3. AgendaTimelineSlideLayout.tsx ✅
 **Purpose**: Visual timeline of training sections
 **Key Elements**:
 - Timeline visualization
@@ -138,7 +185,7 @@ const professionalColors = {
 })).min(3).max(6)
 ```
 
-### 4. 04_SectionHeaderSlide.tsx ✅
+### 4. SectionHeaderSlideLayout.tsx ✅
 **Purpose**: Clean divider between major sections
 **Key Elements**:
 - Section title (no numbers)
@@ -154,7 +201,7 @@ const professionalColors = {
 - backgroundPattern: ImageSchema.optional()
 ```
 
-### 5. 07_GridLayoutSlide.tsx ✅
+### 5. GridLayoutSlideLayout.tsx ✅
 **Purpose**: Show department roles and responsibilities
 **Key Elements**:
 - Grid layout (2x2 or 2x3)
@@ -174,7 +221,7 @@ const professionalColors = {
 })).min(4).max(6)
 ```
 
-### 6. 06_ProcessFlowSlide.tsx ✅
+### 6. ProcessFlowSlideLayout.tsx ✅
 **Purpose**: Step-by-step workflow visualization
 **Key Elements**:
 - Sequential steps with connection line
@@ -195,7 +242,7 @@ const professionalColors = {
 })).min(3).max(6)
 ```
 
-### 7. 05_KeyPointsWithIconsSlide.tsx ✅
+### 7. KeyPointsWithIconsSlideLayout.tsx ✅
 **Purpose**: Numbered or bulleted list with visual emphasis
 **Key Elements**:
 - Main title
@@ -217,7 +264,7 @@ const professionalColors = {
 })).min(3).max(5)
 ```
 
-### 8. 08_BestPracticesCardsSlide.tsx ✅
+### 8. BestPracticesCardsSlideLayout.tsx ✅
 **Purpose**: Highlight do's and don'ts
 **Key Elements**:
 - 3-5 practice cards (max 5 to prevent overflow)
@@ -241,7 +288,7 @@ const professionalColors = {
 })).min(3).max(5)
 ```
 
-### 9. 09_QuizAssessmentSlide.tsx ✅
+### 9. QuizAssessmentSlideLayout.tsx ✅
 **Purpose**: Interactive knowledge check with MCQ
 **Key Elements**:
 - Multiple questions in 2-column grid
@@ -269,7 +316,7 @@ const professionalColors = {
 - showAnswers: z.boolean().optional()
 ```
 
-### 10. 10_KeyTakeawaysSlide.tsx ✅
+### 10. KeyTakeawaysSlideLayout.tsx ✅
 **Purpose**: Summarize main points
 **Key Elements**:
 - "Key Takeaways" header
@@ -287,7 +334,7 @@ const professionalColors = {
 - nextSteps: z.string().optional()
 ```
 
-### 11. 11_CaseStudyScenarioSlide.tsx ✅
+### 11. CaseStudyScenarioSlideLayout.tsx ✅
 **Purpose**: Present real-world examples
 **Key Elements**:
 - Scenario title
@@ -309,7 +356,7 @@ const professionalColors = {
 - learnings: z.array(z.string()).optional()
 ```
 
-### 12. 12_HierarchicalFrameworkSlide.tsx ✅
+### 12. HierarchicalFrameworkSlideLayout.tsx ✅
 **Purpose**: Hierarchical structure visualization
 **Key Elements**:
 - Pyramid or layered structure
@@ -333,7 +380,7 @@ const professionalColors = {
 })).optional()
 ```
 
-### 13. 13_MatrixAssessmentSlide.tsx ✅
+### 13. MatrixAssessmentSlideLayout.tsx ✅
 **Purpose**: Visual risk/priority matrix grid
 **Key Elements**:
 - Matrix grid (3x3 or 4x4)
@@ -355,7 +402,7 @@ const professionalColors = {
 - yAxisLabel: z.string()
 ```
 
-### 14. 14_DiscussionPromptSlide.tsx ✅
+### 14. DiscussionPromptSlideLayout.tsx ✅
 **Purpose**: Facilitate group discussions during training
 **Key Elements**:
 - Discussion topic
@@ -376,7 +423,7 @@ const professionalColors = {
 - groupInstructions: z.string().optional()
 ```
 
-### 15. 15_ResourcesContactsSlide.tsx ✅
+### 15. ResourcesContactsSlideLayout.tsx ✅
 **Purpose**: Provide reference materials and links
 **Key Elements**:
 - Resource links in 2-column grid
@@ -396,7 +443,7 @@ const professionalColors = {
 - helpdesk: z.string().optional()
 ```
 
-### 16. 16_ThankYouClosingSlide.tsx ✅
+### 16. ThankYouClosingSlideLayout.tsx ✅
 **Purpose**: Professional presentation closure
 **Key Elements**:
 - Thank you message
@@ -449,31 +496,28 @@ const Footer = () => (
 ## ✅ Implementation Checklist
 
 ### Phase 1: Foundation ✅
-- [x] Update settings.json with `ordered: true`
-- [x] Create 01_TitleSlide.tsx
-- [x] Create 02_TrainingObjectivesSlide.tsx
-- [x] Create 03_AgendaTimelineSlide.tsx
-- [x] Create 04_SectionHeaderSlide.tsx
+- [x] Create IntroSlideLayout.tsx with descriptive schema naming
+- [x] Create TrainingObjectivesSlideLayout.tsx
+- [x] Create AgendaTimelineSlideLayout.tsx
+- [x] Create SectionHeaderSlideLayout.tsx
 - [x] Updated all footers to AB4C standard
 
 ### Phase 2: Core Content ✅
-- [x] Create 05_KeyPointsWithIconsSlide.tsx
-- [x] Create 06_ProcessFlowSlide.tsx
-- [x] Create 07_GridLayoutSlide.tsx
-- [x] Create 08_BestPracticesCardsSlide.tsx
-- [x] Fixed slide ordering with numbered prefixes
+- [x] Create KeyPointsWithIconsSlideLayout.tsx
+- [x] Create ProcessFlowSlideLayout.tsx
+- [x] Create GridLayoutSlideLayout.tsx
+- [x] Create BestPracticesCardsSlideLayout.tsx
 
 ### Phase 3: Interactive ✅
-- [x] Create 11_CaseStudyScenarioSlide.tsx
-- [x] Create 09_QuizAssessmentSlide.tsx
-- [x] Create 14_DiscussionPromptSlide.tsx
-- [x] Create 12_HierarchicalFrameworkSlide.tsx
-- [x] Create 13_MatrixAssessmentSlide.tsx
+- [x] Create CaseStudyScenarioSlideLayout.tsx
+- [x] Create QuizAssessmentSlideLayout.tsx
+- [x] Create DiscussionPromptSlideLayout.tsx
+- [x] Create HierarchicalFrameworkSlideLayout.tsx
+- [x] Create MatrixAssessmentSlideLayout.tsx
 
 ### Phase 4: Closing ✅
-- [x] Create 10_KeyTakeawaysSlide.tsx
-- [x] Create 15_ResourcesContactsSlide.tsx
-- [x] Create 16_ThankYouClosingSlide.tsx
+- [x] Create KeyTakeawaysSlideLayout.tsx
+- [x] Create ThankYouClosingSlideLayout.tsx
 
 ### Phase 5: Final Testing ⬜
 - [ ] Test with sample prompts from prompts.csv
@@ -558,6 +602,64 @@ analyze-bold.svg → Use magnifying-glass-bold.svg
 refresh-bold.svg → No replacement
 ```
 
+## 🐛 Troubleshooting & Lessons Learned
+
+### Title Slide Not Generating Issue (RESOLVED)
+**Problem**: When `include_title_slide=True` was selected, the ab4c template was not generating a title/intro slide as the first slide.
+
+**Root Cause**: The IntroSlideLayout.tsx was using a generic schema naming pattern:
+```typescript
+// This was the problem:
+const Schema = z.object({...})
+export { Schema }
+```
+
+**Solution**: Changed to descriptive schema naming pattern used by all working templates:
+```typescript
+// Fixed version:
+const introSlideSchema = z.object({...})
+export const Schema = introSlideSchema
+```
+
+**Why It Worked**:
+1. The backend LLM system in `/servers/fastapi/utils/llm_calls/generate_presentation_structure.py` relies on schema metadata for layout identification
+2. Templates with descriptive schema names (gamma, general, modern) correctly identify intro slides
+3. Generic `Schema` constant doesn't provide enough context for the LLM to recognize slide purpose
+4. File ordering alone is insufficient when `ordered: false` or during layout selection
+
+**Key Lesson**: Always use descriptive schema names that reflect the slide's purpose. Never use generic `const Schema = z.object({...})` pattern.
+
+### Layout Variety Issues
+**Problem**: Template was generating repetitive/similar slide layouts instead of using the full variety of available layouts.
+
+**Investigation**:
+- Initially suspected schema naming (similar to title slide issue)
+- Attempted fixing all 14 layouts from generic to descriptive naming
+- Changes didn't improve variety - reverted
+
+**Actual Cause**: Layout selection prompt in `generate_presentation_structure.py` needs training-specific guidance.
+
+**Solution**: Users can add custom instructions to improve variety:
+```
+# Layout Selection Guidelines
+- NEVER use the same layout consecutively
+- Distribute layout types across the presentation
+- Alternate between conceptual slides (Key Points, Frameworks) and practical slides (Case Studies, Best Practices)
+```
+
+### General Template Intro Slide Optimization
+**Changes Made**:
+- Removed `presenterName` field (unnecessary for most use cases)
+- Removed `presentationDate` field (unnecessary for most use cases)
+- Simplified schema to focus on title, description, and image only
+- Improved clean, minimalist design
+
+**Benefits**:
+- Cleaner slide appearance
+- Less clutter in generated content
+- Better focus on presentation title and topic
+- Consistent with modern presentation design trends
+
 ## 🔄 Recent Updates (October 2025)
 
 ### Design Refinements
@@ -604,31 +706,31 @@ refresh-bold.svg → No replacement
 ## 🚀 Current Status
 
 **Started**: January 2025
-**Last Updated**: October 2025
-**Current Phase**: Design Refinement Complete
-**Completed Layouts**: 16/16 ✅
+**Last Updated**: October 9, 2025
+**Current Phase**: Production Ready with Critical Fixes
+**Completed Layouts**: 15/15 ✅
+**Critical Issues Resolved**: Schema naming for intro slide, title slide generation fix
 
-### ✅ All 16 Slides Completed
-1. 01_TitleSlide.tsx
-2. 02_TrainingObjectivesSlide.tsx
-3. 03_AgendaTimelineSlide.tsx
-4. 04_SectionHeaderSlide.tsx
-5. 05_KeyPointsWithIconsSlide.tsx
-6. 06_ProcessFlowSlide.tsx
-7. 07_GridLayoutSlide.tsx
-8. 08_BestPracticesCardsSlide.tsx
-9. 09_QuizAssessmentSlide.tsx
-10. 10_KeyTakeawaysSlide.tsx
-11. 11_CaseStudyScenarioSlide.tsx
-12. 12_HierarchicalFrameworkSlide.tsx
-13. 13_MatrixAssessmentSlide.tsx
-14. 14_DiscussionPromptSlide.tsx
-15. 15_ResourcesContactsSlide.tsx
-16. 16_ThankYouClosingSlide.tsx
+### ✅ All 15 Slides Completed
+1. IntroSlideLayout.tsx (✅ Fixed with descriptive schema)
+2. TrainingObjectivesSlideLayout.tsx
+3. AgendaTimelineSlideLayout.tsx
+4. SectionHeaderSlideLayout.tsx
+5. KeyPointsWithIconsSlideLayout.tsx
+6. ProcessFlowSlideLayout.tsx
+7. GridLayoutSlideLayout.tsx
+8. BestPracticesCardsSlideLayout.tsx
+9. QuizAssessmentSlideLayout.tsx
+10. KeyTakeawaysSlideLayout.tsx
+11. CaseStudyScenarioSlideLayout.tsx
+12. HierarchicalFrameworkSlideLayout.tsx
+13. MatrixAssessmentSlideLayout.tsx
+14. DiscussionPromptSlideLayout.tsx
+15. ThankYouClosingSlideLayout.tsx
 
 ### 🎉 Implementation Complete
-All 16 professional training template slides have been successfully created and refined with:
-- Sequential ordering (01_ to 16_ prefixes)
+All 15 professional training template slides have been successfully created and refined with:
+- Dynamic layout selection (LLM-based, `ordered: false`)
 - Consistent AB4C branding and footers
 - Icon integration on all slides
 - Zod schemas for AI content generation
@@ -636,6 +738,29 @@ All 16 professional training template slides have been successfully created and 
 - Optimized layouts with no scrolling issues
 - Clean, number-free designs where appropriate
 - Enhanced text visibility and spacing
+- **Descriptive schema naming for IntroSlideLayout (CRITICAL FIX)**
+- **Title slide generation working correctly**
+
+---
+
+## 📅 Documentation Update - October 9, 2025
+
+### Changes Made to Documentation
+**Files Verified**:
+- `/servers/nextjs/presentation-templates/ab4c/IntroSlideLayout.tsx` - ✅ Uses `introSlideSchema`
+- `/servers/nextjs/presentation-templates/ab4c/TrainingObjectivesSlideLayout.tsx` - Uses generic `Schema`
+- `/servers/nextjs/presentation-templates/ab4c/settings.json` - `"ordered": false`
+- `/servers/nextjs/presentation-templates/general/IntroSlideLayout.tsx` - ✅ Cleaned up
+
+**Documentation Corrections**:
+1. Removed references to numbered file prefixes (01_, 02_, etc.) - actual files don't have these
+2. Updated settings.json reference from `"ordered": true` to actual `"ordered": false"`
+3. Clarified that only IntroSlideLayout uses descriptive schema naming
+4. Updated all slide layout names to match actual filenames (removed number prefixes)
+5. Corrected count from 16 to 15 slides
+6. Added accurate current state for all components
+
+**Key Finding**: The critical fix applied was **only for IntroSlideLayout.tsx**. Other 14 layouts still use generic `const Schema` pattern, which is acceptable since only the intro/title slide needs special identification for the `include_title_slide=True` feature.
 
 ---
 
