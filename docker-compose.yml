@@ -42,7 +42,7 @@ services:
     container_name: presenton-production
     restart: unless-stopped
     ports:
-      - "5001:80"
+      - "172.17.0.1:5001:80"
     environment:
       - CAN_CHANGE_KEYS=${CAN_CHANGE_KEYS:-true}
       - LLM=${LLM}
