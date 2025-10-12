@@ -64,7 +64,7 @@ services:
       - DISABLE_THINKING=${DISABLE_THINKING:-false}
       - WEB_GROUNDING=${WEB_GROUNDING:-false}
       - DATABASE_URL=${DATABASE_URL:-postgresql://presenton_user:presenton_secure_password@postgres:5432/presenton}
-      - DISABLE_ANONYMOUS_TRACKING=${DISABLE_ANONYMOUS_TRACKING:-false}
+      - DISABLE_ANONYMOUS_TRACKING=${DISABLE_ANONYMOUS_TRACKING:-true}
     volumes:
       - ./app_data:/app_data
     depends_on:
