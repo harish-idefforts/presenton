@@ -20,9 +20,13 @@ import uuid
 
 class ImageGenerationService:
 
-    def __init__(self, output_directory: str):
-        self.output_directory = output_directory
-        self.image_gen_func = self.get_image_gen_func()
+    # def __init__(self, output_directory: str):
+    #     self.output_directory = output_directory
+    #     self.image_gen_func = self.get_image_gen_func()
+    
+    def __init__(self, permanent_storage_path: str, temp_dir: str):
+        self.permanent_storage_path = permanent_storage_path
+        self.temp_dir = temp_dir
 
     def get_image_gen_func(self):
         if is_pixabay_selected():
