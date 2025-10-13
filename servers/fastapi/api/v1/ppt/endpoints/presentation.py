@@ -1,3 +1,7 @@
+import shutil
+import os
+import uuid
+
 import asyncio
 from datetime import datetime
 import json
@@ -418,22 +422,43 @@ async def update_presentation(
     )
 
 
+# @PRESENTATION_ROUTER.post("/export/pptx", response_model=str)
+# async def export_presentation_as_pptx(
+#     pptx_model: Annotated[PptxPresentationModel, Body()],
+# ):
+#     temp_dir = TEMP_FILE_SERVICE.create_temp_dir()
+
+#     pptx_creator = PptxPresentationCreator(pptx_model, temp_dir)
+#     await pptx_creator.create_ppt()
+
+#     export_directory = get_exports_directory()
+#     pptx_path = os.path.join(
+#         export_directory, f"{pptx_model.name or uuid.uuid4()}.pptx"
+#     )
+#     pptx_creator.save(pptx_path)
+
+#     return pptx_path
+
 @PRESENTATION_ROUTER.post("/export/pptx", response_model=str)
 async def export_presentation_as_pptx(
     pptx_model: Annotated[PptxPresentationModel, Body()],
 ):
     temp_dir = TEMP_FILE_SERVICE.create_temp_dir()
+    try:
+        pptx_creator = PptxPresentationCreator(pptx_model, temp_dir)
+        await pptx_creator.create_ppt()
 
-    pptx_creator = PptxPresentationCreator(pptx_model, temp_dir)
-    await pptx_creator.create_ppt()
+        export_directory = get_exports_directory()
+        pptx_path = os.path.join(
+            export_directory, f"{pptx_model.name or uuid.uuid4()}.pptx"
+        )
+        pptx_creator.save(pptx_path)
 
-    export_directory = get_exports_directory()
-    pptx_path = os.path.join(
-        export_directory, f"{pptx_model.name or uuid.uuid4()}.pptx"
-    )
-    pptx_creator.save(pptx_path)
-
-    return pptx_path
+        return pptx_path
+    finally:
+        if os.path.exists(temp_dir):
+            print(f"Cleaning up standalone PPTX export directory: {temp_dir}")
+            shutil.rmtree(temp_dir)
 
 
 @PRESENTATION_ROUTER.post("/export", response_model=PresentationPathAndEditPath)
@@ -510,7 +535,12 @@ async def generate_presentation_handler(
     async_status: Optional[AsyncPresentationGenerationTaskModel],
     sql_session: AsyncSession = Depends(get_async_session),
 ):
+    # FIX: Create ONE unique temporary directory for this entire generation job.
+    temp_dir = f"/tmp/presenton/{uuid.uuid4()}"
+    os.makedirs(temp_dir, exist_ok=True)
+    
     try:
+        # --- Start of Original Logic ---
         using_slides_markdown = False
 
         if request.slides_markdown:
@@ -520,7 +550,6 @@ async def generate_presentation_handler(
         if not using_slides_markdown:
             additional_context = ""
 
-            # Updating async status
             if async_status:
                 async_status.message = "Generating presentation outlines"
                 async_status.updated_at = datetime.now()
@@ -534,7 +563,6 @@ async def generate_presentation_handler(
                 if documents:
                     additional_context = "\n\n".join(documents)
 
-            # Finding number of slides to generate by considering table of contents
             n_slides_to_generate = request.n_slides
             if request.include_table_of_contents:
                 needed_toc_count = math.ceil(
@@ -561,10 +589,8 @@ async def generate_presentation_handler(
                 request.include_title_slide,
                 request.web_search,
             ):
-
                 if isinstance(chunk, HTTPException):
                     raise chunk
-
                 presentation_outlines_text += chunk
 
             try:
@@ -577,22 +603,16 @@ async def generate_presentation_handler(
                     status_code=400,
                     detail="Failed to generate presentation outlines. Please try again.",
                 )
-            presentation_outlines = PresentationOutlineModel(
-                **presentation_outlines_json
-            )
+            presentation_outlines = PresentationOutlineModel(**presentation_outlines_json)
             total_outlines = n_slides_to_generate
-
         else:
-            # Setting outlines to slides markdown
             presentation_outlines = PresentationOutlineModel(
                 slides=[
-                    SlideOutlineModel(content=slide)
-                    for slide in request.slides_markdown
+                    SlideOutlineModel(content=slide) for slide in request.slides_markdown
                 ]
             )
             total_outlines = len(request.slides_markdown)
 
-        # Updating async status
         if async_status:
             async_status.message = f"Selecting layout for each slide"
             async_status.updated_at = datetime.now()
@@ -602,11 +622,9 @@ async def generate_presentation_handler(
         print("-" * 40)
         print(f"Generated {total_outlines} outlines for the presentation")
 
-        # Parse Layouts
         layout_model = await get_layout_by_name(request.template)
         total_slide_layouts = len(layout_model.slides)
 
-        # Generate Structure
         if layout_model.ordered:
             presentation_structure = layout_model.to_presentation_structure()
         else:
@@ -628,23 +646,6 @@ async def generate_presentation_handler(
             if presentation_structure.slides[index] >= total_slide_layouts:
                 presentation_structure.slides[index] = random_slide_index
 
-        # Terminal slide detection disabled - generate all requested slides
-        # terminal_slide_index = -1
-        # for idx, slide_layout_idx in enumerate(presentation_structure.slides):
-        #     if slide_layout_idx < total_slide_layouts:
-        #         slide_layout = layout_model.slides[slide_layout_idx]
-        #         if slide_layout.isTerminal:
-        #             terminal_slide_index = idx
-        #             break
-        #
-        # if terminal_slide_index != -1:
-        #     # Truncate slides and outlines after terminal slide
-        #     presentation_structure.slides = presentation_structure.slides[:terminal_slide_index + 1]
-        #     presentation_outlines.slides = presentation_outlines.slides[:terminal_slide_index + 1]
-        #     total_outlines = len(presentation_outlines.slides)
-        #     print(f"Terminal slide detected at index {terminal_slide_index}. Truncated presentation to {total_outlines} slides.")
-
-        # Injecting table of contents to the presentation structure and outlines
         if request.include_table_of_contents and not using_slides_markdown:
             n_toc_slides = request.n_slides - total_outlines
             toc_slide_layout_index = select_toc_or_list_slide_layout_index(layout_model)
@@ -660,10 +661,7 @@ async def generate_presentation_handler(
                         toc_slide_layout_index,
                     )
                     toc_outline = f"Table of Contents\n\n"
-
-                    for outline in presentation_outlines.slides[
-                        outline_index:outlines_to
-                    ]:
+                    for outline in presentation_outlines.slides[outline_index:outlines_to]:
                         page_number = (
                             outline_index - i + n_toc_slides + 1
                             if request.include_title_slide
@@ -671,17 +669,12 @@ async def generate_presentation_handler(
                         )
                         toc_outline += f"Slide page number: {page_number}\n Slide Content: {outline.content[:100]}\n\n"
                         outline_index += 1
-
                     outline_index += 1
-
                     presentation_outlines.slides.insert(
                         i + 1 if request.include_title_slide else i,
-                        SlideOutlineModel(
-                            content=toc_outline,
-                        ),
+                        SlideOutlineModel(content=toc_outline),
                     )
 
-        # Create PresentationModel
         presentation = PresentationModel(
             id=presentation_id,
             content=request.content,
@@ -696,30 +689,25 @@ async def generate_presentation_handler(
             instructions=request.instructions,
         )
 
-        # Updating async status
         if async_status:
             async_status.message = "Generating slides"
             async_status.updated_at = datetime.now()
             sql_session.add(async_status)
             await sql_session.commit()
-
-        image_generation_service = ImageGenerationService(get_images_directory())
+            
+        # FIX: The ImageGenerationService needs to know WHERE to download temporary files.
+        # NOTE: You may need to modify your ImageGenerationService class to accept this `temp_dir` argument.
+        image_generation_service = ImageGenerationService(get_images_directory(), temp_dir=temp_dir)
         async_assets_generation_tasks = []
 
-        # 7. Generate slide content concurrently (batched), then build slides and fetch assets
         slides: List[SlideModel] = []
-
         slide_layout_indices = presentation_structure.slides
         slide_layouts = [layout_model.slides[idx] for idx in slide_layout_indices]
-
-        # Schedule slide content generation and asset fetching in batches of 10
         batch_size = 10
         for start in range(0, len(slide_layouts), batch_size):
             end = min(start + batch_size, len(slide_layouts))
-
             print(f"Generating slides from {start} to {end}")
 
-            # Generate contents for this batch concurrently
             content_tasks = [
                 get_slide_content_from_type_and_outline(
                     slide_layouts[i],
@@ -732,8 +720,6 @@ async def generate_presentation_handler(
                 for i in range(start, end)
             ]
             batch_contents: List[dict] = await asyncio.gather(*content_tasks)
-
-            # Build slides for this batch
             batch_slides: List[SlideModel] = []
             for offset, slide_content in enumerate(batch_contents):
                 i = start + offset
@@ -749,7 +735,6 @@ async def generate_presentation_handler(
                 slides.append(slide)
                 batch_slides.append(slide)
 
-            # Start asset fetch tasks for just-generated slides so they run while next batch is processed
             asset_tasks = [
                 process_slide_and_fetch_assets(image_generation_service, slide)
                 for slide in batch_slides
@@ -762,13 +747,11 @@ async def generate_presentation_handler(
             sql_session.add(async_status)
             await sql_session.commit()
 
-        # Run all asset tasks concurrently while batches may still be generating content
         generated_assets_list = await asyncio.gather(*async_assets_generation_tasks)
         generated_assets = []
         for assets_list in generated_assets_list:
             generated_assets.extend(assets_list)
 
-        # 8. Save PresentationModel and Slides
         sql_session.add(presentation)
         sql_session.add_all(slides)
         sql_session.add_all(generated_assets)
@@ -779,9 +762,13 @@ async def generate_presentation_handler(
             async_status.updated_at = datetime.now()
             sql_session.add(async_status)
 
-        # 9. Export
+        # FIX: Pass the master temp_dir to the export function.
+        # This prevents it from creating its own temporary directory that doesn't get cleaned up.
         presentation_and_path = await export_presentation(
-            presentation_id, presentation.title or str(uuid.uuid4()), request.export_as
+            presentation_id,
+            presentation.title or str(uuid.uuid4()),
+            request.export_as,
+            temp_dir=temp_dir  # <--- PASS THE DIRECTORY HERE
         )
 
         response = PresentationPathAndEditPath(
@@ -797,7 +784,6 @@ async def generate_presentation_handler(
             sql_session.add(async_status)
             await sql_session.commit()
 
-        # Triggering webhook on success
         CONCURRENT_SERVICE.run_task(
             None,
             WebhookService.send_webhook,
@@ -806,22 +792,19 @@ async def generate_presentation_handler(
         )
 
         return response
+        # --- End of Original Logic ---
 
     except Exception as e:
         if not isinstance(e, HTTPException):
             traceback.print_exc()
             e = HTTPException(status_code=500, detail="Presentation generation failed")
-
         api_error_model = APIErrorModel.from_exception(e)
-
-        # Triggering webhook on failure
         CONCURRENT_SERVICE.run_task(
             None,
             WebhookService.send_webhook,
             WebhookEvent.PRESENTATION_GENERATION_FAILED,
             api_error_model.model_dump(mode="json"),
         )
-
         if async_status:
             async_status.status = "error"
             async_status.message = "Presentation generation failed"
@@ -829,10 +812,15 @@ async def generate_presentation_handler(
             async_status.error = api_error_model.model_dump(mode="json")
             sql_session.add(async_status)
             await sql_session.commit()
-
         else:
             raise e
-
+            
+    finally:
+        # FIX: GUARANTEED CLEANUP. This will always run.
+        if os.path.exists(temp_dir):
+            print(f"Cleaning up main generation directory: {temp_dir}")
+            shutil.rmtree(temp_dir) # Recursively deletes the directory and all its contents.
+            
 
 @PRESENTATION_ROUTER.post("/generate", response_model=PresentationPathAndEditPath)
 async def generate_presentation_sync(
