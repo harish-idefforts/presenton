@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body { background-color: #f8f9fa; }
+      .container-fluid { max-width: 1200px; margin-top: 20px; }
+      .form-group { margin-bottom: 0.75rem; } 
+      .card-header { font-weight: bold; padding: 0.5rem 1rem; }
+      .card-body { padding: 1rem; }
+      #folder-list { min-height: 100px; max-height: 180px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; border-radius: 5px; }
+      .folder-item { display: block; padding: 6px 8px; border-bottom: 1px solid #eee; text-decoration: none; color: #007bff; cursor: pointer; font-size: 0.9em; }
+      .folder-item:hover { background-color: #e9ecef; }
+      .breadcrumb { padding: 0.5rem 0.75rem; }
+      #status { margin-top: 20px; font-weight: bold; }
+      .spinner-border { vertical-align: middle; margin-right: 10px; }
+      .workflow-item { border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 10px; background-color: #fff; }
+      .workflow-details { font-size: 0.85em; }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="text-center mb-4">
+        <h3>Save Emails and Attachments</h3>
+      </div>
+
+      <div class="row">
+        <!-- ===== LEFT COLUMN: CONFIGURATION ===== -->
+        <div class="col-md-6">
+          <h5 class="mb-2">Step 1: Configure a Workflow</h5>
+          
+          <div class="card mb-2">
+             <div class="card-header">Source & Destination</div>
+             <div class="card-body">
+                <div class="form-group">
+                  <label for="label-select" class="mb-1 small">Gmail Label:</label>
+                  <select id="label-select" class="form-control form-control-sm"><option>Loading...</option></select>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label class="mb-1 small">Destination Folder:</label>
+                  <nav aria-label="breadcrumb"><ol class="breadcrumb" id="folder-breadcrumb"></ol></nav>
+                  <input type="text" id="folder-search" class="form-control form-control-sm mb-2" placeholder="Filter folders in current view...">
+                  <div id="folder-list"><div class="text-center"><div class="spinner-border spinner-border-sm"></div></div></div>
+                  <p class="mt-2 mb-0" id="selected-folder-info" style="font-weight: bold; color: #28a745;"></p>
+                </div>
+                <hr>
+                <div class="form-group">
+                   <label class="mb-1 small">Or Paste Folder URL / ID:</label>
+                   <div class="input-group">
+                      <input type="text" id="folder-id-input" class="form-control form-control-sm" placeholder="Paste full URL or just the ID">
+                      <div class="input-group-append">
+                         <button class="btn btn-outline-secondary btn-sm" type="button" id="use-folder-id-btn">Use</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+          <div class="card mb-2">
+            <div class="card-header">Log and Format</div>
+            <div class="card-body">
+                <div class="form-group">
+                  <label for="workflow-select" class="mb-1 small">Workflow Log Sheet:</label>
+                  <select id="workflow-select" class="form-control form-control-sm"></select>
+                </div>
+                <div class="form-group mb-0">
+                  <label for="format-select" class="mb-1 small">Conversion Format:</label>
+                  <select id="format-select" class="form-control form-control-sm">
+                    <option value="pdf" selected>PDF (Document)</option>
+                    <option value="eml">EML (Original Raw Email)</option>
+                  </select>
+                </div>
+            </div>
+          </div>
+          <button id="convert-btn" class="btn btn-success btn-block mb-3">Run Manually Now</button>
+        </div>
+
+        <!-- ===== RIGHT COLUMN: AUTOMATION ===== -->
+        <div class="col-md-6">
+          <h5 class="mb-2">Step 2: Automate This Workflow</h5>
+          <div class="card mb-2">
+            <div class="card-header">Add a New Automated Workflow</div>
+            <div class="card-body">
+                <div class="form-group">
+                  <label for="schedule-select" class="mb-1 small">Schedule Interval:</label>
+                  <select id="schedule-select" class="form-control form-control-sm">
+                    <option value="daily" selected>Every Day</option>
+                    <option value="every6hours">Every 6 Hours</option>
+                    <option value="everyhour">Every Hour</option>
+                    <option value="weekly">Every Week</option>
+                    <option value="everyminute">Every Minute (Testing)</option>
+                  </select>
+                </div>
+                <button id="schedule-btn" class="btn btn-primary btn-block">Save as New Automated Workflow</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Currently Scheduled Workflows</div>
+            <div class="card-body" style="background-color: #f0f2f5;">
+                <div id="workflow-list"><div class="text-center"><div class="spinner-border spinner-border-sm"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="status" class="alert" role="alert" style="display:none; margin-top: 15px;"></div>
+    </div>
+
+    <script>
+      let selectedFolderId = null;
+
+      document.addEventListener("DOMContentLoaded", function() {
+        google.script.run.withSuccessHandler(populateSimpleDropdown('label-select')).getGmailLabels();
+        google.script.run.withSuccessHandler(populateWorkflowDropdown).getWorkflowTabs();
+        google.script.run.withSuccessHandler(renderWorkflows).getSavedWorkflows();
+        navigateToFolder("root");
+
+        document.getElementById('folder-search').addEventListener('keyup', function() {
+          document.querySelectorAll('#folder-list .folder-item').forEach(item => {
+            item.style.display = item.textContent.toLowerCase().includes(this.value.toLowerCase()) ? 'block' : 'none';
+          });
+        });
+
+        document.getElementById('use-folder-id-btn').addEventListener('click', function() {
+          const input = document.getElementById('folder-id-input').value;
+          if (!input) return;
+          const match = input.match(/([a-zA-Z0-9_-]{25,})/);
+          if (match && match[1]) {
+             navigateToFolder(match[1]);
+          } else {
+             alert('Could not find a valid Google Drive Folder ID in the text.');
+          }
+        });
+      });
+      
+      function showStatus(message, type) { 
+        const statusDiv = document.getElementById('status'); 
+        statusDiv.style.display = 'block'; 
+        statusDiv.className = 'alert alert-' + type; 
+        statusDiv.innerHTML = (type === 'info') ? `<div class="spinner-border spinner-border-sm"></div> ${message}` : message;
+        statusDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function renderWorkflows(workflows) {
+        const listDiv = document.getElementById('workflow-list');
+        listDiv.innerHTML = !workflows || workflows.length === 0 ? '<p class="text-center text-muted small">No automated workflows saved yet.</p>' : '';
+        if (!workflows || workflows.length === 0) return;
+
+        workflows.forEach(wf => {
+          const item = document.createElement('div');
+          item.className = 'workflow-item';
+          item.innerHTML = `<h6>Label: ${wf.labelName}</h6><div class="workflow-details"><strong>Destination:</strong> ${wf.folderPath}<br><strong>Log Sheet:</strong> ${wf.workflowName} | <strong>Format:</strong> ${wf.format.toUpperCase()} | <strong>Schedule:</strong> ${wf.interval}</div><button class="btn btn-outline-danger btn-sm mt-2" data-trigger-id="${wf.triggerId}">Delete</button>`;
+          listDiv.appendChild(item);
+        });
+
+        listDiv.querySelectorAll('.btn-outline-danger').forEach(button => {
+          button.addEventListener('click', function() {
+            const triggerId = this.dataset.triggerId;
+            if (confirm('Are you sure you want to delete this workflow?')) {
+              showStatus('Deleting workflow...', 'info');
+              google.script.run.withSuccessHandler(handleWorkflowUpdate).deleteWorkflow(triggerId);
+            }
+          });
+        });
+      }
+
+      function handleWorkflowUpdate(result) {
+        showStatus(result.message, !result.success ? 'danger' : 'success');
+        google.script.run.withSuccessHandler(renderWorkflows).getSavedWorkflows();
+        setButtonsDisabled(false);
+      }
+
+      function getSettings() {
+        return {
+          labelName: document.getElementById('label-select').value,
+          workflowName: document.getElementById('workflow-select').value,
+          format: document.getElementById('format-select').value,
+          folderId: selectedFolderId
+        };
+      }
+
+      document.getElementById('schedule-btn').addEventListener('click', function() {
+        const settings = getSettings();
+        settings.interval = document.getElementById('schedule-select').value;
+        if (!settings.folderId || !settings.workflowName) { alert("Please select a destination folder and workflow log."); return; }
+        showStatus('Saving new workflow...', 'info');
+        setButtonsDisabled(true);
+        google.script.run.withSuccessHandler(handleWorkflowUpdate).saveNewWorkflow(settings);
+      });
+
+      document.getElementById('convert-btn').addEventListener('click', function() {
+        const settings = getSettings();
+        if (!settings.folderId || !settings.workflowName) { alert("Please select a destination folder and workflow log."); return; }
+        showStatus('Processing... This may take a few moments.', 'info');
+        setButtonsDisabled(true);
+        google.script.run.withSuccessHandler(handleManualRunResult).processEmails(settings.labelName, settings.folderId, settings.workflowName, settings.format);
+      });
+
+      function handleManualRunResult(result) {
+        showStatus(result, result.startsWith('Error') || result.startsWith('An error') ? 'danger' : 'success');
+        setButtonsDisabled(false);
+      }
+
+      function setButtonsDisabled(disabled) {
+        document.getElementById('convert-btn').disabled = disabled;
+        document.getElementById('schedule-btn').disabled = disabled;
+      }
+
+      function navigateToFolder(folderId) {
+        selectedFolderId = folderId;
+        document.getElementById('folder-list').innerHTML = '<div class="text-center"><div class="spinner-border spinner-border-sm"></div></div>';
+        document.getElementById('folder-search').value = '';
+        document.getElementById('folder-id-input').value = '';
+        google.script.run.withSuccessHandler(renderFolderView).getSubFolders(folderId);
+      }
+
+      function renderFolderView(data) {
+        const folderListDiv = document.getElementById('folder-list');
+        document.getElementById('selected-folder-info').textContent = 'Selected: ' + data.fullPath;
+        folderListDiv.innerHTML = data.folders.length === 0 ? '<div class="text-center text-muted small">No subfolders found.</div>' : '';
+        data.folders.forEach(folder => {
+          const item = document.createElement('a');
+          item.className = 'folder-item';
+          item.textContent = folder.name;
+          item.dataset.folderId = folder.id;
+          folderListDiv.appendChild(item);
+        });
+        const breadcrumbList = document.getElementById('folder-breadcrumb');
+        breadcrumbList.innerHTML = '';
+        data.breadcrumb.forEach((crumb, index) => {
+          const li = document.createElement('li');
+          li.className = 'breadcrumb-item';
+          li.style.fontSize = '0.8em';
+          if (index === data.breadcrumb.length - 1) {
+            li.classList.add('active');
+            li.textContent = crumb.name;
+          } else {
+            const a = document.createElement('a'); a.textContent = crumb.name; a.dataset.folderId = crumb.id; li.appendChild(a);
+          }
+          breadcrumbList.appendChild(li);
+        });
+      }
+
+      document.getElementById('folder-list').addEventListener('click', e => e.target.classList.contains('folder-item') && navigateToFolder(e.target.dataset.folderId));
+      document.getElementById('folder-breadcrumb').addEventListener('click', e => e.target.tagName === 'A' && navigateToFolder(e.target.dataset.folderId));
+      function populateSimpleDropdown(selectId) { return items => { const s=document.getElementById(selectId); s.innerHTML=''; items.forEach(i=>{const o=document.createElement('option');o.value=o.textContent=i;s.appendChild(o)})}}
+      function populateWorkflowDropdown(tabs) { const s=document.getElementById('workflow-select'); s.innerHTML='<option value="" disabled selected>Select...</option>'; if(tabs&&!tabs[0].startsWith("Error:"))tabs.forEach(t=>{const o=document.createElement('option');o.value=o.textContent=t;s.appendChild(o)})};
+    </script>
+  </body>
+</html>

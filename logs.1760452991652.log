@@ -1,0 +1,1001 @@
+2025-10-13T17:19:05.980625033Z [err]  2025-10-13 17:19:05,965 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:05.998196493Z [err]  2025-10-13 17:19:05,992 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:06.017445091Z [err]  2025-10-13 17:19:06,007 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:06.036548625Z [err]  2025-10-13 17:19:06,029 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:06.036558868Z [err]  2025-10-13 17:19:06,031 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:06.097679291Z [err]  2025-10-13 17:19:06,095 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.171283170Z [err]  2025-10-13 17:19:10,165 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.180199534Z [err]  2025-10-13 17:19:10,174 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.192881446Z [err]  2025-10-13 17:19:10,191 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.275395980Z [err]  2025-10-13 17:19:10,258 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.313153777Z [err]  2025-10-13 17:19:10,303 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.331599784Z [err]  2025-10-13 17:19:10,328 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.402853989Z [err]  2025-10-13 17:19:10,401 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.471993727Z [err]  2025-10-13 17:19:10,461 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.575565436Z [err]  2025-10-13 17:19:10,560 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:10.583057067Z [err]  2025-10-13 17:19:10,577 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.204157298Z [err]  2025-10-13 17:19:15,201 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.470269525Z [err]  2025-10-13 17:19:15,358 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.470282181Z [err]  2025-10-13 17:19:15,364 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.470403511Z [err]  2025-10-13 17:19:15,457 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.508495326Z [err]  2025-10-13 17:19:15,496 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.508502539Z [err]  2025-10-13 17:19:15,501 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.563795039Z [err]  2025-10-13 17:19:15,539 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.563799189Z [err]  2025-10-13 17:19:15,545 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:15.602239780Z [err]  2025-10-13 17:19:15,600 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:19:22.189950223Z [err]  2025-10-13 17:19:18.742 UTC [76] LOG:  checkpoint starting: time
+2025-10-13T17:19:23.282427561Z [err]  2025-10-13 17:19:23,278 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:19:23.425533621Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:19:23.425541182Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:19:23.425546208Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:19:23.425551442Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:19:23.425556004Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:19:23.425565182Z [inf]  Request - Generating Image for diverse group of business professionals collaborating in a modern office
+2025-10-13T17:19:23.425570128Z [inf]  Request - Generating Image for geometric network patterns
+2025-10-13T17:19:23.425574622Z [inf]  Request - Generating Image for diverse business people collaborating
+2025-10-13T17:19:23.425578755Z [inf]  Request - Generating Image for Strategic business partners shaking hands, synergy
+2025-10-13T17:19:23.425583174Z [inf]  Request - Generating Image for Diverse business people shaking hands.
+2025-10-13T17:19:23.425588231Z [inf]  Request - Generating Image for abstract pattern with interconnected nodes
+2025-10-13T17:19:23.425592486Z [inf]  Request - Generating Image for unique value proposition, competitive advantage
+2025-10-13T17:19:23.425596870Z [inf]  Request - Generating Image for Strategic partnership handshake
+2025-10-13T17:19:23.425601128Z [inf]  Request - Generating Image for Charts showing growth and success metrics
+2025-10-13T17:19:23.425605416Z [inf]  Request - Generating Image for Abstract geometric pattern with muted colors
+2025-10-13T17:19:23.425609932Z [inf]  Request - Generating Image for diverse hands working together business
+2025-10-13T17:19:23.425621053Z [inf]  Request - Generating Image for Synergy emerging from integrated processes
+2025-10-13T17:19:23.425625518Z [inf]  Request - Generating Image for Magnifying glass over business metrics
+2025-10-13T17:19:23.425629821Z [inf]  Request - Generating Image for geometric abstract partnership network
+2025-10-13T17:19:23.425634067Z [inf]  Request - Generating Image for Target audience perception
+2025-10-13T17:19:23.425638000Z [inf]  Request - Generating Image for diverse individuals collaborating, interlocking gears
+2025-10-13T17:19:23.425641634Z [inf]  Request - Generating Image for Target market awareness
+2025-10-13T17:19:23.425645886Z [inf]  Request - Generating Image for abstract pattern with interconnected lines and nodes
+2025-10-13T17:19:23.425656765Z [inf]  Request - Generating Image for Two hands shaking over a lightbulb
+2025-10-13T17:19:23.425661297Z [inf]  Request - Generating Image for diverse team collaborating on innovation
+2025-10-13T17:19:23.425666716Z [inf]  Request - Generating Image for Innovation metrics dashboard with charts
+2025-10-13T17:19:23.425670834Z [inf]  Request - Generating Image for interconnected network lines abstract
+2025-10-13T17:19:23.425675219Z [inf]  Request - Generating Image for Growth through partnerships
+2025-10-13T17:19:23.425679468Z [inf]  Request - Generating Image for interconnected gears multiplying growth
+2025-10-13T17:19:23.425683481Z [inf]  Request - Generating Image for growing bar chart graph
+2025-10-13T17:19:23.425687589Z [inf]  Request - Generating Image for diverse team collaboration
+2025-10-13T17:19:23.425691493Z [inf]  Request - Generating Image for futuristic partnership network with digital connections
+2025-10-13T17:19:23.425698311Z [inf]  Request - Generating Image for AI robot hand shaking human hand
+2025-10-13T17:19:23.425702330Z [inf]  Request - Generating Image for complex network collaboration
+2025-10-13T17:19:23.425707044Z [inf]  Request - Generating Image for Diverse hands collaborating on a sustainable project
+2025-10-13T17:19:23.425711289Z [inf]  Request - Generating Image for Cloud computing infrastructure with interconnected nodes
+2025-10-13T17:19:23.425715380Z [inf]  INFO:     127.0.0.1:60814 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:19:23.460059174Z [inf]  INFO:     127.0.0.1:60828 - "GET /api/v1/ppt/presentation/897ff9d3-435b-402a-b0cb-2490bf57e2be HTTP/1.0" 200 OK
+2025-10-13T17:19:23.570778435Z [inf]  INFO:     127.0.0.1:60834 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:19:31.752593416Z [err]  2025-10-13 17:19:31.752 UTC [76] LOG:  checkpoint complete: wrote 130 buffers (0.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=12.950 s, sync=0.028 s, total=13.010 s; sync files=13, longest=0.016 s, average=0.003 s; distance=798 kB, estimate=1126 kB; lsn=0/D009280, redo lsn=0/CF9F718
+2025-10-13T17:19:43.571769196Z [inf]  Starting download of 81 files to /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172
+2025-10-13T17:19:43.571774760Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/gcfa79ec5886cbce00032e608c7a6f1e7612bd90deb766c8dbc2f53c1f079ac25aa08adcdce53d41820319c6b3fac5a9d27193a864bf0cf3e2c0d4365c776df56_1280.jpg
+2025-10-13T17:19:43.571784152Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g4357e9a413e6fa1e9da6be931f2648b758bdd8e5c34d1ed773ec9ff54fae8b30c1f9a28759003b0ec7c9113471dd6a6cadfb51a0da507490363c050e02c50697_1280.png
+2025-10-13T17:19:43.571789139Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g143b856a75b5031a5e36e2181d83bfd90f1218c18a8881966233e1ff1d5d22ed90fe8fed9406acecce5d5d5d09b3a44e94bbcf9d26c6b00371cdaaf629a8ef81_1280.jpg
+2025-10-13T17:19:43.571793614Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g7d50c7547596c4bac898cf8e58fc2312d4b7a086b60ddedfcbc21a248fc8352345ebd263aa2962086bc2ad07f41809b3b729fd93fb779270bf81ed8374dd3d67_1280.jpg
+2025-10-13T17:19:43.571797704Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/gcc86ebbf89eb7dac7eda7d73adc94f66461fe43256dfe2db68fe756a2f42783700e7243a1e553de6b72b6251264651fb9538069ba322afb95e1890af9f6d182e_1280.jpg
+2025-10-13T17:19:43.571802777Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571807398Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571812449Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571817357Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571822147Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571974344Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571976443Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571978243Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g10d71cb97d7d28511059c805062417849c8eff8625bb783bb0191c656d45ee148238655d91fd354cb9d0fa78e306749b1a8babafc99a41a90118b5373c43f023_1280.jpg
+2025-10-13T17:19:43.571985952Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571986151Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g582cdcdf942470b317e01b5a9ea47312717c5a87f13fab25a43247d5e52c70820e58c8e8aaafaf148343b54d8747b2972e8d564b147daa50bfd18443706b7024_1280.jpg
+2025-10-13T17:19:43.571986514Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571989404Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571995106Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.571995727Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g84259f1764f3cc8043232ea04c808bf83ed79946eec26e3f57b7a167844c49a2c98395a6aa9544f5b0aad28a941dc8c12ddf2d238bdc3bd4439704a70d31f74a_1280.jpg
+2025-10-13T17:19:43.571999505Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572001297Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g1ac07f12a7733f248e7a2265ee846ca76c1b75033b4dd336095f8f7cf30fe696b0b7adb8f7615948962c65ad4fd04f209d127b02c4231566a754c8f92fd04916_1280.jpg
+2025-10-13T17:19:43.572003886Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g6956fe83efc0bf102f5f928f03e83a334ac102e3e240607f266a8cfebb3a7419ca97f90174e1f1194fad081d883b131ebeee4f42d4ee25ae5e3571f8a40dac22_1280.jpg
+2025-10-13T17:19:43.572010646Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572012573Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572012629Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g104019a757e0172354718c25c994bc24cf4143184d4ec334819688f40c201df21ad4f66192e09140d4350477bd76ce1d47ec5a9768362e643a3c1550c29fe370_1280.jpg
+2025-10-13T17:19:43.572026966Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572030892Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g0176b67458fe553a8889a3fa8b9a72237a05aa67e217005d4e209e7dc5523ed2b50a7e21fbf1c32312ee3c471aee80bb32bb7d123471481f812751093fba589c_1280.jpg
+2025-10-13T17:19:43.572039893Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572043560Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g6d92c633aa2897dcaf122b284e68ddd473a7e8895a5bc4f890f8d5dd703e7b71b280f96c683f01d2de207ad88357d0564faed4b8cc18e8acea31bcfb162dd291_1280.jpg
+2025-10-13T17:19:43.572053191Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g9589e1396b40488b3be0c4f6e8dac25b54b5a36824c8fa6a3f2eba7b20b70e2137cddc68cfd65eddf989fe5e118b6fdc05566e8fc5a8d2122299032b305a0e66_1280.jpg
+2025-10-13T17:19:43.572053585Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572063823Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572460453Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g8ba0dabc66a20f603a70f8004a30baecf63c734c770f7cf51ee7c43a8ff446165f35658debf82b4cd493bc3c4f9bf4c1a0d086dfda6654b285c65c8b5b144880_1280.jpg
+2025-10-13T17:19:43.572467662Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/gc7317ea46114cc8a4e8727ea376ffc73a30f1751688779c63e70a1fa2bbd4bbf9d6fd51507d3b07d06c03e94718f56c603e6f1373fbc8e82de1a72eeb7e98160_1280.jpg
+2025-10-13T17:19:43.572473864Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572479953Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572486460Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572494061Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g8890d632471af70a5f4548f6a4fcfb971412cf19434a71b8065ffdfed94ddfa530d32112634cf8fb41a8ae35cae7534f5c8421446b2a3bf65d1c4df42bd8e308_1280.jpg
+2025-10-13T17:19:43.572502281Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g388c138ccb70e51b40d4e5e6e2a3cdb517fd98063c105e0d117050177efb197aad8662cba02b50b17b089ad4056c2303be91a1b8b9fc8fcc1405cc5838013660_1280.jpg
+2025-10-13T17:19:43.572508373Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g04226533587212638465f60426e71821557f674e1aafbfca27c8cf11a4fd5e9bf599e72babd27a45df93820ab6a12947b457c102f09fec0d49af4048bd066729_1280.jpg
+2025-10-13T17:19:43.572514758Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ge43b8f81a81070cd6729a1513eda0da08a3e3fa74937bc933f115b84307ec6e2ba62435461472ab602feea7971541ab06d5a8c16b975893b236fe58b90096b11_1280.jpg
+2025-10-13T17:19:43.572519588Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g9156c699f66b7146720970e9eeef4c4b4f0074aa6fe9fbea9bd76a48160622f93be3b182b270e93fc05278e8e428129cf81a39a1e7247e2934ef1738522ae255_1280.jpg
+2025-10-13T17:19:43.572524937Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572530582Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572535657Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572541735Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572547209Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572551906Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572557236Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g6f88d8e94cb6540f42c774fd6ef935611a47fcd1463fccf5f49c0b5d3bb0d295b9dc063160af92c4e3bb37c58603a6b17ea0c47d39308b207156db4af708f212_1280.jpg
+2025-10-13T17:19:43.572562767Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g82b8a5707d6a1c87f3f290a8d02276d8c0fc4592b7d09fa768245f299e6fe343fa59e3d022d431574577c26ef2352b1fc90aecbf025478b26a1697a995e1d4c2_1280.jpg
+2025-10-13T17:19:43.572568029Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g1e60090f0b968299fc9d4346db64d5fc57e071e7f80791db77349eb0575b863340765ff27967ee95162436d76fd3ef8260330252bc121f8187aeef71c8ec28c9_1280.jpg
+2025-10-13T17:19:43.572573078Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:19:43.572580001Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564127287Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564133074Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564137369Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564142015Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564146309Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564150260Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g65da9d5932646aaaee5997a33b2de6d2a8929035494ed344b2e8c48c0e500f72c10cfd6da745a9785ddd9a34c7cd2cafab5cc4e980bc5f99a1e67757918404a7_1280.jpg
+2025-10-13T17:20:13.564154247Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g8484b678c33f7838075314e02c246f64db6933f55178cab9f4ae3d7a3d7e8fbe4f9d7d88a170eeeecfe55eb20f63bbd3a228a6b85de6b2f735c5effeeeb050f3_1280.jpg
+2025-10-13T17:20:13.564158234Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ge6ed89e1956a7ce079b7fcc06a99df061fe4d29f3e654d496fdd48298f6a952cd25eeae727d39101662b0b71729f08c94b767935e806f7a2c93f2c8cde665564_1280.jpg
+2025-10-13T17:20:13.564161972Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564165969Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564170092Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564173813Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564178132Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564476255Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564483014Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564488013Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564494164Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564502363Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g5873b0b99e9651ae5afb2190296d68cf02d378675f4880c5efd60b6e742f323db589a26e51f73fd5490dc7d366ef7d636f75c47279435f76071da9290f9dfbab_1280.png
+2025-10-13T17:20:13.564519131Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g2629336bd6fe1e7c2ae61b5072e35402bd5e7b29376db296c79440ca7c97ae4a9dc751f76e7a58ace414fad9b67471ee0a9798068cbaa51e2bbf71821622ab71_1280.jpg
+2025-10-13T17:20:13.564524465Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564530563Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564535940Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564540883Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564551471Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564556658Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564561644Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/ab4c-logo.png
+2025-10-13T17:20:13.564567266Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/g789483018d2464dea55a1fcca01c170f9b8daabcf8f180e06737235bdd1923b66d307a8f2d3c7d1b7e5bb5bea29621ac29114aa8620803c78b6da7b82001184c_1280.jpg
+2025-10-13T17:20:13.564572802Z [inf]  File downloaded successfully: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172/gc56761150a9497c57910f5bfedb3013fbec30993756d4af6e4a03ea778796a74194c5acf5bcd2d2a5271ba06c8bd6e67321b651f6008d55de7e1357ced747fc8_1280.png
+2025-10-13T17:20:13.564578618Z [inf]  Download completed: 81/81 files downloaded successfully
+2025-10-13T17:20:13.564583974Z [inf]  Running task: <Task pending name='Task-59219' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:20:13.564588951Z [inf]  Cleaning up main generation directory: /tmp/presenton/0221d752-f2ac-46f6-a165-99c282393172
+2025-10-13T17:20:13.564594723Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 200 OK
+2025-10-13T17:20:19.306616204Z [err]  2025-10-13 17:20:19,302 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.326252519Z [inf]  Task done: <Task finished name='Task-59219' coro=<ConcurrentService.run_task.<locals>.wrapper() done, defined at /app/servers/fastapi/services/concurrent_service.py:17> result=None>
+2025-10-13T17:20:59.326257852Z [inf]  Presentation ID: f736dc64-8c06-46b6-ae16-23e3dc7b5dd0
+2025-10-13T17:20:59.326263450Z [inf]  ----------------------------------------
+2025-10-13T17:20:59.326271101Z [inf]  Generated 49 outlines for the presentation
+2025-10-13T17:20:59.326276273Z [inf]  INFO:     127.0.0.1:59014 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:20:59.326281581Z [err]  2025-10-13 17:20:57,822 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.523405062Z [err]  2025-10-13 17:20:59,489 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.523410496Z [err]  2025-10-13 17:20:59,517 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.606011282Z [err]  2025-10-13 17:20:59,591 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.606015154Z [err]  2025-10-13 17:20:59,601 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.606018938Z [err]  2025-10-13 17:20:59,604 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.708661434Z [err]  2025-10-13 17:20:59,705 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.745941895Z [err]  2025-10-13 17:20:59,736 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.749182401Z [err]  2025-10-13 17:20:59,748 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.783261111Z [err]  2025-10-13 17:20:59,780 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:20:59.792146156Z [err]  2025-10-13 17:20:59,788 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.741006998Z [err]  2025-10-13 17:21:03,739 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.780984843Z [err]  2025-10-13 17:21:03,778 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.780993468Z [err]  2025-10-13 17:21:03,779 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.833920334Z [err]  2025-10-13 17:21:03,831 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.842121709Z [err]  2025-10-13 17:21:03,839 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.846118397Z [err]  2025-10-13 17:21:03,844 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.850226956Z [err]  2025-10-13 17:21:03,848 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.883799009Z [err]  2025-10-13 17:21:03,882 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.914397722Z [err]  2025-10-13 17:21:03,910 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:03.936601974Z [err]  2025-10-13 17:21:03,930 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.527494321Z [err]  2025-10-13 17:21:07,526 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.626633065Z [err]  2025-10-13 17:21:07,619 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.672653332Z [err]  2025-10-13 17:21:07,666 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.685284459Z [err]  2025-10-13 17:21:07,682 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.706912695Z [err]  2025-10-13 17:21:07,701 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.706919065Z [err]  2025-10-13 17:21:07,704 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.710526963Z [err]  2025-10-13 17:21:07,709 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.735669164Z [err]  2025-10-13 17:21:07,733 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.761501904Z [err]  2025-10-13 17:21:07,758 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:07.894008925Z [err]  2025-10-13 17:21:07,890 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.654246529Z [err]  2025-10-13 17:21:11,651 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.708970667Z [err]  2025-10-13 17:21:11,706 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.717990110Z [err]  2025-10-13 17:21:11,714 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.740316778Z [err]  2025-10-13 17:21:11,738 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.775705692Z [err]  2025-10-13 17:21:11,766 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.794389861Z [err]  2025-10-13 17:21:11,791 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.803454656Z [err]  2025-10-13 17:21:11,798 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.870934631Z [err]  2025-10-13 17:21:11,868 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.870939934Z [err]  2025-10-13 17:21:11,869 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:11.904350075Z [err]  2025-10-13 17:21:11,903 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.114824148Z [err]  2025-10-13 17:21:17,110 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.184805756Z [err]  2025-10-13 17:21:17,178 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.294577253Z [err]  2025-10-13 17:21:17,292 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.367948795Z [err]  2025-10-13 17:21:17,321 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.367959692Z [err]  2025-10-13 17:21:17,341 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.385011865Z [err]  2025-10-13 17:21:17,380 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.394035628Z [err]  2025-10-13 17:21:17,393 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.504278976Z [err]  2025-10-13 17:21:17,474 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:17.574116775Z [err]  2025-10-13 17:21:17,571 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:21:25.566347790Z [err]  2025-10-13 17:21:25,562 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:21:25.732487559Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:21:25.732493664Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:21:25.732499242Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:21:25.732505242Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:21:25.732511144Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:21:25.732516623Z [inf]  Request - Generating Image for diverse team collaborating in modern office
+2025-10-13T17:21:25.732521576Z [inf]  Request - Generating Image for abstract understanding concept pattern
+2025-10-13T17:21:25.732526859Z [inf]  Request - Generating Image for Engaged employees collaborating happily
+2025-10-13T17:21:25.732531942Z [inf]  Request - Generating Image for Employees collaborating effectively with consistent high energy
+2025-10-13T17:21:25.732538699Z [inf]  Request - Generating Image for diverse team collaborating in office
+2025-10-13T17:21:25.732544896Z [inf]  Request - Generating Image for abstract network connections light blue
+2025-10-13T17:21:25.732550390Z [inf]  Request - Generating Image for Leader inspiring a team with clear vision
+2025-10-13T17:21:25.732555294Z [inf]  Request - Generating Image for Growth and development
+2025-10-13T17:21:25.732560545Z [inf]  Request - Generating Image for diverse communication channels
+2025-10-13T17:21:25.732565446Z [inf]  Request - Generating Image for diverse team celebrating success
+2025-10-13T17:21:25.732571164Z [inf]  Request - Generating Image for work-life balance
+2025-10-13T17:21:25.732576889Z [inf]  Request - Generating Image for Abstract geometric patterns, subtle blue and gray
+2025-10-13T17:21:25.732582469Z [inf]  Request - Generating Image for diverse team collaborating in an office
+2025-10-13T17:21:25.732588165Z [inf]  Request - Generating Image for People shaking hands, abstract trust
+2025-10-13T17:21:25.732594679Z [inf]  Request - Generating Image for employee loyalty
+2025-10-13T17:21:25.732619685Z [inf]  Request - Generating Image for Resilient team working together
+2025-10-13T17:21:25.732626830Z [inf]  Request - Generating Image for Leader guiding team through uncertainty
+2025-10-13T17:21:25.732632425Z [inf]  Request - Generating Image for abstract data visualization with interconnected points
+2025-10-13T17:21:25.732637606Z [inf]  Request - Generating Image for diverse group of employees collaborating and smiling
+2025-10-13T17:21:25.732643766Z [inf]  Request - Generating Image for Data analysis icon with magnifying glass and charts
+2025-10-13T17:21:25.732649818Z [inf]  Request - Generating Image for Transparent communication
+2025-10-13T17:21:25.732655144Z [inf]  Request - Generating Image for Strategic business alignment with engagement
+2025-10-13T17:21:25.732660991Z [inf]  Request - Generating Image for Two people collaborating with a puzzle piece
+2025-10-13T17:21:25.732666918Z [inf]  Request - Generating Image for Team collaboration achieving financial goals
+2025-10-13T17:21:25.732672707Z [inf]  Request - Generating Image for Clock indicating time constraints, people in meeting
+2025-10-13T17:21:25.732677944Z [inf]  Request - Generating Image for employee feedback session
+2025-10-13T17:21:25.732683510Z [inf]  Request - Generating Image for Employees celebrating success, high morale
+2025-10-13T17:21:25.732689162Z [inf]  Request - Generating Image for People in a fair workplace environment
+2025-10-13T17:21:25.732694222Z [inf]  Request - Generating Image for psychological safety team collaboration
+2025-10-13T17:21:25.732699689Z [inf]  Request - Generating Image for Magnifying glass over business report
+2025-10-13T17:21:25.732706335Z [inf]  Request - Generating Image for growing profit charts
+2025-10-13T17:21:25.732712980Z [inf]  INFO:     127.0.0.1:43248 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:21:25.767333220Z [inf]  INFO:     127.0.0.1:43254 - "GET /api/v1/ppt/presentation/f736dc64-8c06-46b6-ae16-23e3dc7b5dd0 HTTP/1.0" 200 OK
+2025-10-13T17:21:25.946708538Z [inf]  INFO:     127.0.0.1:43264 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:21:45.950714678Z [inf]  Starting download of 81 files to /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db
+2025-10-13T17:21:45.950727224Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ga3274bb36b8981b8321f7b2700ebf4c4ff65947ff23d96e4845d928226484baf488dbd73ed126950e7a89bb3b1c0ad5c7165c25f7527f4251921b23f5332e231_1280.jpg
+2025-10-13T17:21:45.950733393Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g9229bb96c320b294bfec94f9652370d72d2d53ee179316fc8291256297a4209e7ec4eee8a8ee94ca1ec9d99fa6f0a0c376633ff036f601094d6022b1ca54bd00_1280.jpg
+2025-10-13T17:21:45.950739855Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g1ba1e925c68c46a830a7510fd2d6e5f562a8671ac09ce3238667b65109dbc66695c83c250779bb177226a5d1a91630b6032be2a76aaba063b0f17567748b291a_1280.jpg
+2025-10-13T17:21:45.950746334Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950752450Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950759607Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950768751Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950777375Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950784705Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950793477Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950801319Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.950813078Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951056396Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g1415bbaabb17a1a4b49be003716ca8c9265930f3b6d183a0a6e7cb5418e07f88d52f09e8b012e478e2fa9b744deb90e9f48d74cff862bde7f06e2a86c8cdd68b_1280.jpg
+2025-10-13T17:21:45.951069065Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gf80eee35a644b8b60a9a9f2efbdc6faea4448c7f3e5f9c683442d6b9692fc982982cf47c8b9586b506991041601b31b7ab171cbd98e752feac08627b9b291195_1280.jpg
+2025-10-13T17:21:45.951075793Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g3e2c2565e73955b55ef6c4fcb5338557dd0d0f6a29d85bfbfa300d0525ef2e45b440a7825b075f6719619fb9401f1a26c7bbbbe87bf93f41dcd94223c66e0dc5_1280.jpg
+2025-10-13T17:21:45.951090046Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951097003Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951103511Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951109527Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951115212Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g8e8dd9daecb03874073093367a4044d41238ac3d92b7d59df4ac4f21d65164cca95d1299b4e15b3e8bbb80e82a4a1208e964c85b69fb4ec702bea57c73fc1db8_1280.jpg
+2025-10-13T17:21:45.951120806Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gfbcffdc40d40af6ee1c38d6f25e6f966bc9b5bb8093f411592a9ca5ff591861d13c006d51f586db0a358978d0dfc3ed2862e8c8b8fa49c27a183a0daeb79729c_1280.jpg
+2025-10-13T17:21:45.951125949Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951130184Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.951135758Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952222294Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/geecefec5bef4d474d460460cc2eef0bb9bf24f01a320185c869a7dd81a7dffea782aed793fc27be1ca2ae79c19823937f1ea4a564913725f58e3721786437559_1280.jpg
+2025-10-13T17:21:45.952228183Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g3251b1eefb5732742b9f4fe8280346ff69e4c8dc6468a73378fc4def8bdab5ab20dbb7ae7728306eff99aae68dcdbafb7362a7bb3f42c9f5fadcbcd66260b264_1280.jpg
+2025-10-13T17:21:45.952232690Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g0d84e008706423c309eabf7ef213702e1a0e942168346c4f3464a1cb2d0b5c9c982de3695a4de6204ebdb1cf2cf4f20cb7c3bd0ab4680ba2409cb3f3f5b2d687_1280.jpg
+2025-10-13T17:21:45.952237168Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952241362Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952245309Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952249300Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gf259bdd764c4460b8ced905eea36885572f6931a5fc287652c8d98a0bca8ed4b7d6895759fd32bf8a2ad96d46c501963159175e9ada4f2eac516398bfde8d04d_1280.jpg
+2025-10-13T17:21:45.952253278Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g8ea7ce85395c9b41f8d8d338b129b4e849794055ea603e6d74c00413fb0f9faa9a997dfa785c4934b5e76fd0cb1056d8d5bded1796e4d82842f51ef41b165173_1280.jpg
+2025-10-13T17:21:45.952257709Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g0443730f67e330ded092f8ba5847d014fd4408ccd11a8347defb5c6124cc80794fb05c69f7eeaa48d4587c63021f2c194522b2bb69c71fabf4ae1711615b4a3b_1280.jpg
+2025-10-13T17:21:45.952262945Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gac94416d5bdd7761aa6304f449bb6fd71aa87132dcb644c40fdc1e0b86f0d0b06f6f3374c8324525739a5437e4ccd100c15f690d0667287621a2c94d45ddcdcf_1280.jpg
+2025-10-13T17:21:45.952300432Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g3355454d09ae6205482334821ac31760b91144ef01468d4688cfa2fe112db87517cdbae93fc72cb2860801bbd5438675b48ff72d09019e4e142b7f963ce82bf8_1280.jpg
+2025-10-13T17:21:45.952304378Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g97ad46034f87b634a511a1866b190bc839491648428bdcf93e9d722e31877940011f7353d3fcd74cee569f63036beb3d4064aba55b025d645dc0b071b628895d_1280.jpg
+2025-10-13T17:21:45.952308460Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g2cc98196349590210c3bd8e41d0c6e7af2c9d893a0fda2b84ba96a30488d61a3ab233b7d45416f8d556c53ec8991a7d94a4c2b467e3a99ad3420d4bd76aba52c_1280.png
+2025-10-13T17:21:45.952312601Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g7d862a5716139b4d88452a6c14158d33b424325a22126de5f657ad0e3877c7f55b3437bdcb9b00fe54a09b05b2e689a97d77453fd9e74ec390ace233836491c5_1280.jpg
+2025-10-13T17:21:45.952316289Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g91bc8fdb76da7779ec75f03db88aa93c6fc6147d3c3ffc47b33f8d5e17af37545a0e025d8c535f68c2a95e5d4b28a209eb4d3b7947fac1c85423bce0d38e1bf6_1280.jpg
+2025-10-13T17:21:45.952320181Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g940f400de87c686fa800a149674f664b9af2bbb18dbb0f52f061ee9509008a83a4e624193e004f5f1a2c6cbf67142b54ca63fe124fb12341f2e8318200889258_1280.jpg
+2025-10-13T17:21:45.952325727Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952330040Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952334190Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952338077Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952342051Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952347186Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g9cdec98505656e9546423801f4c6bf75ebc8fb0e6197294b0843c04008ab6442659d738f2fc1961167f8831e0fa94c5fc4f93cc7d24280b0ad59c2e375179d4c_1280.jpg
+2025-10-13T17:21:45.952351979Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g25bf3cbc12f15baeca5ab2b2f15dbbb7310856aabe6a1e67b108af352668844463760c9cf42d1b003fb3989566d55c6039a98902d413461eb893328488305ba1_1280.jpg
+2025-10-13T17:21:45.952356176Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g5c7dddcff7979bdc0688e2b9e634268a894c56e6f7f6c9c6c17fd9449f5de4e4eb8dcb2ab9ee6c9ee3402ca431d0c3d810192060ef9791720f3f66092973826b_1280.jpg
+2025-10-13T17:21:45.952360725Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g51d59ce8821be9c1ba62a83ee58dd7006788bacfda6fde4d6969663b3d5567214957de2b5ab09522e6f78e8b342e4b51ac637872a1c8271fa28742046f78213d_1280.jpg
+2025-10-13T17:21:45.952365216Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:21:45.952369298Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939768693Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939778603Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939785816Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939791806Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939798335Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939805294Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.939811091Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g5487a283d7090c31385981582004ae64b5b4c2480acaf82959b5120d69412d095f89d3be53b4a5f9d2bccf5d78563fbd0ae837c98a965353ef55a5804b68a4e4_1280.jpg
+2025-10-13T17:22:15.939817680Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g809a55a8b1f8d1c2c5a512ed777becd40aedd9a263855a59f153c3cf107dbe97472d1e4b99381606be790061a816f9470f215b050fecd5739e86fa6cd55199de_1280.jpg
+2025-10-13T17:22:15.939823581Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gb1d3fc04753b53a0b925d49f5b949a74ad6de444f9fea59519a7e14e2b6212711943eb1ac6c8e10194237e3cb9686c8ae30da078c5c47ca04f55a3c0cae1a67e_1280.jpg
+2025-10-13T17:22:15.939829694Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/gde512b5f73a13ae47a39b66b88a492775884e9c0cf7b4346a43736388919fb1b7263e6eeeadc1c1c91dd19367be3442efbb69229e945e356656c64010fca2504_1280.jpg
+2025-10-13T17:22:15.939835516Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g76a6b95305da38a7d1ea742590436a5edc8af1719c4a660d8a239aec4995af80b1479673db738d9e263c3336422fde03e52eda4e429751c02cb8940390c54894_1280.jpg
+2025-10-13T17:22:15.940008467Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/g73aa96f6ffdad87dccf6ebba1255a01e5693974acde2822ff24f7938e3f9c9e6c5eec7e72fd7bfe67781fe2320fa723b74b2f4b2bd7c95b724d340bdf6d6c81d_1280.jpg
+2025-10-13T17:22:15.940016967Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940025133Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940030562Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940035784Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940041121Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940047670Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940052606Z [inf]  Download completed: 81/81 files downloaded successfully
+2025-10-13T17:22:15.940057563Z [inf]  Running task: <Task pending name='Task-60142' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:22:15.940063008Z [inf]  Cleaning up main generation directory: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db
+2025-10-13T17:22:15.940067521Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 200 OK
+2025-10-13T17:22:15.940077808Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940084067Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940089078Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940093728Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940098967Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940109351Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940115859Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940121039Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940125964Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940131407Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940137463Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:15.940143250Z [inf]  File downloaded successfully: /tmp/presenton/4e8740a7-9e87-49ad-a9cb-a738d786c0db/ab4c-logo.png
+2025-10-13T17:22:20.315543053Z [err]  2025-10-13 17:22:20,305 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352276756Z [inf]  Task done: <Task finished name='Task-60142' coro=<ConcurrentService.run_task.<locals>.wrapper() done, defined at /app/servers/fastapi/services/concurrent_service.py:17> result=None>
+2025-10-13T17:23:10.352284053Z [inf]  Presentation ID: 43209bc3-4970-4115-b4fe-f1702cbb6f0a
+2025-10-13T17:23:10.352289459Z [inf]  ----------------------------------------
+2025-10-13T17:23:10.352293799Z [inf]  Generated 49 outlines for the presentation
+2025-10-13T17:23:10.352298408Z [inf]  INFO:     127.0.0.1:36862 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:23:10.352302833Z [err]  2025-10-13 17:23:04,325 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352307121Z [err]  2025-10-13 17:23:06,185 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352311670Z [err]  2025-10-13 17:23:06,299 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352315902Z [err]  2025-10-13 17:23:06,340 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352319822Z [err]  2025-10-13 17:23:06,362 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352323580Z [err]  2025-10-13 17:23:06,387 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352328854Z [err]  2025-10-13 17:23:06,408 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352334089Z [err]  2025-10-13 17:23:06,411 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352339245Z [err]  2025-10-13 17:23:06,444 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352344118Z [err]  2025-10-13 17:23:06,575 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.352348307Z [err]  2025-10-13 17:23:06,602 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.532911100Z [err]  2025-10-13 17:23:10,526 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.619719334Z [err]  2025-10-13 17:23:10,613 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.689106190Z [err]  2025-10-13 17:23:10,680 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.702356910Z [err]  2025-10-13 17:23:10,696 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.752113773Z [err]  2025-10-13 17:23:10,745 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.796761313Z [err]  2025-10-13 17:23:10,795 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.803643765Z [err]  2025-10-13 17:23:10,800 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.836856964Z [err]  2025-10-13 17:23:10,835 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:10.849271766Z [err]  2025-10-13 17:23:10,846 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:11.049659299Z [err]  2025-10-13 17:23:11,048 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.549681716Z [err]  2025-10-13 17:23:14,544 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.630366837Z [err]  2025-10-13 17:23:14,612 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.630376375Z [err]  2025-10-13 17:23:14,627 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.633696637Z [err]  2025-10-13 17:23:14,632 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.665163025Z [err]  2025-10-13 17:23:14,657 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.734273321Z [err]  2025-10-13 17:23:14,702 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.734280650Z [err]  2025-10-13 17:23:14,733 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.737778474Z [err]  2025-10-13 17:23:14,734 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.737788087Z [err]  2025-10-13 17:23:14,735 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:14.746724198Z [err]  2025-10-13 17:23:14,744 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.089513739Z [err]  2025-10-13 17:23:18,085 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.120829656Z [err]  2025-10-13 17:23:18,115 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.201113018Z [err]  2025-10-13 17:23:18,195 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.343821138Z [err]  2025-10-13 17:23:18,342 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.346861179Z [err]  2025-10-13 17:23:18,344 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.423672973Z [err]  2025-10-13 17:23:18,407 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.427393109Z [err]  2025-10-13 17:23:18,424 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.528552734Z [err]  2025-10-13 17:23:18,512 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.546275659Z [err]  2025-10-13 17:23:18,542 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:18.851113847Z [err]  2025-10-13 17:23:18,850 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.422593689Z [err]  2025-10-13 17:23:22,391 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.434851042Z [err]  2025-10-13 17:23:22,429 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.496861123Z [err]  2025-10-13 17:23:22,483 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.496869656Z [err]  2025-10-13 17:23:22,484 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.558640480Z [err]  2025-10-13 17:23:22,557 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.594176602Z [err]  2025-10-13 17:23:22,576 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.594185196Z [err]  2025-10-13 17:23:22,581 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:22.659563565Z [err]  2025-10-13 17:23:22,653 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:23.329030591Z [err]  2025-10-13 17:23:23,319 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:23:31.156996837Z [err]  2025-10-13 17:23:31,155 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:23:31.229957632Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:23:31.229965528Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:23:31.229971992Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:23:31.229977664Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:23:31.229985030Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:23:31.229990836Z [inf]  Request - Generating Image for customer service, training, professional development
+2025-10-13T17:23:31.229996897Z [inf]  Request - Generating Image for abstract timeline with interconnected nodes
+2025-10-13T17:23:31.230002754Z [inf]  Request - Generating Image for abstract pattern with customer service icons
+2025-10-13T17:23:31.230008344Z [inf]  Request - Generating Image for customer service, strategic importance, business growth
+2025-10-13T17:23:31.230014035Z [inf]  Request - Generating Image for diverse group of people collaborating
+2025-10-13T17:23:31.230019190Z [inf]  Request - Generating Image for abstract pattern, customer service concept
+2025-10-13T17:23:31.230027471Z [inf]  Request - Generating Image for diverse icons representing customer service pillars
+2025-10-13T17:23:31.230033072Z [inf]  Request - Generating Image for customer expectations high standards
+2025-10-13T17:23:31.230038455Z [inf]  Request - Generating Image for customer service crisis
+2025-10-13T17:23:31.230048771Z [inf]  Request - Generating Image for abstract neural network pattern
+2025-10-13T17:23:31.230054863Z [inf]  Request - Generating Image for diverse people conversing warmly in customer service
+2025-10-13T17:23:31.230060268Z [inf]  Request - Generating Image for subtle lines and dots pattern
+2025-10-13T17:23:31.230065900Z [inf]  Request - Generating Image for diverse individuals collaborating, professional setting
+2025-10-13T17:23:31.230072859Z [inf]  Request - Generating Image for two people actively listening
+2025-10-13T17:23:31.230079873Z [inf]  Request - Generating Image for handshake, trust, connection
+2025-10-13T17:23:31.230173345Z [inf]  Request - Generating Image for abstract technical pattern with customer service element
+2025-10-13T17:23:31.230179188Z [inf]  Request - Generating Image for diverse individuals resolving conflict, calm discussion
+2025-10-13T17:23:31.230184325Z [inf]  Request - Generating Image for customer service problem solving process
+2025-10-13T17:23:31.230189618Z [inf]  Request - Generating Image for customer experience personalization
+2025-10-13T17:23:31.230195077Z [inf]  Request - Generating Image for Customer service turning frown into smile
+2025-10-13T17:23:31.230200332Z [inf]  Request - Generating Image for abstract pattern representing interconnectedness
+2025-10-13T17:23:31.230207351Z [inf]  Request - Generating Image for Magnifying glass over a blueprint
+2025-10-13T17:23:31.230213253Z [inf]  Request - Generating Image for presenter engaging audience
+2025-10-13T17:23:31.230219138Z [inf]  Request - Generating Image for diverse group collaborating in a meeting
+2025-10-13T17:23:31.230224818Z [inf]  Request - Generating Image for diverse training aids and technologies
+2025-10-13T17:23:31.230230277Z [inf]  Request - Generating Image for abstract pattern with subtle coaching elements
+2025-10-13T17:23:31.230235432Z [inf]  Request - Generating Image for diverse coaching models and techniques
+2025-10-13T17:23:31.230241277Z [inf]  Request - Generating Image for mentor guiding mentee, professional setting
+2025-10-13T17:23:31.230246449Z [inf]  Request - Generating Image for personal growth and organizational alignment
+2025-10-13T17:23:31.230251520Z [inf]  Request - Generating Image for abstract pattern, customer focus
+2025-10-13T17:23:31.230256490Z [inf]  Request - Generating Image for Interactive training with gamification elements
+2025-10-13T17:23:31.230261869Z [inf]  Request - Generating Image for Measuring training impact
+2025-10-13T17:23:31.230267309Z [inf]  Request - Generating Image for customer service ethics, professionalism
+2025-10-13T17:23:31.230272811Z [inf]  Request - Generating Image for subtle background pattern with study elements
+2025-10-13T17:23:31.230838506Z [inf]  INFO:     127.0.0.1:57614 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:23:31.230846243Z [inf]  INFO:     127.0.0.1:44284 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:23:31.231549722Z [inf]  INFO:     127.0.0.1:44268 - "GET /api/v1/ppt/presentation/43209bc3-4970-4115-b4fe-f1702cbb6f0a HTTP/1.0" 200 OK
+2025-10-13T17:23:51.228788903Z [inf]  Starting download of 84 files to /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713
+2025-10-13T17:23:51.228795500Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g968790cc171ef62fba5f8d2d9b828af8ffaa952d0b90de5148faa27bb92ffe4f209acb1cbb8f7226e4ce46f222cd3339f38cb086e4543f886379b444640ab898_1280.jpg
+2025-10-13T17:23:51.228802415Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gf22e397674126ae155511cd90c737182c00dc4efc26c7a1340a2efdb288c0941b3460f27f4d305644fac3675eebbb716dccd0cd22837500574bc9dcc51f11f98_1280.jpg
+2025-10-13T17:23:51.228808049Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gcdf538e56d968cdf46acc38c559cac9de5a10f12ca8c78623c45276d9de311bba45d4a983740244e8db26a782824c8fd3b63a88216e095fa4e42bb67ebf64545_1280.jpg
+2025-10-13T17:23:51.228814083Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gc9059625c23257a4da490005c942a9cde515f16ff3dbda01815e93aa2b0c1d472fc15b12072c7b5ef4ad24a850be2be186a4dc75c4f9cf4909d1317e2b274075_1280.jpg
+2025-10-13T17:23:51.228821292Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gbe0698b74deb7a330b2a66db786527a541e0cd9fcf8c9f20e743502c6dd5fff881fb96644c89f1b1efe2188987d89c280375028468db359b7ff02d2d2b57d5c6_1280.jpg
+2025-10-13T17:23:51.228827890Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g765c2e9ce147bdd876f991ec3af2c0c2af7da76448d0bd41eb22bfcaa8d235493a3ec1635d401b4353f182dd662928e88d7cecdc2719edd1cfe1a4903796f275_1280.jpg
+2025-10-13T17:23:51.228834467Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gf7c54ff31703d576bad5572557340d74976c2691e1ad77b46e91f79ab25f2a0779d60a91139e96c7e4442fd92bce905d5411d94e09466fefc0f1bb6c4cb325dd_1280.jpg
+2025-10-13T17:23:51.228840657Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229876194Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229885340Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229892428Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229898589Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229904676Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229910756Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229917095Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229922771Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229931411Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229937053Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gb02f3ac74f9a2abdbb644831f750963688921b368ebca7fa1879845ea7635678fcba9158ff297c086785617435d814016fd0148347fa1a81601652fe1db37933_1280.jpg
+2025-10-13T17:23:51.229943338Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gb7c06bd4613f00e77c292e6d5a8d273fc3b6e666ece3f100dc3c8f0e736867fcac72157a2b31e28c5aa7d0ca25fb83153b13545eee44605389bea01a381dddfd_1280.jpg
+2025-10-13T17:23:51.229955387Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229962731Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229968726Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229974490Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229980536Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g1c03aa7c2ffa64394f983a092db2f7a60b1707ed79890accbc98198bb7013874b76891f0a53803c495623fb5bc17e837363f6a5fdbbe05971d34f3611979f710_1280.jpg
+2025-10-13T17:23:51.229987410Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229993526Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.229999546Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g2514c57cebb689d07ebb08211dd518101f7fdea9fe389e29963f5b1954fc760d1c7eb62cfe149470cbd94e3af7e3c98f0d4c188306753c3c23acd4e46a30eac5_1280.jpg
+2025-10-13T17:23:51.230005054Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g0b0e0d8d9d68ba7d2c6f8a47df10c07f082b6e72c6a2a5394d8f6d20ec0a355edb1a67e67fd39427c5cb62c7dee826553a99e34ff20daae16572ab767defe089_1280.jpg
+2025-10-13T17:23:51.230010774Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g379519da75f66d4f6c0ecef2d503b222556766bd188a2c71dc04cd8f4ad28a9d5e8b0812163cf023c9126473d8662836b159bc10633faa355c310aa5056841ae_1280.jpg
+2025-10-13T17:23:51.230030938Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g7f5459b66324280d009a37bb0e1b94a8058a81c3f06a5bd74ff1c10df90d061918e7db65187b6eef384f7539c3cc7849bda638ce1ced2933b9316b80561dbcd9_1280.jpg
+2025-10-13T17:23:51.230037935Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gd4bca73c2e55d9fc4d33d1b2920b7b8d438a3a908011eb495b3c77c649d521e55ebff00b9984eca84f441a2229529afa5e06e6241193921b1dc45abca6f5752a_1280.jpg
+2025-10-13T17:23:51.230044803Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gbca054b5aaf72a86c4820655e4a8fd8f499b545ec2fdbe7ce45bd3123116c4b063ca6f35a868428c839c0021068b3697ea5e1066b9894e872ba265d5ad615cce_1280.jpg
+2025-10-13T17:23:51.230052169Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gcbf23866472725ca722c290fc719b58a6f8bed03f46155755a70870b67d6899932f7040a43cf8b58370e45e79bec34daf7b68cc7cbeaed0443b26387262f2f9c_1280.jpg
+2025-10-13T17:23:51.230058583Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230064934Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230071079Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230076973Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g3422d3db0c7aba9c7d001b4581ad3337e8b888df5f964a3bfdbbaf9ca1baac80532e2f99558b6b2a41e3e7b10e37dd7b2f8f4749fb3a67d6ae6d419712aa80e1_1280.jpg
+2025-10-13T17:23:51.230082973Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g31236a7c178f514a08cfa6d53cdd22ff7201465066366d8f7c1b4f00e0dabd785a385b3b1e8bcd6bc56830c78b3809d9a2671471b8d3fb531b5a0178d6eb7440_1280.jpg
+2025-10-13T17:23:51.230088605Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gced0b8dbde60f1d0813ce433df298e7ae7b3b5fdd0680d1b2812b0be0131e78f14c1b295cdea4c595fc108e5795b439577f3957f6a639036bbf12716fda8a980_1280.jpg
+2025-10-13T17:23:51.230094184Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gf22c4a53499c0a51aba9fe20956609081762ef99bedcb3202df6a2124f2e279cb1c38f5bc378d764148791098a183ee6be5e26affd6fc9ff7320f4e663f909ca_1280.jpg
+2025-10-13T17:23:51.230100826Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g8aa8bff0f67b07949bb557ab0a2a3957ddb56e0fe19f837d001e9324751b84660c07f66ab0da24c59e15d8531a1ec6267d240bbc7f10fd28a85c19ace0a3b855_1280.jpg
+2025-10-13T17:23:51.230106889Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g6f86a06f2061804a6a762fd28275f0217fb54aa3e9a550127ed7f4ae63acffd25dbea3fe18bbc4be4aa535dc0a8f935986d8003e018cd218f04f80566139f5b0_1280.jpg
+2025-10-13T17:23:51.230112924Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g196e6fb59d079b77eed35ee84994016127e238274b1084025512ddd889a97eab545750b054cea98ca6a45d4a9919c299bdd985a5772ed0985bc752e282cf657a_1280.jpg
+2025-10-13T17:23:51.230118780Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230124395Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230130007Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:23:51.230135419Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g43ffd1153b8f6675c02ce9832b2cdc72979713c6acde5677943c8cb767b887b41f856d07a9db26fe0aa86c131e359c61ae675595a1d5cfe158033457e0d7ab06_1280.jpg
+2025-10-13T17:23:51.230141248Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g2d84bbbce737787d4a1b3c9af56f772588d371a0d6c5ca68c5d4df2c43cf5fbd0ea94506743d3faa5902f656ef8c9ee3eaef5bec4997a870371f6abc91e9560e_1280.jpg
+2025-10-13T17:23:51.230148194Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gc71a9df75f0738f403441f4a8e0da4c058a30a6572bc8b07240cb1b31658ff4b9c96d5ce8a257015b5127284d53a16761fa5e636013036beebc2dff419c2303b_1280.jpg
+2025-10-13T17:24:21.216503796Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g89845074f00d65b6846965a4f47ec507d28ad6f5c9d8a6914eef4dc06e099afabe0f98d723eed5acf9ce4e72c28a06c11cfc70983c97977609a12651cb940101_1280.jpg
+2025-10-13T17:24:21.216508909Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216513009Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216518361Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216522560Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216526434Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216530806Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216534675Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216538511Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216542232Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216546373Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/geb94b5e1f926caabf3053aaf0e0c131752e0a842d3536b086c34f505c2b8146083503f942e8ef9191b10002da493aadbc0fbbc63d55bf810728320849d774d12_1280.jpg
+2025-10-13T17:24:21.216550191Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216554333Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216558406Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216562332Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216565988Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216569892Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216574384Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216578366Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216582344Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216586537Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216591370Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216595348Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216599312Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216604249Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gd85051fdfd6bfd6bfb3dae4565564d476e46f610318a6473678519b467bda5f8391a402eb37879f0ae71c7d7c208821a7e9ad3131a0934ce0c9603420ac46953_1280.jpg
+2025-10-13T17:24:21.216608181Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g2cf04e7c53d4131c6b2c4b378cdbf6e99a9973a03f59c247ad875b7ebc3b88f12c4c56ea2b5143173705d7203c97742f127919875239d486204b4f3e4d9f0f47_1280.jpg
+2025-10-13T17:24:21.216611920Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/gecf6ccf5c32dc8e85a1dc34458d4efd734037d9d90df308240efb9b3437ffd6ed61383c767ad9e8cf0c2c51679f387ca6e0967e1a9d991936a135cd96b55423d_1280.jpg
+2025-10-13T17:24:21.216615879Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216619917Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216623798Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216627719Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216632763Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216636805Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ab4c-logo.png
+2025-10-13T17:24:21.216640575Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/g0eab814d680790492c8b209ebdac5f270beac544cabe6d09a57164df916d812d455aa3e89f95d9077830a16278e525476d4ae5e6dc2029731bca66058f5b38b9_1280.png
+2025-10-13T17:24:21.216644779Z [inf]  File downloaded successfully: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713/ga9bc9eff30f0ac126357acda3936abfb304ca15cf2829acf653d03f807cb64f30de587a16b5562a89e3d6a65811267d11e70f15ff0be1f69a11fbbc2976e2ecd_1280.png
+2025-10-13T17:24:21.216648727Z [inf]  Download completed: 84/84 files downloaded successfully
+2025-10-13T17:24:21.216654402Z [inf]  Running task: <Task pending name='Task-61123' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:24:21.216658255Z [inf]  Cleaning up main generation directory: /tmp/presenton/a5c3b090-1d9b-4949-8b0c-52ab9cb0e713
+2025-10-13T17:24:21.216662074Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 200 OK
+2025-10-13T17:24:21.882325575Z [err]  2025-10-13 17:24:18.851 UTC [76] LOG:  checkpoint starting: time
+2025-10-13T17:24:27.189342377Z [err]  2025-10-13 17:24:27,181 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:41.883486624Z [err]  2025-10-13 17:24:35.310 UTC [76] LOG:  checkpoint complete: wrote 164 buffers (1.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=16.383 s, sync=0.029 s, total=16.460 s; sync files=15, longest=0.015 s, average=0.002 s; distance=1113 kB, estimate=1125 kB; lsn=0/D0B5E78, redo lsn=0/D0B5DE8
+2025-10-13T17:24:57.207229233Z [inf]  Task done: <Task finished name='Task-61123' coro=<ConcurrentService.run_task.<locals>.wrapper() done, defined at /app/servers/fastapi/services/concurrent_service.py:17> result=None>
+2025-10-13T17:24:57.207239854Z [inf]  Presentation ID: 272bdb74-7535-4e69-ba6c-dd482d16cbe1
+2025-10-13T17:24:57.207247346Z [inf]  ----------------------------------------
+2025-10-13T17:24:57.207253931Z [inf]  Generated 49 outlines for the presentation
+2025-10-13T17:24:57.207259807Z [inf]  INFO:     127.0.0.1:54376 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:24:57.207265676Z [err]  2025-10-13 17:24:54,313 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207273436Z [err]  2025-10-13 17:24:56,005 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207277787Z [err]  2025-10-13 17:24:56,174 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207281686Z [err]  2025-10-13 17:24:56,219 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207286231Z [err]  2025-10-13 17:24:56,291 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207290528Z [err]  2025-10-13 17:24:56,368 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207294202Z [err]  2025-10-13 17:24:56,391 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207299975Z [err]  2025-10-13 17:24:56,497 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207304019Z [err]  2025-10-13 17:24:56,571 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207308448Z [err]  2025-10-13 17:24:56,605 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:24:57.207312666Z [err]  2025-10-13 17:24:56,610 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.218185413Z [err]  2025-10-13 17:25:00,216 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.275041628Z [err]  2025-10-13 17:25:00,273 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.294458382Z [err]  2025-10-13 17:25:00,290 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.313537070Z [err]  2025-10-13 17:25:00,304 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.359701261Z [err]  2025-10-13 17:25:00,358 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.368956280Z [err]  2025-10-13 17:25:00,366 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.383578485Z [err]  2025-10-13 17:25:00,381 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.420056844Z [err]  2025-10-13 17:25:00,416 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.452916958Z [err]  2025-10-13 17:25:00,451 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:00.494380084Z [err]  2025-10-13 17:25:00,486 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:03.951951094Z [err]  2025-10-13 17:25:03,949 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:03.955666759Z [err]  2025-10-13 17:25:03,952 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:03.972422336Z [err]  2025-10-13 17:25:03,968 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:03.975920936Z [err]  2025-10-13 17:25:03,973 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.085342307Z [err]  2025-10-13 17:25:04,083 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.158431418Z [err]  2025-10-13 17:25:04,154 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.167227541Z [err]  2025-10-13 17:25:04,163 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.211095960Z [err]  2025-10-13 17:25:04,205 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.214970330Z [err]  2025-10-13 17:25:04,214 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:04.281462736Z [err]  2025-10-13 17:25:04,280 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.622000101Z [err]  2025-10-13 17:25:07,619 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.736578677Z [err]  2025-10-13 17:25:07,735 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.743713161Z [err]  2025-10-13 17:25:07,741 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.764075632Z [err]  2025-10-13 17:25:07,761 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.820747602Z [err]  2025-10-13 17:25:07,818 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.833846978Z [err]  2025-10-13 17:25:07,831 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.917921038Z [err]  2025-10-13 17:25:07,908 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.926891951Z [err]  2025-10-13 17:25:07,921 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:07.926899804Z [err]  2025-10-13 17:25:07,924 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:08.031722914Z [err]  2025-10-13 17:25:08,030 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:12.961922136Z [err]  2025-10-13 17:25:12,948 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:12.961927123Z [err]  2025-10-13 17:25:12,953 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:12.980234860Z [err]  2025-10-13 17:25:12,970 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:12.980241815Z [err]  2025-10-13 17:25:12,979 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:13.039783966Z [err]  2025-10-13 17:25:13,036 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:13.075869197Z [err]  2025-10-13 17:25:13,065 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:13.094580023Z [err]  2025-10-13 17:25:13,084 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:13.149173273Z [err]  2025-10-13 17:25:13,145 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:13.188626105Z [err]  2025-10-13 17:25:13,183 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:25:20.879296137Z [err]  2025-10-13 17:25:20,865 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:25:20.898549852Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:25:20.898557187Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:25:20.898563369Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:25:20.898569099Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:25:20.898575593Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:25:20.898582469Z [inf]  Request - Generating Image for professional development workshop, global trade, compliance, happy diverse team, modern logistics
+2025-10-13T17:25:20.898587042Z [inf]  Request - Generating Image for diverse group of logistics professionals learning
+2025-10-13T17:25:20.898591571Z [inf]  Request - Generating Image for abstract lines network global commerce
+2025-10-13T17:25:20.898596289Z [inf]  Request - Generating Image for global trade map with digital connections
+2025-10-13T17:25:20.898603748Z [inf]  Request - Generating Image for global trade regulations
+2025-10-13T17:25:20.898608670Z [inf]  Request - Generating Image for Scales of justice with falling money
+2025-10-13T17:25:20.898614223Z [inf]  Request - Generating Image for Strategic chessboard with regulatory symbols
+2025-10-13T17:25:20.898619638Z [inf]  Request - Generating Image for flexible compliance program, adaptive systems
+2025-10-13T17:25:20.898625231Z [inf]  Request - Generating Image for Abstract communication lines
+2025-10-13T17:25:20.898631393Z [inf]  Request - Generating Image for diverse business people communicating, global trade
+2025-10-13T17:25:20.898636058Z [inf]  Request - Generating Image for professional communication
+2025-10-13T17:25:20.898641541Z [inf]  Request - Generating Image for customer service representative helping a frustrated customer
+2025-10-13T17:25:20.898646686Z [inf]  Request - Generating Image for diverse teams collaborating
+2025-10-13T17:25:20.898650821Z [inf]  Request - Generating Image for diverse group communicating digitally
+2025-10-13T17:25:20.898656300Z [inf]  Request - Generating Image for abstract network lines
+2025-10-13T17:25:20.898669896Z [inf]  Request - Generating Image for Magnifying glass over a supply chain
+2025-10-13T17:25:20.898676640Z [inf]  Request - Generating Image for Global supply chain network with interconnected nodes
+2025-10-13T17:25:20.898680796Z [inf]  Request - Generating Image for global trade shipping customs challenges
+2025-10-13T17:25:20.898685083Z [inf]  Request - Generating Image for problem solving techniques
+2025-10-13T17:25:20.898688972Z [inf]  Request - Generating Image for Global digital trade network
+2025-10-13T17:25:20.898692760Z [inf]  Request - Generating Image for futuristic abstract logistics network pattern
+2025-10-13T17:25:20.898696594Z [inf]  Request - Generating Image for global logistics network
+2025-10-13T17:25:20.898700555Z [inf]  Request - Generating Image for logistics network with data flow
+2025-10-13T17:25:20.898704395Z [inf]  Request - Generating Image for futuristic warehouse with robots
+2025-10-13T17:25:20.898708444Z [inf]  Request - Generating Image for futuristic global logistics network
+2025-10-13T17:25:20.898712303Z [inf]  Request - Generating Image for interconnected global network with risk icons
+2025-10-13T17:25:20.898716270Z [inf]  Request - Generating Image for futuristic logistics hub, digital connections
+2025-10-13T17:25:20.898721498Z [inf]  INFO:     127.0.0.1:57386 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:25:20.924734000Z [inf]  INFO:     127.0.0.1:57398 - "GET /api/v1/ppt/presentation/272bdb74-7535-4e69-ba6c-dd482d16cbe1 HTTP/1.0" 200 OK
+2025-10-13T17:25:21.173057934Z [inf]  INFO:     127.0.0.1:36212 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:25:41.177514505Z [inf]  Starting download of 77 files to /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b
+2025-10-13T17:25:41.177527762Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g9c340817c0d93fbbc6c4304e294ddd5f0e08b2ba15d808cd5297e1b10d333c4d153eb6693ec060113731c4998a68256857bc1b4880ce1b5dfa6f1d36288be250_1280.jpg
+2025-10-13T17:25:41.177535325Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177541557Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177547115Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177554729Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g62c34df0973668bd19828ee0aede41959e9345d38364369516b7365879e8526f9846c9c25efd415312f1f2ba8de9f1d0d73f2e309904bdf3ae447279c9bfd996_1280.jpg
+2025-10-13T17:25:41.177560602Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g6e71dc1ef3531bb8710c33394c9f021c774f79644e014023a647441fb521f167f29db52178f404ce7fce876373a8d4fccf2cec3f0d1aa05286ff9dcda7534f63_1280.jpg
+2025-10-13T17:25:41.177569023Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/geddd32409615ac5a9d4795649b2e232b9f9920c6b92acb471b477cc7905f39184d3484d65b3024cbfb877489c07536151b2b42ce2a439b34e2b5c371372d3d53_1280.jpg
+2025-10-13T17:25:41.177578033Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g67a4cd39108917cc077d9ee6aafcf2cae52ea511bbb609af6cf0c75a61dbe8ea7c46668e57d69de3cb709cb967703ade7f138d6618a2970bde7e7199b8a2fee6_1280.jpg
+2025-10-13T17:25:41.177579545Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177585144Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177588229Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gd16d9e499d79c6e696a658e3dd4351189424c83e72745401f203261cc3de5cb8a51f676e464807dfe5338f3dbce8fe7f8819fecc93a8af374bca6952e3bc6cb6_1280.jpg
+2025-10-13T17:25:41.177592652Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177595833Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g79df802b2fdc1acbdd0bb8f8a847d794cbf64016cc7a31a1537d083cccbcf01bbfd3f9486d9b768ee8d8feedc30626b845ea6dc4d2c76c9fc09ce53aeefedd93_1280.jpg
+2025-10-13T17:25:41.177602048Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177609302Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177609522Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177616078Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177616267Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.177624727Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g7eb17d1eb43e4fa4a6886129f7427a1e97d5347bd620be22d3fbdf8798f9c3fc0a481ff14d701613b6651ff9999867170fb96b8cacdd320c4a66cd3c801e3c6e_1280.jpg
+2025-10-13T17:25:41.177631050Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g14416037256c5e6a33d538e3607d8eaf9f6b02543a602027586660bc5e865b42e31d65d19693637417c7302b8e7f7ebcefcf4e1ff0d3c0eb150c0696dba9a95b_1280.jpg
+2025-10-13T17:25:41.177637372Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g56ee1dfdc9b0a9edf5afbc0cc19d62711127bed638d419383e20a6ffd0bea28ec1eb89315b892f0730e3faf8550c540481d1dcc755d17b6ec154a1999eb39b9d_1280.jpg
+2025-10-13T17:25:41.178153859Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178159822Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178164582Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178169747Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178175817Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g3e742fd13c3bbfce176b558a72a05fa9eb4143c7cea08a1f22d7bac4ca361ca4c8c14e65baecbadc7fa3c505e8df9be93de9cc5e445692bfccc6cfb724bc7d3e_1280.jpg
+2025-10-13T17:25:41.178181066Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178185942Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178190585Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178196103Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g44873caa272563a474fc7bda0ed1ac5377981edc225ee6e9389271124b5e215ebf81ace755454b673871b24b58dcdc9effb8a0e3e8d074f9d650accbcd902e80_1280.jpg
+2025-10-13T17:25:41.178205047Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g9cbf9a132a6fbe4375e86b9153d05f9c5c7bf76ea97204670a3f352e3ca88af56ad356ce69773e4d5710905750b63be0e4adc605babb8d8e043ab0d0447a0d70_1280.jpg
+2025-10-13T17:25:41.178210859Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gec84d05057f7b49a95803e79cd714c73b8e31479c4d688d8533a00d392ace3de161ad2cdbaec3548c9d3d943835a138d9f7d9aa8e865110a2f6a368719fd157a_1280.jpg
+2025-10-13T17:25:41.178216069Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g680245530a7f7cf27c7ddd8ad1245dd05b1dc9788d55ca8f9d2a47d51def42eea3b9be3c8f0d6bfc278e852a372da49ec484402e4ab525b6482b79bab121ceaa_1280.jpg
+2025-10-13T17:25:41.178226803Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178232016Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178237362Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178243118Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178248923Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178254132Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gc1b9c1f7b858160cbd11c0f8c506b2195d52fb8fa51cc8a3b68818590eea4bc7a7fb79e9964a9f8cb25f8b6d59f7413767cfd4cb7a10bdea8d8bda8e9742a4b8_1280.jpg
+2025-10-13T17:25:41.178259604Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g0feb54de98ffed39f3a5436d4d88eb625b0504cdc592b3dedb28717536192aa90ccb407d280ac828df62654320fe45835c39ddaf640c2ce411785c1dc6187381_1280.jpg
+2025-10-13T17:25:41.178264294Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g4dfab9b065ead87c205ba48e3080e667656e2c18dc0bc0907fe44349d5324fffd0f4f7fdbd206eb6832e3289ef2018e870b9407b3e5e704d27018877856e6179_1280.jpg
+2025-10-13T17:25:41.178269391Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g662d46fa2c8e8c496eb7cf9de8a72966150f2af75fb78617cdad5b044d72e5a7bbe4d8cf48a00b1a52a88b340963387847b479d2da2db7774ef8abb3c2007153_1280.jpg
+2025-10-13T17:25:41.178274663Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178280382Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178287043Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178304079Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178311539Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178317821Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178324143Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178333262Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gb2e357ee46eb729dde11a525ebee049b2873ad879fa8fa5d4d3be0be0cf794ca25d1bce1afd49241620805fb21b99f5432d587d2155a8cf84a3bbc5767c65f78_1280.jpg
+2025-10-13T17:25:41.178339726Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g4a784b9842e63d7787c09b43db952c14c71ed1c0aee7a55de8e04d0ef9fcf73d1ffcff9948eb91f8e493f6f116c6ca5189b560c8d339d3710fc9a06fbbd2842c_1280.jpg
+2025-10-13T17:25:41.178347162Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gad2cbd8793c0157142f3103112681cf7fea40ae19f4e6fe9ac9803c9a22a01df21b1c0bf5bce0c8bd8ebca5a43c397e0f4370c3da6ac34b8d3956740c6aee05f_1280.jpg
+2025-10-13T17:25:41.178353614Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178360025Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:25:41.178369102Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200495575Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200501963Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200507852Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200513565Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200518667Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200525807Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200531517Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g3cf7549da2a24895480b5836187dcaa40062deaa67a3a5bc2a4a61ed51726dc6e756d81bcbbf7e94c7efc9e25e40858ffa68e71f1c8a2c12d842de14517e9d7e_1280.jpg
+2025-10-13T17:26:11.200537516Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g0b9af51b5964c54412f8a49167d152e5fd12402c548cf941946c2b83ce016259b0e59d59ce14a3efaa0e44522808ad6f58ebc2f0665f53ff033b473ecac32f98_1280.jpg
+2025-10-13T17:26:11.200543694Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g1619855944ac5bc8399aa181db09583e8ab8accba7b2e4065d29b74aee8940dc35f5f34a711a580e89e4a2de6e65d8713385db6f8c0a7ab85a53a2270d7d90c4_1280.jpg
+2025-10-13T17:26:11.200548997Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200554085Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200560340Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.200566894Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201685890Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201693050Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201699582Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201705529Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201712143Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201717981Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201723887Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/ab4c-logo.png
+2025-10-13T17:26:11.201729563Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/g86f0375948bfe0c40588210389376e4bf0f76a9ad995a2667fb3e7ef9177655a0edce8c395a8c2d737dc458e68ee929b5e2ee417e65e6e0081443ace25284bf4_1280.png
+2025-10-13T17:26:11.201735321Z [inf]  File downloaded successfully: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b/gc973a44ce2827113918dfdbd8f7b53d86d45be3163139d68a7a9b282b36280a13de5bca211ca6b5bd4645e924fe081d0191676e708201e38199c5b4e6789db5f_1280.png
+2025-10-13T17:26:11.201741157Z [inf]  Download completed: 77/77 files downloaded successfully
+2025-10-13T17:26:11.201746166Z [inf]  Running task: <Task pending name='Task-61991' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:26:11.201751535Z [inf]  Cleaning up main generation directory: /tmp/presenton/c68f2c47-c81f-4fca-b879-422193e7d54b
+2025-10-13T17:26:11.201757237Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 200 OK
+2025-10-13T17:26:12.966026874Z [err]  2025-10-13 17:26:12,951 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969041384Z [inf]  Task done: <Task finished name='Task-61991' coro=<ConcurrentService.run_task.<locals>.wrapper() done, defined at /app/servers/fastapi/services/concurrent_service.py:17> result=None>
+2025-10-13T17:26:52.969050068Z [inf]  Presentation ID: a07b4a48-1008-4a9e-9e8f-3ced0b896be5
+2025-10-13T17:26:52.969055787Z [inf]  ----------------------------------------
+2025-10-13T17:26:52.969060347Z [inf]  Generated 49 outlines for the presentation
+2025-10-13T17:26:52.969064502Z [inf]  INFO:     127.0.0.1:56906 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:26:52.969068698Z [err]  2025-10-13 17:26:49,517 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969073187Z [err]  2025-10-13 17:26:51,540 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969080326Z [err]  2025-10-13 17:26:51,548 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969084688Z [err]  2025-10-13 17:26:51,611 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969089661Z [err]  2025-10-13 17:26:51,619 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969094513Z [err]  2025-10-13 17:26:51,647 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969098614Z [err]  2025-10-13 17:26:51,667 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969103093Z [err]  2025-10-13 17:26:51,685 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969108512Z [err]  2025-10-13 17:26:51,699 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969117867Z [err]  2025-10-13 17:26:51,700 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:52.969122330Z [err]  2025-10-13 17:26:51,717 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.706903761Z [err]  2025-10-13 17:26:55,703 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.766996644Z [err]  2025-10-13 17:26:55,765 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.779281339Z [err]  2025-10-13 17:26:55,777 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.804960559Z [err]  2025-10-13 17:26:55,802 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.892109207Z [err]  2025-10-13 17:26:55,888 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.913256308Z [err]  2025-10-13 17:26:55,909 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.913266794Z [err]  2025-10-13 17:26:55,909 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.964825221Z [err]  2025-10-13 17:26:55,958 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:55.979056912Z [err]  2025-10-13 17:26:55,977 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:26:56.021987035Z [err]  2025-10-13 17:26:56,014 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.258276945Z [err]  2025-10-13 17:27:01,257 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.286059364Z [err]  2025-10-13 17:27:01,282 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.368897486Z [err]  2025-10-13 17:27:01,364 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.379575830Z [err]  2025-10-13 17:27:01,375 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.382852311Z [err]  2025-10-13 17:27:01,381 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.409993008Z [err]  2025-10-13 17:27:01,405 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.460135048Z [err]  2025-10-13 17:27:01,454 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.468146484Z [err]  2025-10-13 17:27:01,462 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.539381509Z [err]  2025-10-13 17:27:01,537 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:01.589387685Z [err]  2025-10-13 17:27:01,584 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.035157225Z [err]  2025-10-13 17:27:06,026 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.084932817Z [err]  2025-10-13 17:27:06,082 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.101128239Z [err]  2025-10-13 17:27:06,098 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.145754301Z [err]  2025-10-13 17:27:06,140 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.164207316Z [err]  2025-10-13 17:27:06,162 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.183967160Z [err]  2025-10-13 17:27:06,175 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.218694935Z [err]  2025-10-13 17:27:06,211 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.218701556Z [err]  2025-10-13 17:27:06,213 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.261492500Z [err]  2025-10-13 17:27:06,258 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:06.283674320Z [err]  2025-10-13 17:27:06,282 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.065043679Z [err]  2025-10-13 17:27:11,061 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.083602831Z [err]  2025-10-13 17:27:11,076 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.083609347Z [err]  2025-10-13 17:27:11,079 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.136921605Z [err]  2025-10-13 17:27:11,134 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.136929307Z [err]  2025-10-13 17:27:11,135 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.137050344Z [err]  2025-10-13 17:27:11,136 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.173171850Z [err]  2025-10-13 17:27:11,167 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.191642154Z [err]  2025-10-13 17:27:11,188 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:11.228643298Z [err]  2025-10-13 17:27:11,223 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:27:16.969860997Z [err]  2025-10-13 17:27:16,956 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:27:17.160631919Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:27:17.160639631Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:27:17.160644743Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:27:17.160648906Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:27:17.160654204Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:27:17.160658648Z [inf]  Request - Generating Image for diverse workforce collaboration, flexible roles, future of work
+2025-10-13T17:27:17.160668567Z [inf]  Request - Generating Image for dynamic business environment, interconnected
+2025-10-13T17:27:17.160674309Z [inf]  Request - Generating Image for flexible team working together
+2025-10-13T17:27:17.160678983Z [inf]  Request - Generating Image for diverse team adapting to change
+2025-10-13T17:27:17.160683498Z [inf]  Request - Generating Image for Stiff gears not turning
+2025-10-13T17:27:17.160687760Z [inf]  Request - Generating Image for geometric patterns with a subtle gradient
+2025-10-13T17:27:17.160692346Z [inf]  Request - Generating Image for workforce potential
+2025-10-13T17:27:17.160696959Z [inf]  Request - Generating Image for diverse team using technology tools efficiently
+2025-10-13T17:27:17.160703162Z [inf]  Request - Generating Image for diverse team collaborating in office
+2025-10-13T17:27:17.160707449Z [inf]  Request - Generating Image for abstract lightbulb pattern
+2025-10-13T17:27:17.160712260Z [inf]  Request - Generating Image for diverse group of professionals collaborating
+2025-10-13T17:27:17.160715955Z [inf]  Request - Generating Image for Employees collaborating in a balanced work environment
+2025-10-13T17:27:17.160720039Z [inf]  Request - Generating Image for Leader supporting team, fostering well-being
+2025-10-13T17:27:17.160723844Z [inf]  Request - Generating Image for geometric pattern with subtle lines
+2025-10-13T17:27:17.160727446Z [inf]  Request - Generating Image for speedometer growth chart
+2025-10-13T17:27:17.160735071Z [inf]  Request - Generating Image for compliance and operations synergy
+2025-10-13T17:27:17.160741011Z [inf]  Request - Generating Image for abstract network connections
+2025-10-13T17:27:17.160747222Z [inf]  INFO:     127.0.0.1:41158 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:27:17.197286550Z [inf]  INFO:     127.0.0.1:41166 - "GET /api/v1/ppt/presentation/a07b4a48-1008-4a9e-9e8f-3ced0b896be5 HTTP/1.0" 200 OK
+2025-10-13T17:27:17.317768425Z [inf]  INFO:     127.0.0.1:41172 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:27:47.333109076Z [inf]  Starting download of 67 files to /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92
+2025-10-13T17:27:47.333119566Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333127271Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333133059Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333139917Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333146921Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333153090Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333159373Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g51fdddcceff24f187b1c1b2ff6d290b896255cd934c779b3ca8fa6407b09a4d524a20143fbd734106a1ee95332991ad17353f09f6911fa3bfb75f6cd87ad7b87_1280.jpg
+2025-10-13T17:27:47.333164779Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333170139Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333175328Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333180891Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333188651Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g572475b1becd2117f129bf41d9cf9dd79a0a21cd50383e5af48f0097db1dadc158b8a87f95158395c738c4f83e5582dc77fbfe22af599bd9050662ef95805a59_1280.jpg
+2025-10-13T17:27:47.333209914Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333215400Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333224222Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333233220Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333241235Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g6bd0610ce3ce9289c30c45d51d5d01f8fc2fe400f95e9f792b768a7d051a54af30e3415cd308fcd8142204992f4c8547ab304cbc26eaeeabd2b53a0a58227376_1280.jpg
+2025-10-13T17:27:47.333247352Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333254684Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333260552Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333266292Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333273485Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333279945Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333286752Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ge2fad1785a9bad158e3861412781bf20807ab885f95883f36d78ba05093e1e430198ca9173aaa41705001014beff71e07d4ca3886e2c8da75fa770b4266f0e07_1280.jpg
+2025-10-13T17:27:47.333292926Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333298857Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333304830Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333312716Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g0c49e32b5a470c480a4a334b9f7756949a7d06e0f44ab2f34e307e25dd443e162e383bee6b69a7e7ec90f1b949b4cb7f3aadfec022ce46c718e37ac6b5448a5e_1280.jpg
+2025-10-13T17:27:47.333318629Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333325219Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333332491Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333339447Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333346192Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333353172Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333358975Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333364918Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ga45ca110c9a6e9478b01c00e2520f7ea1647102804b674e7f78e8d168514c8c4b79d9d482ec5dd85433e00d8b14af770202d51ce507c0658fe72201d3d0a38e6_1280.jpg
+2025-10-13T17:27:47.333371043Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g0c0c21821c8ffb556fe4b6622ce639191bb45df2a3345e2ce41dcb2dd7b6c0dc55698a44c3f8bd7df03bb247228517d4867eb2f0d2c5e75f0ce3c69c1494f2b3_1280.jpg
+2025-10-13T17:27:47.333377282Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333383788Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333391613Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333398083Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g15e67c0b03addbdb19f5d6c8f47bb4b658066879996d7da8d4564ebbebb89b352382a56748bdd1c2d29df96f05d8039e30f0aa15d399dff7ddfb4c05099984ac_1280.jpg
+2025-10-13T17:27:47.333404428Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g86eabcc8679afcdcf2b12523b43e5c9bfee7922d2cc246f6f5e8a4b789c9036d28bc74bb5747c0bf41ac2c677fd6e572ada29545690835cc76c4fac6f43de44e_1280.jpg
+2025-10-13T17:27:47.333411507Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g73b337847dbb6a278840c18571584fb8f657cf4cb20a93c0c6404347fe97f2f0090f8756315e9a71d8c98240cfc9ff35f24a4873a7bfaf2ee2a64492d8ce298f_1280.jpg
+2025-10-13T17:27:47.333417723Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g5b29e2c96883e2b703408286489627135d451427fc18aaf22c1752c8c1390cdbbe1fe67be06045e7bfa885abe4aefb5160353ece74f8e063aefed3ed943ac65f_1280.jpg
+2025-10-13T17:27:47.333424838Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333433811Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333443759Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333452772Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333463357Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g74c98b4b095eeb972d6ce316910dd63bb28fb6454da21ed6b751665a30378e03301fea234039ac6ff7e02ee6d7a986bf7dbf388d3e4a95760994448df594d3d2_1280.jpg
+2025-10-13T17:27:47.333469919Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g92265c1d8cb859280f5011abff40d94d7cb36a54ea8458c08cf98593235a8c79afd16fff9dc640aa02b761d9be42dd3d77ff389ecd91ed3504293c55ed87ab8c_1280.jpg
+2025-10-13T17:27:47.333476572Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333483981Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.333489879Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334052605Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334060238Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g47290f4995c06510b75069a2141e199ad089cc26b588a90ef19849adaa9dd456960d34e058fea7dd8c67bc8786bf0c776b44bb37f1cf87caa91334e5c348b5fe_1280.jpg
+2025-10-13T17:27:47.334066810Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g984cb5cce3869a58572c51716fc499b380a0c066c04a9eb0c57101465430a54bed2e1bc5307a38d42aa89663b18bf6f18131d7ceedd78fc19632f34697f1ef5e_1280.jpg
+2025-10-13T17:27:47.334072892Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334079688Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334086265Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334091971Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334097572Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334103803Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334110355Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:27:47.334117268Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:28:07.332968827Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/g65d50146d1b71b06f9ceead6ce6c145508a22ec0d07f26bc619250011637a8c480a7d565814575d6ac2fe49e86ba3b7ec4810993e8078405ca04d059391d6f29_1280.jpg
+2025-10-13T17:28:07.332977128Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/ab4c-logo.png
+2025-10-13T17:28:07.332983793Z [inf]  File downloaded successfully: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92/gbdb1e4efce4dd2060e29c817585f4dc11bd9bb7eb6ad48c62175b10d31fe88435e5cbfabcc13a78fbabf0a840b7b9924ab8579876cda7a439ae0a238cd6dbe5b_1280.png
+2025-10-13T17:28:07.332989575Z [inf]  Download completed: 67/67 files downloaded successfully
+2025-10-13T17:28:07.332994558Z [inf]  Running task: <Task pending name='Task-62737' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:28:07.333000295Z [inf]  Cleaning up main generation directory: /tmp/presenton/ba6e10f1-0640-4c48-bcc6-6a001a2f1b92
+2025-10-13T17:28:07.333005907Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 200 OK
+2025-10-13T17:28:12.226545183Z [err]  2025-10-13 17:28:12,215 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:42.233679460Z [inf]  Task done: <Task finished name='Task-62737' coro=<ConcurrentService.run_task.<locals>.wrapper() done, defined at /app/servers/fastapi/services/concurrent_service.py:17> result=None>
+2025-10-13T17:28:42.233686662Z [inf]  Presentation ID: e0991a29-f4a9-4653-a746-fec9894784de
+2025-10-13T17:28:42.233692126Z [inf]  ----------------------------------------
+2025-10-13T17:28:42.233696202Z [inf]  Generated 49 outlines for the presentation
+2025-10-13T17:28:42.233700066Z [inf]  INFO:     127.0.0.1:54226 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:28:42.816055215Z [err]  2025-10-13 17:28:42,788 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.170024534Z [err]  2025-10-13 17:28:44,148 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.343291184Z [err]  2025-10-13 17:28:44,341 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.352820325Z [err]  2025-10-13 17:28:44,350 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.352829659Z [err]  2025-10-13 17:28:44,351 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.414634672Z [err]  2025-10-13 17:28:44,411 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.432735779Z [err]  2025-10-13 17:28:44,428 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.435471229Z [err]  2025-10-13 17:28:44,433 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.455378035Z [err]  2025-10-13 17:28:44,451 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.527646203Z [err]  2025-10-13 17:28:44,501 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:44.560294811Z [err]  2025-10-13 17:28:44,558 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.123966821Z [err]  2025-10-13 17:28:48,120 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.155714297Z [err]  2025-10-13 17:28:48,154 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.158692799Z [err]  2025-10-13 17:28:48,156 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.167082258Z [err]  2025-10-13 17:28:48,162 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.263029229Z [err]  2025-10-13 17:28:48,258 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.271863687Z [err]  2025-10-13 17:28:48,267 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.292552822Z [err]  2025-10-13 17:28:48,291 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.327804593Z [err]  2025-10-13 17:28:48,310 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.330484440Z [err]  2025-10-13 17:28:48,329 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:48.416640163Z [err]  2025-10-13 17:28:48,407 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.451374702Z [err]  2025-10-13 17:28:52,434 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.465358892Z [err]  2025-10-13 17:28:52,463 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.550123684Z [err]  2025-10-13 17:28:52,527 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.596600775Z [err]  2025-10-13 17:28:52,594 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.628541065Z [err]  2025-10-13 17:28:52,627 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.658015360Z [err]  2025-10-13 17:28:52,653 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.719235448Z [err]  2025-10-13 17:28:52,717 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.822460929Z [err]  2025-10-13 17:28:52,818 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.822467423Z [err]  2025-10-13 17:28:52,819 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:52.961365017Z [err]  2025-10-13 17:28:52,956 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:56.780866478Z [err]  2025-10-13 17:28:56,747 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.014035676Z [err]  2025-10-13 17:28:57,012 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.023856839Z [err]  2025-10-13 17:28:57,021 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.036745774Z [err]  2025-10-13 17:28:57,030 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.081082616Z [err]  2025-10-13 17:28:57,068 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.081089157Z [err]  2025-10-13 17:28:57,071 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.088184686Z [err]  2025-10-13 17:28:57,084 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.091885015Z [err]  2025-10-13 17:28:57,091 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.095511413Z [err]  2025-10-13 17:28:57,093 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:28:57.837546806Z [err]  2025-10-13 17:28:57,834 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.276421141Z [err]  2025-10-13 17:29:01,275 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.356583664Z [err]  2025-10-13 17:29:01,354 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.381440146Z [err]  2025-10-13 17:29:01,376 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.418878429Z [err]  2025-10-13 17:29:01,417 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.434315831Z [err]  2025-10-13 17:29:01,430 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.497885491Z [err]  2025-10-13 17:29:01,489 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.497894405Z [err]  2025-10-13 17:29:01,490 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.595895801Z [err]  2025-10-13 17:29:01,588 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:01.629871229Z [err]  2025-10-13 17:29:01,622 - INFO - HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+2025-10-13T17:29:10.443759166Z [err]  2025-10-13 17:29:10,439 - INFO - HTTP Request: GET https://openrouter.ai/api/v1/models "HTTP/1.1 200 OK"
+2025-10-13T17:29:10.562906015Z [inf]  Generating slides from 0 to 10
+2025-10-13T17:29:10.562919027Z [inf]  Generating slides from 10 to 20
+2025-10-13T17:29:10.562925328Z [inf]  Generating slides from 20 to 30
+2025-10-13T17:29:10.562931915Z [inf]  Generating slides from 30 to 40
+2025-10-13T17:29:10.562937901Z [inf]  Generating slides from 40 to 49
+2025-10-13T17:29:10.562944397Z [inf]  Request - Generating Image for diverse group of new employees being welcomed by a manager in a modern office environment, symbolizing successful talent integration and best practices
+2025-10-13T17:29:10.562950916Z [inf]  Request - Generating Image for new employee integration
+2025-10-13T17:29:10.562957878Z [inf]  Request - Generating Image for diverse team collaborating in modern office
+2025-10-13T17:29:10.562963739Z [inf]  Request - Generating Image for orientation vs onboarding, new employee journey
+2025-10-13T17:29:10.562970080Z [inf]  Request - Generating Image for geometric pattern with subtle lines
+2025-10-13T17:29:10.562975557Z [inf]  Request - Generating Image for Employees collaborating in a modern office
+2025-10-13T17:29:10.562980934Z [inf]  Request - Generating Image for Productivity growth chart
+2025-10-13T17:29:10.562986270Z [inf]  Request - Generating Image for diverse team collaborating in modern office
+2025-10-13T17:29:10.562991774Z [inf]  Request - Generating Image for Money draining away
+2025-10-13T17:29:10.562996548Z [inf]  Request - Generating Image for abstract timeline with connecting dots
+2025-10-13T17:29:10.563001019Z [inf]  Request - Generating Image for diverse team preparing office for new employee
+2025-10-13T17:29:10.563007136Z [inf]  Request - Generating Image for new employee onboarding checklist
+2025-10-13T17:29:10.563023497Z [inf]  Request - Generating Image for pre-boarding details checklist
+2025-10-13T17:29:10.563028496Z [inf]  Request - Generating Image for abstract pattern with subtle network lines
+2025-10-13T17:29:10.563032883Z [inf]  Request - Generating Image for new employee onboarding, welcome
+2025-10-13T17:29:10.563037129Z [inf]  Request - Generating Image for diverse team collaborating in an office
+2025-10-13T17:29:10.563042330Z [inf]  Request - Generating Image for abstract lines connecting points, future growth
+2025-10-13T17:29:10.563046085Z [inf]  Request - Generating Image for new employee assimilation
+2025-10-13T17:29:10.563050068Z [inf]  Request - Generating Image for employee receiving feedback
+2025-10-13T17:29:10.563054545Z [inf]  Request - Generating Image for Achieving proficiency and alignment at 90 days
+2025-10-13T17:29:10.563058687Z [inf]  Request - Generating Image for growth chart beyond 90 days
+2025-10-13T17:29:10.563062391Z [inf]  Request - Generating Image for abstract legal patterns
+2025-10-13T17:29:10.563066208Z [inf]  Request - Generating Image for legal compliance checklist
+2025-10-13T17:29:10.563070229Z [inf]  Request - Generating Image for diverse team collaboration
+2025-10-13T17:29:10.563074459Z [inf]  Request - Generating Image for Legal documents, scales of justice, compliance
+2025-10-13T17:29:10.563078839Z [inf]  Request - Generating Image for abstract pattern diversity inclusion
+2025-10-13T17:29:10.563082878Z [inf]  Request - Generating Image for diverse group collaborating
+2025-10-13T17:29:10.563087121Z [inf]  Request - Generating Image for diverse team collaborating in an inclusive environment
+2025-10-13T17:29:10.563090938Z [inf]  Request - Generating Image for futuristic circuit board pattern
+2025-10-13T17:29:10.563094958Z [inf]  Request - Generating Image for Digital tools for HR onboarding
+2025-10-13T17:29:10.563099127Z [inf]  Request - Generating Image for Technology integration benefits icons
+2025-10-13T17:29:10.563104989Z [inf]  Request - Generating Image for abstract data visualization lines
+2025-10-13T17:29:10.563108859Z [inf]  Request - Generating Image for diverse team collaborating in an office
+2025-10-13T17:29:10.563112780Z [inf]  Request - Generating Image for abstract network connections, team integration
+2025-10-13T17:29:10.563116676Z [inf]  Request - Generating Image for diverse team meeting
+2025-10-13T17:29:10.563121922Z [inf]  Request - Generating Image for abstract gears and flowcharts
+2025-10-13T17:29:10.563127005Z [inf]  Request - Generating Image for diverse team collaborating on a strategy roadmap
+2025-10-13T17:29:10.563130799Z [inf]  Error generating image: 400, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://pixabay.com/api/?key=52732331-aa4b8d8805289cd6e5f7eec56&q=diverse+group+of+new+employees+being+welcomed+by+a+manager+in+a+modern+office+environment,+symbolizing+successful+talent+integration+and+best+practices&image_type=photo&per_page=3'
+2025-10-13T17:29:10.563134727Z [inf]  INFO:     127.0.0.1:54928 - "POST /api/v1/ppt/openai/models/available HTTP/1.0" 200 OK
+2025-10-13T17:29:10.598220596Z [inf]  INFO:     127.0.0.1:54938 - "GET /api/v1/ppt/presentation/e0991a29-f4a9-4653-a746-fec9894784de HTTP/1.0" 200 OK
+2025-10-13T17:29:10.820746718Z [inf]  INFO:     127.0.0.1:54940 - "GET /api/v1/ppt/template-management/summary HTTP/1.0" 200 OK
+2025-10-13T17:29:22.111725648Z [err]  2025-10-13 17:29:18.408 UTC [76] LOG:  checkpoint starting: time
+2025-10-13T17:29:26.848330640Z [err]  2025-10-13 17:29:26.835 UTC [6017] LOG:  could not receive data from client: Connection reset by peer
+2025-10-13T17:29:26.848338904Z [err]  2025-10-13 17:29:26.835 UTC [5998] LOG:  could not receive data from client: Connection reset by peer
+2025-10-13T17:29:27.000000000Z [inf]  Mounting volume on: /var/lib/containers/railwayapp/bind-mounts/e26d3e2e-f70a-4e0a-8e5d-dc8fbcff8387/vol_juydazl0mfouz2tm
+2025-10-13T17:29:30.822244436Z [err]  Segmentation fault
+2025-10-13T17:29:30.822252273Z [err]  Traceback (most recent call last):
+2025-10-13T17:29:30.822257136Z [err]    File "/app/servers/fastapi/api/v1/ppt/endpoints/presentation.py", line 832, in generate_presentation_sync
+2025-10-13T17:29:30.822261630Z [err]      return await generate_presentation_handler(
+2025-10-13T17:29:30.822266263Z [err]             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-10-13T17:29:30.822270445Z [err]    File "/app/servers/fastapi/api/v1/ppt/endpoints/presentation.py", line 816, in generate_presentation_handler
+2025-10-13T17:29:30.822274501Z [err]      raise e
+2025-10-13T17:29:30.822278686Z [err]    File "/app/servers/fastapi/api/v1/ppt/endpoints/presentation.py", line 767, in generate_presentation_handler
+2025-10-13T17:29:30.822282683Z [err]      presentation_and_path = await export_presentation(
+2025-10-13T17:29:30.822287394Z [err]                              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-10-13T17:29:30.822291590Z [err]    File "/app/servers/fastapi/utils/export_utils.py", line 45, in export_presentation
+2025-10-13T17:29:30.822296485Z [err]      raise HTTPException(
+2025-10-13T17:29:30.822300486Z [err]  fastapi.exceptions.HTTPException: 500: Failed to convert presentation to PPTX model
+2025-10-13T17:29:30.822304526Z [inf]  Failed to get PPTX model: <html>
+2025-10-13T17:29:30.822308505Z [inf]  <head><title>502 Bad Gateway</title></head>
+2025-10-13T17:29:30.822312764Z [inf]  <body>
+2025-10-13T17:29:30.822316658Z [inf]  <center><h1>502 Bad Gateway</h1></center>
+2025-10-13T17:29:30.822336818Z [inf]  <hr><center>nginx/1.22.1</center>
+2025-10-13T17:29:30.822341726Z [inf]  </body>
+2025-10-13T17:29:30.822345932Z [inf]  </html>
+2025-10-13T17:29:30.822349971Z [inf]  
+2025-10-13T17:29:30.822355492Z [inf]  Running task: <Task pending name='Task-63306' coro=<ConcurrentService.run_task.<locals>.wrapper() running at /app/servers/fastapi/services/concurrent_service.py:17>> - executing send_webhook
+2025-10-13T17:29:30.822359459Z [inf]  Cleaning up main generation directory: /tmp/presenton/2be0827c-b803-4df6-9b9d-c7e01bccc947
+2025-10-13T17:29:30.822363442Z [inf]  INFO:     49.13.71.12:0 - "POST /api/v1/ppt/presentation/generate HTTP/1.0" 500 Internal Server Error
+2025-10-13T17:29:30.822367185Z [inf]  One of the processes exited. Exit code: 139
+2025-10-13T17:29:30.822371110Z [inf]  Starting nginx: nginx.
+2025-10-13T17:29:30.822376014Z [inf]  Nginx started successfully
+2025-10-13T17:29:30.822381415Z [inf]  
+2025-10-13T17:29:30.822385715Z [inf]  > presenton@0.1.0 start
+2025-10-13T17:29:30.822389454Z [inf]  > next start -p 3000
+2025-10-13T17:29:30.822393118Z [inf]  
+2025-10-13T17:29:30.822402625Z [inf]    ▲ Next.js 14.2.31
+2025-10-13T17:29:30.822406833Z [inf]    - Local:        http://localhost:3000
+2025-10-13T17:29:30.822410813Z [inf]  
+2025-10-13T17:29:30.822418497Z [inf]   ✓ Starting...
+2025-10-13T17:29:30.822422394Z [inf]   ✓ Ready in 415ms
+2025-10-13T17:29:39.581695552Z [err]  INFO:     Started server process [12]
+2025-10-13T17:29:39.581702321Z [err]  INFO:     Waiting for application startup.
+2025-10-13T17:29:39.817093487Z [err]  INFO:     Application startup complete.
+2025-10-13T17:29:39.817103277Z [err]  INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2025-10-13T17:29:46.860197336Z [err]  2025-10-13 17:29:36.979 UTC [76] LOG:  checkpoint complete: wrote 185 buffers (1.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=18.480 s, sync=0.025 s, total=18.571 s; sync files=16, longest=0.010 s, average=0.002 s; distance=1164 kB, estimate=1164 kB; lsn=0/D1D9018, redo lsn=0/D1D8F88

@@ -445,119 +445,156 @@ class LLMClient:
         return content
 
     # ? Generate Structured Content
-    async def _generate_openai_structured(
-        self,
-        model: str,
-        messages: List[LLMMessage],
-        response_format: dict,
-        strict: bool = False,
-        max_tokens: Optional[int] = None,
-        tools: Optional[List[dict]] = None,
-        extra_body: Optional[dict] = None,
-        depth: int = 0,
-    ) -> dict | None:
-        client: AsyncOpenAI = self._client
-        response_schema = response_format
-        all_tools = [*tools] if tools else None
+async def _generate_openai_structured(
+    self,
+    model: str,
+    messages: List[LLMMessage],
+    response_format: dict,
+    strict: bool = False,
+    max_tokens: Optional[int] = None,
+    tools: Optional[List[dict]] = None,
+    extra_body: Optional[dict] = None,
+    depth: int = 0,
+    max_retries: int = 3,  # <-- Add a retry parameter
+) -> dict | None:
+    
+    # --- Start of New Retry Logic ---
+    for attempt in range(max_retries):
+        try:
+            # --- All of your original code now goes inside the 'try' block ---
+            client: AsyncOpenAI = self._client
+            response_schema = response_format
+            all_tools = [*tools] if tools else None
 
-        use_tool_calls_for_structured_output = (
-            self.use_tool_calls_for_structured_output()
-        )
-        if strict and depth == 0:
-            response_schema = ensure_strict_json_schema(
-                response_schema,
-                path=(),
-                root=response_schema,
+            use_tool_calls_for_structured_output = (
+                self.use_tool_calls_for_structured_output()
             )
-        if use_tool_calls_for_structured_output and depth == 0:
-            if all_tools is None:
-                all_tools = []
-            all_tools.append(
-                self.tool_calls_handler.parse_tool(
-                    LLMDynamicTool(
-                        name="ResponseSchema",
-                        description="Provide response to the user",
-                        parameters=response_schema,
-                        handler=do_nothing_async,
-                    ),
-                    strict=strict,
+            if strict and depth == 0:
+                response_schema = ensure_strict_json_schema(
+                    response_schema,
+                    path=(),
+                    root=response_schema,
                 )
-            )
-
-        response = await client.chat.completions.create(
-            model=model,
-            messages=[message.model_dump() for message in messages],
-            response_format=(
-                {
-                    "type": "json_schema",
-                    "json_schema": (
-                        {
-                            "name": "ResponseSchema",
-                            "strict": strict,
-                            "schema": response_schema,
-                        }
-                    ),
-                }
-                if not use_tool_calls_for_structured_output
-                else None
-            ),
-            max_completion_tokens=max_tokens,
-            tools=all_tools,
-            extra_body=extra_body,
-        )
-
-        content = response.choices[0].message.content
-
-        tool_calls = response.choices[0].message.tool_calls
-        has_response_schema = False
-
-        if tool_calls:
-            for tool_call in tool_calls:
-                if tool_call.function.name == "ResponseSchema":
-                    content = tool_call.function.arguments
-                    has_response_schema = True
-
-            if not has_response_schema:
-                parsed_tool_calls = [
-                    OpenAIToolCall(
-                        id=tool_call.id,
-                        type=tool_call.type,
-                        function=OpenAIToolCallFunction(
-                            name=tool_call.function.name,
-                            arguments=tool_call.function.arguments,
+            if use_tool_calls_for_structured_output and depth == 0:
+                if all_tools is None:
+                    all_tools = []
+                all_tools.append(
+                    self.tool_calls_handler.parse_tool(
+                        LLMDynamicTool(
+                            name="ResponseSchema",
+                            description="Provide response to the user",
+                            parameters=response_schema,
+                            handler=do_nothing_async,
                         ),
-                    )
-                    for tool_call in tool_calls
-                ]
-                tool_call_messages = (
-                    await self.tool_calls_handler.handle_tool_calls_openai(
-                        parsed_tool_calls
+                        strict=strict,
                     )
                 )
-                new_messages = [
-                    *messages,
-                    OpenAIAssistantMessage(
-                        role="assistant",
-                        content=response.choices[0].message.content,
-                        tool_calls=[each.model_dump() for each in parsed_tool_calls],
-                    ),
-                    *tool_call_messages,
-                ]
-                content = await self._generate_openai_structured(
-                    model=model,
-                    messages=new_messages,
-                    response_format=response_schema,
-                    strict=strict,
-                    max_tokens=max_tokens,
-                    tools=all_tools,
-                    extra_body=extra_body,
-                    depth=depth + 1,
-                )
-        if content:
-            if depth == 0:
-                return dict(dirtyjson.loads(content))
-            return content
-        return None
+
+            response = await client.chat.completions.create(
+                model=model,
+                messages=[message.model_dump() for message in messages],
+                response_format=(
+                    {
+                        "type": "json_schema",
+                        "json_schema": (
+                            {
+                                "name": "ResponseSchema",
+                                "strict": strict,
+                                "schema": response_schema,
+                            }
+                        ),
+                    }
+                    if not use_tool_calls_for_structured_output
+                    else None
+                ),
+                max_completion_tokens=max_tokens,
+                tools=all_tools,
+                extra_body=extra_body,
+            )
+
+            content = response.choices[0].message.content
+            tool_calls = response.choices[0].message.tool_calls
+            has_response_schema = False
+
+            if tool_calls:
+                for tool_call in tool_calls:
+                    if tool_call.function.name == "ResponseSchema":
+                        content = tool_call.function.arguments
+                        has_response_schema = True
+
+                if not has_response_schema:
+                    parsed_tool_calls = [
+                        OpenAIToolCall(
+                            id=tool_call.id,
+                            type=tool_call.type,
+                            function=OpenAIToolCallFunction(
+                                name=tool_call.function.name,
+                                arguments=tool_call.function.arguments,
+                            ),
+                        )
+                        for tool_call in tool_calls
+                    ]
+                    tool_call_messages = (
+                        await self.tool_calls_handler.handle_tool_calls_openai(
+                            parsed_tool_calls
+                        )
+                    )
+                    new_messages = [
+                        *messages,
+                        OpenAIAssistantMessage(
+                            role="assistant",
+                            content=response.choices[0].message.content,
+                            tool_calls=[each.model_dump() for each in parsed_tool_calls],
+                        ),
+                        *tool_call_messages,
+                    ]
+                    # Note: We pass the remaining retries to the recursive call
+                    content = await self._generate_openai_structured(
+                        model=model,
+                        messages=new_messages,
+                        response_format=response_schema,
+                        strict=strict,
+                        max_tokens=max_tokens,
+                        tools=all_tools,
+                        extra_body=extra_body,
+                        depth=depth + 1,
+                        max_retries=max_retries - (attempt + 1), # Pass remaining retries
+                    )
+            
+            if content:
+                # The parsing happens here, so it's inside the try block
+                if depth == 0:
+                    parsed_content = dict(dirtyjson.loads(content))
+                    return parsed_content
+                return content
+            
+            return None
+            # --- End of Original Logic ---
+
+        except (dirtyjson.error.Error, json.JSONDecodeError) as e:
+            # This block now catches the parsing error
+            print("=" * 50)
+            print(f"JSON PARSING FAILED on attempt {attempt + 1} of {max_retries}")
+            print(f"Error: {e}")
+            # Try to log the faulty content if it exists
+            try:
+                print("The LLM returned the following malformed content:")
+                print(content)
+            except NameError:
+                print("Content variable was not available to log.")
+            print("=" * 50)
+
+            if attempt + 1 >= max_retries:
+                # If we've exhausted all retries, re-raise the exception
+                raise e
+            
+            # Wait for 1 second before trying the next attempt
+            print("Retrying in 1 second...")
+            await asyncio.sleep(1)
+
+    # If the loop finishes without returning, it means all retries failed.
+    # We should raise an exception here as a fallback.
+    raise HTTPException(status_code=500, detail="LLM failed to return valid JSON after multiple retries.")
 
     async def _generate_google_structured(
         self,
