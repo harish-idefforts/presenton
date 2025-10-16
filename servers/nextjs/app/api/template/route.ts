@@ -1,7 +1,5 @@
-// in /app/api/template/route.ts
-
 import { NextResponse } from "next/server";
-import { getBrowser } from "@/lib/puppeteer"; // Adjust the import path if needed
+import { getBrowser } from "@/lib/puppeteer";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -14,14 +12,13 @@ export async function GET(request: Request) {
   const schemaPageUrl = `http://localhost/schema?group=${encodeURIComponent(
     groupName
   )}`;
-  
+
   console.log(`Fetching schema from URL: ${schemaPageUrl}`);
 
-  let context; // Use a browser context for better isolation
+  let page; // The page is the only resource we manage here
   try {
-    const browser = await getBrowser();
-    context = await browser.createIncognitoBrowserContext();
-    const page = await context.newPage();
+    const browser = await getBrowser(); // Get the single, shared browser instance
+    page = await browser.newPage(); // Create a new, lightweight page directly
 
     await page.setViewport({ width: 1280, height: 720 });
     
@@ -39,12 +36,13 @@ export async function GET(request: Request) {
 
     const { dataLayouts, dataGroupSettings } = await page.$eval(
       "[data-layouts]",
-      (el: Element) => ({ // Added type annotation for 'el'
+      (el: Element) => ({
         dataLayouts: el.getAttribute("data-layouts"),
         dataGroupSettings: el.getAttribute("data-settings"),
       })
     );
     
+    // ... (Your JSON parsing and response logic is correct and stays the same)
     let slides, groupSettings;
     try {
       slides = JSON.parse(dataLayouts || "[]");
@@ -72,24 +70,22 @@ export async function GET(request: Request) {
     };
 
     return NextResponse.json(response);
-  } catch (err: unknown) { // <-- FIX #1: Explicitly type 'err' as 'unknown'
-    
+  } catch (err: unknown) {
     let errorMessage = "An unknown error occurred";
-    // FIX #2: Check if 'err' is an instance of Error before accessing .message
     if (err instanceof Error) {
       errorMessage = err.message;
     }
 
     console.error(`Error in template API for group '${groupName}':`, errorMessage);
     return NextResponse.json(
-      { error: "Failed to fetch or parse client page", detail: errorMessage },
+      { error: "Failed to. fetch or parse client page", detail: errorMessage },
       { status: 500 }
     );
-
   } finally {
-    if (context) {
-      await context.close();
+    // We only need to close the page. The browser instance stays alive.
+    if (page) {
+      await page.close();
     }
-    console.log(`Cleaned up browser context for group: ${groupName}`);
+    console.log(`Cleaned up browser page for group: ${groupName}`);
   }
 }
