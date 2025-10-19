@@ -12,24 +12,13 @@ export async function GET(
   }
 
   const appData = process.env.APP_DATA_DIRECTORY || '/app/user_data';
-  const candidates: string[] = [];
-  candidates.push(path.join(appData, 'uploads', 'images', filename));
-  candidates.push(path.join(appData, 'images', filename));
-  candidates.push(path.join(process.cwd(), 'app_data', 'uploads', 'images', filename));
-  candidates.push(path.join(process.cwd(), 'uploads', 'images', filename));
-
-  let filePath: string | null = null;
-  for (const p of candidates) {
-    try {
-      const stat = fs.statSync(p);
-      if (stat.isFile()) {
-        filePath = p;
-        break;
-      }
-    } catch {}
+  const filePath = path.join(appData, 'uploads', 'images', filename);
+  try {
+    const stat = fs.statSync(filePath);
+    if (!stat.isFile()) return new NextResponse('Not found', { status: 404 });
+  } catch {
+    return new NextResponse('Not found', { status: 404 });
   }
-
-  if (!filePath) return new NextResponse('Not found', { status: 404 });
 
   const ext = path.extname(filename).toLowerCase();
   const contentType =

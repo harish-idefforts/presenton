@@ -12,6 +12,8 @@ from utils.asset_directory_utils import get_images_directory
 import os
 import uuid
 from utils.file_utils import get_file_name_with_random_uuid
+from utils.asset_directory_utils import get_uploads_directory
+import shutil
 
 IMAGES_ROUTER = APIRouter(prefix="/images", tags=["Images"])
 
@@ -105,3 +107,32 @@ async def delete_uploaded_image_by_id(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to delete image: {str(e)}")
+
+
+@IMAGES_ROUTER.post("/finalize")
+async def finalize_image_path(
+    path: str,
+):
+    """
+    Moves/copies a locally generated image (e.g., from a temp directory) into
+    APP_DATA_DIRECTORY/uploads/images and returns a public FastAPI media URL.
+    """
+    try:
+        if not path or not os.path.isfile(path):
+            raise HTTPException(status_code=400, detail="Invalid file path")
+
+        uploads_images = os.path.join(get_uploads_directory(), "images")
+        os.makedirs(uploads_images, exist_ok=True)
+
+        filename = os.path.basename(path)
+        target_path = os.path.join(uploads_images, filename)
+
+        if os.path.abspath(path) != os.path.abspath(target_path):
+            shutil.copy2(path, target_path)
+
+        # Return Next.js-served local image URL for a single, consistent path
+        return {"url": f"/api/local-image/{filename}"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to finalize image: {str(e)}")

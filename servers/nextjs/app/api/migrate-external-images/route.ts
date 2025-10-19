@@ -19,16 +19,20 @@ function isExternalImageUrl(url?: string) {
   }
 }
 
-function traverseAndCollect(obj: any, paths: string[] = [], basePath = ''): { path: string; url: string }[] {
+type Item = { path: string; url: string; kind: 'image'|'icon'; parentPath: string };
+
+function traverseAndCollect(obj: any, paths: string[] = [], basePath = ''): Item[] {
   if (obj == null || typeof obj !== 'object') return paths as any;
-  const results: { path: string; url: string }[] = [];
+  const results: Item[] = [];
 
   for (const [key, value] of Object.entries(obj)) {
     const current = basePath ? `${basePath}.${key}` : key;
     if (key === '__image_url__' && typeof value === 'string' && isExternalImageUrl(value)) {
-      results.push({ path: current, url: value });
+      const parentPath = current.replace(/\.__image_url__$/, '');
+      results.push({ path: current, url: value, kind: 'image', parentPath });
     } else if (key === '__icon_url__' && typeof value === 'string' && isExternalImageUrl(value)) {
-      results.push({ path: current, url: value });
+      const parentPath = current.replace(/\.__icon_url__$/, '');
+      results.push({ path: current, url: value, kind: 'icon', parentPath });
     } else if (Array.isArray(value)) {
       value.forEach((v, i) => {
         results.push(...traverseAndCollect(v, paths, `${current}[${i}]`));
@@ -48,6 +52,16 @@ function setByPath(obj: any, path: string, newValue: string) {
     if (cur == null) return;
   }
   cur[tokens[tokens.length - 1] as any] = newValue;
+}
+
+function getByPath(obj: any, path: string): any {
+  const tokens = path.replace(/\[(\d+)\]/g, '.$1').split('.').filter(Boolean);
+  let cur = obj;
+  for (const tk of tokens) {
+    if (cur == null) return undefined;
+    cur = cur[tk as any];
+  }
+  return cur;
 }
 
 async function cacheOne(url: string): Promise<string | null> {
@@ -91,13 +105,64 @@ export async function POST(req: NextRequest) {
         const presentation = await presRes.json();
 
         let changed = false;
+        let cachedCount = 0;
+        let regeneratedCount = 0;
         for (const slide of presentation.slides || []) {
           const items = traverseAndCollect(slide.content);
           for (const item of items) {
+            // Try caching existing URL
             const cached = await cacheOne(item.url);
             if (cached) {
               setByPath(slide.content, item.path, cached);
               changed = true;
+              cachedCount++;
+              continue;
+            }
+
+            // Regenerate when possible
+            const parent: any = getByPath(slide.content, item.parentPath) || {};
+            if (item.kind === 'image' && typeof parent.__image_prompt__ === 'string' && parent.__image_prompt__.trim().length > 0) {
+              try {
+                const prompt = encodeURIComponent(parent.__image_prompt__);
+                const genRes = await fetch(`${FASTAPI_BASE}/api/v1/ppt/images/generate?prompt=${prompt}`);
+                if (genRes.ok) {
+                  const text = await genRes.text();
+                  let finalUrl: string | null = null;
+                  if (/^https?:\/\//i.test(text)) {
+                    finalUrl = await cacheOne(text);
+                  } else if (typeof text === 'string' && text.length > 0) {
+                    const finRes = await fetch(`${FASTAPI_BASE}/api/v1/ppt/images/finalize`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ path: text })
+                    });
+                    if (finRes.ok) {
+                      const data = await finRes.json().catch(() => ({} as any));
+                      if (typeof (data as any).url === 'string') finalUrl = (data as any).url;
+                    }
+                  }
+                  if (finalUrl) {
+                    setByPath(slide.content, item.path, finalUrl);
+                    changed = true;
+                    regeneratedCount++;
+                    continue;
+                  }
+                }
+              } catch {}
+            } else if (item.kind === 'icon' && typeof parent.__icon_query__ === 'string' && parent.__icon_query__.trim().length > 0) {
+              try {
+                const q = encodeURIComponent(parent.__icon_query__);
+                const iconRes = await fetch(`${FASTAPI_BASE}/api/v1/ppt/icons/search?query=${q}&limit=1`);
+                if (iconRes.ok) {
+                  const arr = await iconRes.json();
+                  if (Array.isArray(arr) && typeof arr[0] === 'string') {
+                    setByPath(slide.content, item.path, arr[0]);
+                    changed = true;
+                    regeneratedCount++;
+                    continue;
+                  }
+                }
+              } catch {}
             }
           }
         }
@@ -110,12 +175,12 @@ export async function POST(req: NextRequest) {
             body: JSON.stringify(presentation),
           });
           if (!upRes.ok) {
-            results.push({ id: p.id, updated: false, reason: 'update failed' });
+            results.push({ id: p.id, updated: false, reason: 'update_failed', cached: cachedCount, regenerated: regeneratedCount });
           } else {
-            results.push({ id: p.id, updated: true });
+            results.push({ id: p.id, updated: true, cached: cachedCount, regenerated: regeneratedCount });
           }
         } else {
-          results.push({ id: p.id, updated: false, reason: 'no external images' });
+          results.push({ id: p.id, updated: false, reason: 'no external images', cached: cachedCount, regenerated: regeneratedCount });
         }
       } catch (e: any) {
         results.push({ id: p.id, updated: false, reason: e?.message || 'error' });
