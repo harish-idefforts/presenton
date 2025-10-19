@@ -8,6 +8,7 @@ from services.image_generation_service import ImageGenerationService
 from utils.asset_directory_utils import get_images_directory
 from services.media_service import is_external_media, download_to_storage
 from utils.dict_utils import get_dict_at_path, get_dict_paths_with_key, set_dict_at_path
+from services.media_service import is_external_media, download_to_storage
 
 
 async def process_slide_and_fetch_assets(
@@ -164,6 +165,15 @@ async def process_old_and_new_slides_and_fetch_assets(
                 image_url = fetched_image.path
             else:
                 image_url = fetched_image
+
+            # If the generator returned an external URL, cache to local storage
+            if isinstance(image_url, str) and is_external_media(image_url):
+                try:
+                    cached = await download_to_storage(image_url)
+                    image_url = cached or image_url
+                except Exception:
+                    pass
+
             new_image_dicts[i]["__image_url__"] = image_url
 
     for i, new_icon in enumerate(new_icons):
