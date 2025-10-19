@@ -7,6 +7,7 @@ from models.image_prompt import ImagePrompt
 from models.sql.image_asset import ImageAsset
 from services.database import get_async_session
 from services.image_generation_service import ImageGenerationService
+from services.temp_file_service import TEMP_FILE_SERVICE
 from utils.asset_directory_utils import get_images_directory
 import os
 import uuid
@@ -21,7 +22,8 @@ async def generate_image(
 ):
     images_directory = get_images_directory()
     image_prompt = ImagePrompt(prompt=prompt)
-    image_generation_service = ImageGenerationService(images_directory)
+    temp_dir = TEMP_FILE_SERVICE.create_temp_dir()
+    image_generation_service = ImageGenerationService(images_directory, temp_dir=temp_dir)
 
     image = await image_generation_service.generate_image(image_prompt)
     if not isinstance(image, ImageAsset):

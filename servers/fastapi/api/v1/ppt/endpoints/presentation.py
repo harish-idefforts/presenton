@@ -294,7 +294,8 @@ async def stream_presentation(
             detail="Outlines can not be empty",
         )
 
-    image_generation_service = ImageGenerationService(get_images_directory())
+    temp_dir = TEMP_FILE_SERVICE.create_temp_dir()
+    image_generation_service = ImageGenerationService(get_images_directory(), temp_dir=temp_dir)
 
     async def inner():
         structure = presentation.get_structure()

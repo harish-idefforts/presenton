@@ -7,6 +7,7 @@ from models.sql.presentation import PresentationModel
 from models.sql.slide import SlideModel
 from services.database import get_async_session
 from services.image_generation_service import ImageGenerationService
+from services.temp_file_service import TEMP_FILE_SERVICE
 from utils.asset_directory_utils import get_images_directory
 from utils.llm_calls.edit_slide import get_edited_slide_content
 from utils.llm_calls.edit_slide_html import get_edited_slide_html
@@ -40,7 +41,8 @@ async def edit_slide(
         prompt, slide, presentation.language, slide_layout
     )
 
-    image_generation_service = ImageGenerationService(get_images_directory())
+    temp_dir = TEMP_FILE_SERVICE.create_temp_dir()
+    image_generation_service = ImageGenerationService(get_images_directory(), temp_dir=temp_dir)
 
     # This will mutate edited_slide_content
     new_assets = await process_old_and_new_slides_and_fetch_assets(
