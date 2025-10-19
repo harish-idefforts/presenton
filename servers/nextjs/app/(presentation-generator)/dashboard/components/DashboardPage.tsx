@@ -11,6 +11,8 @@ import Header from "@/app/(presentation-generator)/dashboard/components/Header";
 
 const DashboardPage: React.FC = () => {
   const [presentations, setPresentations] = useState<any>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 12;
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -31,6 +33,7 @@ const DashboardPage: React.FC = () => {
           new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()
       );
       setPresentations(data);
+      setCurrentPage(1);
     } catch (err) {
       setError(null);
       setPresentations([]);
@@ -45,6 +48,34 @@ const DashboardPage: React.FC = () => {
     );
   };
 
+  const totalItems = presentations?.length || 0;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const start = (currentPage - 1) * pageSize;
+  const end = start + pageSize;
+  const pagedPresentations = presentations ? presentations.slice(start, end) : null;
+
+  const Pagination = () => (
+    <div className="flex items-center justify-center gap-2 mt-6">
+      <button
+        className="px-3 py-1 rounded border text-sm disabled:opacity-50"
+        onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+        disabled={currentPage <= 1}
+      >
+        Prev
+      </button>
+      <span className="text-sm text-gray-600">
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        className="px-3 py-1 rounded border text-sm disabled:opacity-50"
+        onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+        disabled={currentPage >= totalPages}
+      >
+        Next
+      </button>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-[#E9E8F8]">
       <Header />
@@ -55,12 +86,13 @@ const DashboardPage: React.FC = () => {
               Slide Presentation
             </h2>
             <PresentationGrid
-              presentations={presentations}
+              presentations={pagedPresentations as any}
               type="slide"
               isLoading={isLoading}
               error={error}
               onPresentationDeleted={removePresentation}
             />
+            {!isLoading && !error && totalItems > pageSize && <Pagination />}
           </section>
         </main>
       </Wrapper>
