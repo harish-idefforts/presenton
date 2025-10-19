@@ -48,6 +48,11 @@ const SettingsPage = () => {
     done: boolean;
   } | null>(null);
   const [showDownloadModal, setShowDownloadModal] = useState<boolean>(false);
+  // Image migration state
+  const [isMigratingImages, setIsMigratingImages] = useState(false);
+  const [migrateProcessed, setMigrateProcessed] = useState(0);
+  const [migrateBatches, setMigrateBatches] = useState(0);
+  const [migrateLimit, setMigrateLimit] = useState(50);
 
   const downloadProgress = React.useMemo(() => {
     if (
@@ -164,6 +169,63 @@ const SettingsPage = () => {
             buttonState={buttonState}
             setButtonState={setButtonState}
           />
+          {/* Image Cache Migration */}
+          <div className="mt-8 p-4 border rounded-lg bg-white">
+            <h3 className="text-lg font-semibold mb-2">Cache External Images</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Download external slide images (Pixabay/Unsplash/Pexels) and rewrite presentations to use local URLs.
+            </p>
+            <div className="flex items-center gap-3 mb-3">
+              <label className="text-sm text-gray-700">Batch size</label>
+              <input
+                type="number"
+                min={10}
+                max={200}
+                value={migrateLimit}
+                onChange={(e) => setMigrateLimit(Math.max(10, Math.min(200, parseInt(e.target.value || '50'))))}
+                className="w-24 border rounded px-2 py-1 text-sm"
+              />
+              <button
+                disabled={isMigratingImages}
+                onClick={async () => {
+                  setIsMigratingImages(true);
+                  setMigrateProcessed(0);
+                  setMigrateBatches(0);
+                  let offset = 0;
+                  try {
+                    // Loop until a batch returns 0 processed
+                    while (true) {
+                      const res = await fetch('/api/migrate-external-images', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ limit: migrateLimit, offset }),
+                      });
+                      if (!res.ok) break;
+                      const data = await res.json();
+                      const processed = Number(data?.processed || 0);
+                      setMigrateProcessed((p) => p + processed);
+                      setMigrateBatches((b) => b + 1);
+                      if (processed < migrateLimit) break;
+                      offset += migrateLimit;
+                      // Yield to UI
+                      await new Promise((r) => setTimeout(r, 150));
+                    }
+                    toast.success('Image cache migration completed');
+                  } catch (e) {
+                    toast.error('Image cache migration failed');
+                  } finally {
+                    setIsMigratingImages(false);
+                  }
+                }}
+                className={`px-3 py-2 rounded text-white text-sm ${isMigratingImages ? 'bg-gray-400' : 'bg-indigo-600 hover:bg-indigo-700'}`}
+              >
+                {isMigratingImages ? 'Migrating...' : 'Start Migration'}
+              </button>
+            </div>
+            <div className="text-xs text-gray-600">
+              Batches: {migrateBatches} • Presentations processed: {migrateProcessed}
+            </div>
+          </div>
         </div>
       </main>
 

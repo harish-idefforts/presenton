@@ -6,6 +6,7 @@ from models.sql.slide import SlideModel
 from services.icon_finder_service import ICON_FINDER_SERVICE
 from services.image_generation_service import ImageGenerationService
 from utils.asset_directory_utils import get_images_directory
+from services.media_service import is_external_media, download_to_storage
 from utils.dict_utils import get_dict_at_path, get_dict_paths_with_key, set_dict_at_path
 
 
@@ -46,7 +47,15 @@ async def process_slide_and_fetch_assets(
             return_assets.append(result)
             image_dict["__image_url__"] = result.path
         else:
-            image_dict["__image_url__"] = result
+            # If result is an external URL, cache it to local storage for stability
+            if isinstance(result, str) and is_external_media(result):
+                try:
+                    cached = await download_to_storage(result)
+                    image_dict["__image_url__"] = cached or result
+                except Exception:
+                    image_dict["__image_url__"] = result
+            else:
+                image_dict["__image_url__"] = result
         set_dict_at_path(slide.content, image_path, image_dict)
 
     for icon_path in icon_paths:

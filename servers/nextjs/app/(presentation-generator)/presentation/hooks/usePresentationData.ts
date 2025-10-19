@@ -20,6 +20,18 @@ export const usePresentationData = (
         dispatch(setPresentationData(data));
         dispatch(clearHistory());
         setLoading(false);
+
+        // Fire-and-forget: cache external images for this presentation and persist updated URLs
+        try {
+          await fetch('/api/migrate-external-images', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ids: [presentationId] }),
+          });
+        } catch (e) {
+          // Non-blocking; ignore errors here
+          console.warn('image cache migrate (single) failed', e);
+        }
       }
     } catch (error) {
       setError(true);
