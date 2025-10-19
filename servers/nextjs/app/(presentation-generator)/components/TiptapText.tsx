@@ -16,11 +16,10 @@ import {
 
 interface TiptapTextProps {
   content: string;
- 
   onContentChange?: (content: string) => void;
   className?: string;
   placeholder?: string;
- 
+  showBubbleMenu?: boolean;
 }
 
 const TiptapText: React.FC<TiptapTextProps> = ({
@@ -28,6 +27,7 @@ const TiptapText: React.FC<TiptapTextProps> = ({
   onContentChange,
   className = "",
   placeholder = "Enter text...",
+  showBubbleMenu = false,
 }) => {
   const editor = useEditor({
     extensions: [StarterKit, Markdown, Underline],
@@ -51,6 +51,17 @@ const TiptapText: React.FC<TiptapTextProps> = ({
     immediatelyRender: false,
   });
 
+  // Ensure editor is destroyed cleanly before React unmounts portals
+  useEffect(() => {
+    return () => {
+      try {
+        // Hide UI and destroy editor to prevent portal cleanup races
+        editor?.commands.blur();
+        editor?.destroy();
+      } catch {}
+    };
+  }, [editor]);
+
   // Update editor content when content prop changes
   useEffect(() => {
     if (!editor) return;
@@ -69,70 +80,55 @@ const TiptapText: React.FC<TiptapTextProps> = ({
 
   return (
     <>
-      <BubbleMenu
-        editor={editor}
-        className="z-50"
-        tippyOptions={{ duration: 100 }}
-      >
-        <div
-          style={{
-            zIndex: 100,
-          }}
-          className="flex text-black bg-white  rounded-lg shadow-lg p-2 gap-1 border border-gray-200 z-50"
-        >
-          <button
-            onClick={() => editor?.chain().focus().toggleBold().run()}
-            className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-              editor?.isActive("bold") ? "bg-blue-100 text-blue-600" : ""
-            }`}
-            title="Bold"
+      {showBubbleMenu && (
+        <BubbleMenu editor={editor} className="z-50" tippyOptions={{ duration: 100 }}>
+          <div
+            style={{ zIndex: 100 }}
+            className="flex text-black bg-white rounded-lg shadow-lg p-2 gap-1 border border-gray-200 z-50"
           >
-            <Bold className="h-4 w-4" />
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().toggleItalic().run()}
-            className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-              editor?.isActive("italic") ? "bg-blue-100 text-blue-600" : ""
-            }`}
-            title="Italic"
-          >
-            <Italic className="h-4 w-4" />
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().toggleUnderline().run()}
-            className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-              editor?.isActive("underline") ? "bg-blue-100 text-blue-600" : ""
-            }`}
-            title="Underline"
-          >
-            <UnderlinedIcon className="h-4 w-4" />
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().toggleStrike().run()}
-            className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-              editor?.isActive("strike") ? "bg-blue-100 text-blue-600" : ""
-            }`}
-            title="Strikethrough"
-          >
-            <Strikethrough className="h-4 w-4" />
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().toggleCode().run()}
-            className={`p-1 rounded hover:bg-gray-100 transition-colors ${
-              editor?.isActive("code") ? "bg-blue-100 text-blue-600" : ""
-            }`}
-            title="Code"
-          >
-            <Code className="h-4 w-4" />
-          </button>
-        </div>
-      </BubbleMenu>
+            <button
+              onClick={() => editor?.chain().focus().toggleBold().run()}
+              className={`p-1 rounded hover:bg-gray-100 transition-colors ${editor?.isActive("bold") ? "bg-blue-100 text-blue-600" : ""}`}
+              title="Bold"
+            >
+              <Bold className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => editor?.chain().focus().toggleItalic().run()}
+              className={`p-1 rounded hover:bg-gray-100 transition-colors ${editor?.isActive("italic") ? "bg-blue-100 text-blue-600" : ""}`}
+              title="Italic"
+            >
+              <Italic className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => editor?.chain().focus().toggleUnderline().run()}
+              className={`p-1 rounded hover:bg-gray-100 transition-colors ${editor?.isActive("underline") ? "bg-blue-100 text-blue-600" : ""}`}
+              title="Underline"
+            >
+              <UnderlinedIcon className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => editor?.chain().focus().toggleStrike().run()}
+              className={`p-1 rounded hover:bg-gray-100 transition-colors ${editor?.isActive("strike") ? "bg-blue-100 text-blue-600" : ""}`}
+              title="Strikethrough"
+            >
+              <Strikethrough className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => editor?.chain().focus().toggleCode().run()}
+              className={`p-1 rounded hover:bg-gray-100 transition-colors ${editor?.isActive("code") ? "bg-blue-100 text-blue-600" : ""}`}
+              title="Code"
+            >
+              <Code className="h-4 w-4" />
+            </button>
+          </div>
+        </BubbleMenu>
+      )}
 
       <EditorContent
         editor={editor}
         className={`tiptap-text-editor w-full`}
         style={{
-          // Ensure the editor maintains the same visual appearance
           lineHeight: "inherit",
           fontSize: "inherit",
           fontWeight: "inherit",

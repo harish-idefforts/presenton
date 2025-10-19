@@ -31,9 +31,8 @@ const TiptapTextReplacer: React.FC<TiptapTextReplacerProps> = ({
   
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const [processedElements, setProcessedElements] = useState(
-    new Set<HTMLElement>()
-  );
+  const [processedElements, setProcessedElements] = useState(new Set<HTMLElement>());
+  const hiddenElementsRef = useRef<Set<HTMLElement>>(new Set());
   // Track created React roots to update content when slideData changes
   const rootsRef = useRef<
     Map<HTMLElement, { root: any; dataPath: string;  fallbackText: string }>
@@ -87,13 +86,17 @@ const TiptapTextReplacer: React.FC<TiptapTextReplacerProps> = ({
         const tiptapContainer = document.createElement("div");
         tiptapContainer.style.cssText = allStyles || "";
         tiptapContainer.className = Array.from(allClasses).join(" ");
-    
-        // Replace the element
-        if(htmlElement.parentNode) {
-        htmlElement.parentNode.replaceChild(tiptapContainer, htmlElement);
-        // Mark as processed
-        htmlElement.innerHTML = "";
+
+        // Instead of replacing the element (which confuses React's reconciler),
+        // insert our editor container before it and hide the original element.
+        if (htmlElement.parentNode) {
+          tiptapContainer.setAttribute("data-tiptap-container", "true");
+          htmlElement.parentNode.insertBefore(tiptapContainer, htmlElement);
+          htmlElement.setAttribute("data-tiptap-hidden", "true");
+          (htmlElement as HTMLElement).style.display = "none";
+          hiddenElementsRef.current.add(htmlElement);
         }
+        // Mark as processed (do not mutate innerHTML to avoid React removing missing nodes)
         setProcessedElements((prev) => new Set(prev).add(htmlElement));
         // Render TiptapText
         const root = ReactDOM.createRoot(tiptapContainer);
@@ -109,13 +112,13 @@ const TiptapTextReplacer: React.FC<TiptapTextReplacerProps> = ({
         root.render(
           <TiptapText
             content={initialContent}
-           
             onContentChange={(content: string) => {
               if (dataPath && onContentChange) {
                 onContentChange(content, dataPath.path, slideIndex);
               }
             }}
             placeholder="Enter text..."
+            showBubbleMenu={false}
           />
         );
       });
@@ -127,6 +130,35 @@ const TiptapTextReplacer: React.FC<TiptapTextReplacerProps> = ({
 
     return () => {
       clearTimeout(timer);
+      // Drain any created roots by rendering null, deferred, to avoid racing with route transitions.
+      rootsRef.current.forEach(({ root }, container) => {
+        try {
+          const doCleanup = () => {
+            try {
+              if (root && typeof root.render === "function") {
+                // render empty to trigger child unmount without boundary removal shenanigans
+                root.render(React.createElement(React.Fragment, null));
+              }
+            } catch {}
+          };
+          // Defer to next tick to avoid overlapping with react commit phase
+          if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
+            requestAnimationFrame(() => setTimeout(doCleanup, 0));
+          } else {
+            setTimeout(doCleanup, 0);
+          }
+        } catch {}
+      });
+      rootsRef.current.clear();
+      // Restore any hidden original elements tracked during processing
+      hiddenElementsRef.current.forEach((el) => {
+        try {
+          (el as HTMLElement).style.display = "";
+          el.removeAttribute("data-tiptap-hidden");
+        } catch {}
+      });
+      hiddenElementsRef.current.clear();
+      setProcessedElements(new Set());
     };
   }, [slideData, slideIndex]);
   
@@ -144,6 +176,7 @@ const TiptapTextReplacer: React.FC<TiptapTextReplacerProps> = ({
             }
           }}
           placeholder="Enter text..."
+          showBubbleMenu={false}
         />
       );
     });
