@@ -82,7 +82,7 @@ async function cacheOne(url: string): Promise<string | null> {
 
 export async function POST(req: NextRequest) {
   try {
-    const { ids, limit = 50, offset = 0 } = await req.json().catch(() => ({}));
+    const { ids, limit = 50, offset = 0, regenerateAll = false } = await req.json().catch(() => ({}));
 
     // Resolve FastAPI base URL explicitly to avoid hitting Next.js itself
     const FASTAPI_BASE = process.env.FASTAPI_BASE_URL || 'http://localhost:8000';
@@ -110,16 +110,18 @@ export async function POST(req: NextRequest) {
         for (const slide of presentation.slides || []) {
           const items = traverseAndCollect(slide.content);
           for (const item of items) {
-            // Try caching existing URL
-            const cached = await cacheOne(item.url);
-            if (cached) {
-              setByPath(slide.content, item.path, cached);
-              changed = true;
-              cachedCount++;
-              continue;
+            // Either force regeneration or try caching first
+            if (!regenerateAll) {
+              const cached = await cacheOne(item.url);
+              if (cached) {
+                setByPath(slide.content, item.path, cached);
+                changed = true;
+                cachedCount++;
+                continue;
+              }
             }
 
-            // Regenerate when possible
+            // Regenerate when possible (forced or as a fallback)
             const parent: any = getByPath(slide.content, item.parentPath) || {};
             if (item.kind === 'image' && typeof parent.__image_prompt__ === 'string' && parent.__image_prompt__.trim().length > 0) {
               try {

@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, Depends, File, UploadFile, HTTPException
+from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlmodel import select
 
@@ -109,15 +110,18 @@ async def delete_uploaded_image_by_id(
         raise HTTPException(status_code=500, detail=f"Failed to delete image: {str(e)}")
 
 
+class FinalizeImageRequest(BaseModel):
+    path: str
+
+
 @IMAGES_ROUTER.post("/finalize")
-async def finalize_image_path(
-    path: str,
-):
+async def finalize_image_path(payload: FinalizeImageRequest):
     """
     Moves/copies a locally generated image (e.g., from a temp directory) into
     APP_DATA_DIRECTORY/uploads/images and returns a public FastAPI media URL.
     """
     try:
+        path = payload.path
         if not path or not os.path.isfile(path):
             raise HTTPException(status_code=400, detail="Invalid file path")
 
