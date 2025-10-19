@@ -98,19 +98,27 @@ export async function POST(req: NextRequest) {
                 if (/^https?:\/\//i.test(text)) {
                   finalUrl = await cacheLocal(NEXT_BASE, text)
                 } else if (typeof text === 'string' && text.length > 0) {
-                  const finRes = await fetch(`${FASTAPI_BASE}/api/v1/ppt/images/finalize`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ path: text })
-                  })
-                  if (finRes.ok) {
-                    const data = await finRes.json().catch(() => ({} as any))
-                    if (typeof (data as any).url === 'string') finalUrl = (data as any).url
+                  // If generator returned a web path we already serve (e.g., /static or /api/local-image), just use it
+                  if (text.startsWith('/api/local-image/') || text.startsWith('/static/')) {
+                    finalUrl = text
+                  } else {
+                    const finRes = await fetch(`${FASTAPI_BASE}/api/v1/ppt/images/finalize`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ path: text })
+                    })
+                    if (finRes.ok) {
+                      const data = await finRes.json().catch(() => ({} as any))
+                      if (typeof (data as any).url === 'string') finalUrl = (data as any).url
+                    }
                   }
                 }
                 if (finalUrl) {
                   setByPath(slide.content, t.urlPath, finalUrl)
-                  regeneratedImages++
+                  const isPlaceholder = finalUrl.startsWith('/static/images/placeholder')
+                  if (!isPlaceholder) {
+                    regeneratedImages++
+                  }
                   changed = true
                   continue
                 }
@@ -164,4 +172,3 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: e?.message || 'failed' }, { status: 500 })
   }
 }
-
