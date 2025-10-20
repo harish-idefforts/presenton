@@ -37,7 +37,11 @@ async def export_presentation(
             # Get the converted PPTX model from the Next.js service
             async with aiohttp.ClientSession() as session:
                 async with session.get(
-                    f"http://localhost/api/presentation_to_pptx_model?id={presentation_id}"
+                    "http://localhost/api/presentation_to_pptx_model",
+                    params={
+                        "id": str(presentation_id),
+                        "tempDir": temp_dir,
+                    },
                 ) as response:
                     if response.status != 200:
                         error_text = await response.text()

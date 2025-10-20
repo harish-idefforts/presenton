@@ -1,6 +1,7 @@
 import { ApiError } from "@/models/errors";
 import { NextRequest, NextResponse } from "next/server";
 import puppeteer, { Browser, ElementHandle, Page } from "puppeteer";
+import { getBrowser } from "@/lib/puppeteer";
 import {
   ElementAttributes,
   SlideAttributesResult,
@@ -36,7 +37,8 @@ export async function GET(request: NextRequest) {
   try {
     const id = await getPresentationId(request);
     [browser, page] = await getBrowserAndPage(id);
-    const screenshotsDir = getScreenshotsDir();
+    const tempDirParam = request.nextUrl.searchParams.get("tempDir") || undefined;
+    const screenshotsDir = getScreenshotsDir(tempDirParam);
 
     const { slides, speakerNotes } = await getSlidesAndSpeakerNotes(page);
     const slides_attributes = await getSlidesAttributes(slides, screenshotsDir);
@@ -76,23 +78,7 @@ async function getPresentationId(request: NextRequest) {
 }
 
 async function getBrowserAndPage(id: string): Promise<[Browser, Page]> {
-  const browser = await puppeteer.launch({
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-gpu",
-      "--disable-web-security",
-      "--disable-background-timer-throttling",
-      "--disable-backgrounding-occluded-windows",
-      "--disable-renderer-backgrounding",
-      "--disable-features=TranslateUI",
-      "--disable-ipc-flooding-protection",
-    ],
-  });
-
+  const browser = await getBrowser();
   const page = await browser.newPage();
 
   await page.setViewport({ width: 1280, height: 720, deviceScaleFactor: 1 });
@@ -106,15 +92,15 @@ async function getBrowserAndPage(id: string): Promise<[Browser, Page]> {
 }
 
 async function closeBrowserAndPage(browser: Browser | null, page: Page | null) {
+  // Reuse a singleton browser; only close the page here
   await page?.close();
-  await browser?.close();
 }
 
-function getScreenshotsDir() {
-  const tempDir = process.env.TEMP_DIRECTORY;
+function getScreenshotsDir(tempDirOverride?: string) {
+  const tempDir = tempDirOverride || process.env.TEMP_DIRECTORY;
   if (!tempDir) {
     console.warn(
-      "TEMP_DIRECTORY environment variable not set, skipping screenshot"
+      "TEMP_DIRECTORY environment variable not set and no tempDir override provided"
     );
     throw new ApiError("TEMP_DIRECTORY environment variable not set");
   }
