@@ -21,8 +21,8 @@
 - Directory: `APP_DATA_DIRECTORY/uploads/images` (consistent with Next.js local routes already present).
 - Filenames: content hash–based or random hex with preserved extension to avoid collisions.
 - Serving:
-  - Default (Dev/Shared Storage): Next.js `GET /api/local-image/{filename}`. This route probes common locations (e.g., `APP_DATA_DIRECTORY/uploads/images`, `APP_DATA_DIRECTORY/images`, `./app_data/uploads/images`) and serves with long cache headers.
-  - Alt (Prod/No Shared Storage): FastAPI `GET /media/images/{filename}` streams from `APP_DATA_DIRECTORY/uploads/images`. Switch generators to return this URL shape if Next.js and FastAPI do not share the same persistent volume.
+  - Default (Shared Storage): Next.js `GET /api/local-image/{filename}` (single canonical path). We standardized on this for environments where Next.js and FastAPI share `APP_DATA_DIRECTORY`.
+  - Alt (If services do not share storage): Serve from FastAPI `GET /media/images/{filename}` or proxy `/media/images/*` through Next to FastAPI.
 
 ## API Changes (Backend)
 
@@ -41,12 +41,12 @@
    - `servers/fastapi/app/services/media.py`
      - `download_to_storage(url) -> LocalMedia`: validate URL, get buffer with backoff, infer extension, write to disk, return filename + public URL.
      - `is_external_media(url)` helper to whitelist domains or detect non-local URLs.
-   - Rewriting is integrated in `servers/fastapi/utils/process_slides.py` during asset processing. External `__image_url__` values are cached and replaced with `/api/local-image/{filename}`.
+   - Rewriting is integrated in `servers/fastapi/utils/process_slides.py` during asset processing. External `__image_url__` values are cached and replaced with `/api/local-image/{filename}`. Manual slide edits now also cache stock URLs (e.g., Pixabay) to local paths.
 2. Wire into generation: ✅
    - Slide generation uses `process_slide_and_fetch_assets(...)` where external URLs are now localized.
 3. Add serving route: ✅
-   - FastAPI: `GET /media/images/{filename}` with long cache headers.
-   - Next.js: `GET /api/local-image/{filename}` probes multiple on-disk locations for resilience.
+   - Next.js: `GET /api/local-image/{filename}` (canonical) serves from `APP_DATA_DIRECTORY/uploads/images`.
+   - (Optional) FastAPI: `GET /media/images/{filename}` available for non-shared-storage deployments (not used in shared-volume setups).
 4. Error handling: ✅
    - If download fails, the original external URL is kept and a placeholder renders if needed; log noise minimized.
 
@@ -75,18 +75,14 @@
 3. Deploy and verify new presentations use local URLs.
 4. Add a small feature flag to turn on/off rewriting if needed (env var).
 
-## Migration (Separate Phase)
+## Legacy Content
 
-- A Next.js server route exists: `POST /api/migrate-external-images`. It:
-  - Fetches presentations from FastAPI (`FASTAPI_BASE_URL`),
-  - Downloads external images to local storage via `/api/cache-image`,
-  - Rewrites `__image_url__`/`__icon_url__` to `/api/local-image/{filename}`,
-  - Persists updates via `PATCH {FASTAPI_BASE_URL}/api/v1/ppt/presentation/update`.
-- Usage:
-  - Single: `POST /api/migrate-external-images` with `{ "ids": ["<presentation-id>"] }`.
-  - Batch: `{ "limit": 50, "offset": 0 }` and increment `offset`.
-- After the above is stable, we can extend migration to also move AI‑generated temp files into persistent storage and rewrite any file-path references to `/api/local-image/{filename}`.
-  - Fetch batches of existing presentations.
-  - Download external media and rewrite URLs in-place.
-  - Update presentations via `PATCH /api/v1/ppt/presentation/update`.
-- Orchestrate server-side to avoid front-end load spikes.
+- Dedicated migration endpoints have been removed. There is no batch migration or single‑ID regeneration API in Next.js anymore.
+- New and edited slides are localized automatically during normal generation and editing flows on the backend.
+- For legacy presentations that still reference external or placeholder images, recommended approaches:
+  - Re-run the standard generation/prepare flow for the presentation so images are localized as part of processing.
+  - Manually edit the slide content in the app to trigger image generation/caching via the existing backend logic.
+
+Backend image helper endpoints remain for internal use during normal flows:
+- `GET /api/v1/ppt/images/generate?prompt=...` → may return a remote URL or local path; local paths are finalized automatically during processing.
+- `POST /api/v1/ppt/images/cache` with `{ url }` → downloads remote to `uploads/images/` and returns `/api/local-image/{filename}`.

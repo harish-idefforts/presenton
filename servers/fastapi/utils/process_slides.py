@@ -6,7 +6,7 @@ from models.sql.slide import SlideModel
 from services.icon_finder_service import ICON_FINDER_SERVICE
 from services.image_generation_service import ImageGenerationService
 from utils.asset_directory_utils import get_images_directory
-from services.media_service import is_external_media, download_to_storage
+from services.media_service import is_external_media, download_to_storage, finalize_local_path
 from utils.dict_utils import get_dict_at_path, get_dict_paths_with_key, set_dict_at_path
 from services.media_service import is_external_media, download_to_storage
 
@@ -46,7 +46,8 @@ async def process_slide_and_fetch_assets(
         result = results.pop()
         if isinstance(result, ImageAsset):
             return_assets.append(result)
-            image_dict["__image_url__"] = result.path
+            finalized = finalize_local_path(result.path)
+            image_dict["__image_url__"] = finalized or result.path
         else:
             # If result is an external URL, cache it to local storage for stability
             if isinstance(result, str) and is_external_media(result):
@@ -162,7 +163,8 @@ async def process_old_and_new_slides_and_fetch_assets(
             fetched_image = new_images[i]
             if isinstance(fetched_image, ImageAsset):
                 new_assets.append(fetched_image)
-                image_url = fetched_image.path
+                finalized = finalize_local_path(fetched_image.path)
+                image_url = finalized or fetched_image.path
             else:
                 image_url = fetched_image
 

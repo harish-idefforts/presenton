@@ -3,6 +3,7 @@ import re
 import uuid
 import aiohttp
 from typing import Optional
+import shutil
 from utils.asset_directory_utils import get_uploads_directory
 
 
@@ -56,6 +57,28 @@ async def download_to_storage(url: str) -> Optional[str]:
 def is_external_media(url: Optional[str]) -> bool:
     if not url or not isinstance(url, str):
         return False
-    if url.startswith('/media/images/') or url.startswith('/static/'):
+    if url.startswith('/media/images/') or url.startswith('/api/local-image/') or url.startswith('/static/'):
         return False
     return url.startswith('http://') or url.startswith('https://')
+
+
+def finalize_local_path(path: str) -> Optional[str]:
+    """
+    Copies a local image file (e.g., generated in a temp dir) into
+    APP_DATA_DIRECTORY/uploads/images and returns a public URL
+    like /api/local-image/{filename}. Returns None on failure.
+    """
+    try:
+        if not path or not os.path.isfile(path):
+            return None
+        uploads = get_uploads_directory()
+        images_dir = os.path.join(uploads, 'images')
+        os.makedirs(images_dir, exist_ok=True)
+
+        filename = os.path.basename(path)
+        dest_path = os.path.join(images_dir, filename)
+        if os.path.abspath(dest_path) != os.path.abspath(path):
+            shutil.copy2(path, dest_path)
+        return f"/api/local-image/{filename}"
+    except Exception:
+        return None
