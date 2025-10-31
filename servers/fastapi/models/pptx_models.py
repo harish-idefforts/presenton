@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Annotated, List, Literal, Optional
 from annotated_types import Len
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pptx.util import Pt
 from pptx.enum.text import PP_ALIGN
 from pptx.enum.shapes import MSO_AUTO_SHAPE_TYPE, MSO_CONNECTOR_TYPE
@@ -175,4 +175,9 @@ class PptxPresentationModel(BaseModel):
     name: Optional[str] = None
     shapes: Optional[List[PptxShapeModel]] = None
     slides: List[PptxSlideModel]
-    slide_dimensions: Optional[SlideDimensionsModel] = None
+    slide_dimensions: Optional[SlideDimensionsModel] = Field(
+        default=None, alias="slideDimensions"
+    )
+
+    class Config:
+        allow_population_by_field_name = True

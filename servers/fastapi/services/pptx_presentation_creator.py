@@ -66,8 +66,8 @@ class PptxPresentationCreator:
             return Inches(value / 2.54)
         if unit and unit.lower() in {"mm", "millimeter", "millimeters"}:
             return Inches(value / 25.4)
-        # default assume pixels at 96 DPI -> convert to points
-        return Pt(value * 72 / 96)
+        # default assume Px but honor the original coordinate system (1px == 1pt as in frontend)
+        return Pt(value)
 
     def _set_slide_dimensions(self):
         slide_dims = getattr(self._ppt_model, "slide_dimensions", None)
