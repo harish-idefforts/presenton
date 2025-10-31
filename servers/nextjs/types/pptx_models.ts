@@ -330,10 +330,17 @@ export interface PptxSlideModel {
   note?: string;
 }
 
+export interface PptxSlideDimensions {
+  width: number;
+  height: number;
+  unit?: string;
+}
+
 export interface PptxPresentationModel {
   name?: string;
   shapes?: PptxShapeModel[];
   slides: PptxSlideModel[];
+  slideDimensions?: PptxSlideDimensions;
 }
 
 export const createPptxSpacingAll = (num: number): PptxSpacingModel => ({

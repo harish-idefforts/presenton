@@ -49,8 +49,16 @@ export async function GET(request: NextRequest) {
     );
     const slides_pptx_models =
       convertElementAttributesToPptxSlides(slides_attributes);
+    const firstSlideDimensions = slides_attributes.find((slide) => slide.slideDimensions)?.slideDimensions;
     const presentation_pptx_model: PptxPresentationModel = {
       slides: slides_pptx_models,
+      slideDimensions: firstSlideDimensions
+        ? {
+            width: Math.round(firstSlideDimensions.width),
+            height: Math.round(firstSlideDimensions.height),
+            unit: "px",
+          }
+        : undefined,
     };
 
     await closeBrowserAndPage(browser, page);
@@ -528,6 +536,10 @@ async function getAllChildElementsAttributes({
     return {
       elements: sortedElements,
       backgroundColor,
+      slideDimensions: {
+        width: Math.round(rootRect!.width ?? 1280),
+        height: Math.round(rootRect!.height ?? 720),
+      },
     };
   } else {
     return {

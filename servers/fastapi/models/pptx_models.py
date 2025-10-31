@@ -165,7 +165,14 @@ class PptxSlideModel(BaseModel):
     ]
 
 
+class SlideDimensionsModel(BaseModel):
+    width: int
+    height: int
+    unit: Optional[str] = "px"
+
+
 class PptxPresentationModel(BaseModel):
     name: Optional[str] = None
     shapes: Optional[List[PptxShapeModel]] = None
     slides: List[PptxSlideModel]
+    slide_dimensions: Optional[SlideDimensionsModel] = None

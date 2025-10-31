@@ -79,4 +79,8 @@ export interface SlideAttributesResult {
   elements: ElementAttributes[];
   backgroundColor?: string;
   speakerNote?: string;
+  slideDimensions?: {
+    width: number;
+    height: number;
+  };
 }

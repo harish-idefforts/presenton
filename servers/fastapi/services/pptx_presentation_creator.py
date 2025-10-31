@@ -14,7 +14,7 @@ from lxml.etree import fromstring, tostring
 from PIL import Image
 from pptx.oxml.xmlchemy import OxmlElement
 
-from pptx.util import Pt
+from pptx.util import Pt, Inches
 from pptx.dml.color import RGBColor
 
 from models.pptx_models import (
@@ -57,8 +57,30 @@ class PptxPresentationCreator:
         self._slide_models = ppt_model.slides
 
         self._ppt = Presentation()
-        self._ppt.slide_width = Pt(1280)
-        self._ppt.slide_height = Pt(720)
+        self._set_slide_dimensions()
+
+    def _convert_dimension(self, value: int, unit: Optional[str]) -> int:
+        if unit and unit.lower() in {"in", "inch", "inches"}:
+            return Inches(value)
+        if unit and unit.lower() in {"cm", "centimeter", "centimeters"}:
+            return Inches(value / 2.54)
+        if unit and unit.lower() in {"mm", "millimeter", "millimeters"}:
+            return Inches(value / 25.4)
+        # default assume pixels at 96 DPI -> convert to points
+        return Pt(value * 72 / 96)
+
+    def _set_slide_dimensions(self):
+        slide_dims = getattr(self._ppt_model, "slide_dimensions", None)
+        if slide_dims and slide_dims.width and slide_dims.height:
+            self._ppt.slide_width = self._convert_dimension(
+                slide_dims.width, slide_dims.unit
+            )
+            self._ppt.slide_height = self._convert_dimension(
+                slide_dims.height, slide_dims.unit
+            )
+        else:
+            self._ppt.slide_width = Pt(1280)
+            self._ppt.slide_height = Pt(720)
 
     def get_sub_element(self, parent, tagname, **kwargs):
         """Helper method to create XML elements"""

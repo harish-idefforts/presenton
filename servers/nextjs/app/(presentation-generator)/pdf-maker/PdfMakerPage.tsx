@@ -126,6 +126,7 @@ const PresentationPage = ({ presentation_id }: { presentation_id: string }) => {
               slideDimensions
                 ? {
                     width: `${slideDimensions.width}px`,
+                    height: `${slideDimensions.height}px`,
                   }
                 : undefined
             }
