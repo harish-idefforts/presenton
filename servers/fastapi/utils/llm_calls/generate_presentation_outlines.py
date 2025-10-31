@@ -1,3 +1,5 @@
+import json
+import logging
 from datetime import datetime
 from typing import Optional
 
@@ -97,28 +99,51 @@ async def generate_ppt_outline(
     response_model = get_presentation_outline_model_with_n_slides(n_slides)
 
     client = LLMClient()
+    logger = logging.getLogger(__name__)
+    response_schema = response_model.model_json_schema()
+    messages = get_messages(
+        content,
+        n_slides,
+        language,
+        additional_context,
+        tone,
+        verbosity,
+        instructions,
+        include_title_slide,
+    )
+    tools = (
+        [SearchWebTool]
+        if (client.enable_web_grounding() and web_search)
+        else None
+    )
 
     try:
+        stream_chunks = []
         async for chunk in client.stream_structured(
             model,
-            get_messages(
-                content,
-                n_slides,
-                language,
-                additional_context,
-                tone,
-                verbosity,
-                instructions,
-                include_title_slide,
-            ),
-            response_model.model_json_schema(),
+            messages,
+            response_schema,
             strict=True,
-            tools=(
-                [SearchWebTool]
-                if (client.enable_web_grounding() and web_search)
-                else None
-            ),
+            tools=tools,
         ):
+            stream_chunks.append(chunk)
+        for chunk in stream_chunks:
             yield chunk
+        return
+    except Exception as stream_error:
+        logger.warning(
+            "Structured stream failed; retrying with non-streamed request",
+            exc_info=stream_error,
+        )
+
+    try:
+        fallback_response = await client.generate_structured(
+            model=model,
+            messages=messages,
+            response_format=response_schema,
+            strict=True,
+            tools=tools,
+        )
+        yield json.dumps(fallback_response)
     except Exception as e:
         yield handle_llm_client_exceptions(e)
