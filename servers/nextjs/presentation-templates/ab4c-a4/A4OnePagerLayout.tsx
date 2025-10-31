@@ -1,6 +1,5 @@
 import React from "react";
 import * as z from "zod";
-import { ImageSchema } from "@/presentation-templates/defaultSchemes";
 
 export const layoutId = "ab4c-a4-one-pager";
 export const layoutName = "AB4C A4 One-Pager";
@@ -26,37 +25,10 @@ const stepSchema = z.object({
   detail: z
     .string()
     .min(5)
-    .max(320)
+    .max(360)
     .default(
       "Position the survey around a single strategic question to encourage reflective, narrative responses."
     ),
-});
-
-const heroImageSchema = ImageSchema.extend({
-  __image_url__: z.preprocess(
-    (value) => {
-      if (value === undefined || value === null) return "";
-      const str = String(value).trim();
-      if (!str) return "";
-      try {
-        const parsed = new URL(str);
-        if (parsed.protocol === "http:" || parsed.protocol === "https:") {
-          return parsed.toString();
-        }
-      } catch {
-        // ignore
-      }
-      return "";
-    },
-    z.union([z.string().url(), z.literal("")])
-  ),
-  __image_prompt__: z.preprocess(
-    (value) => {
-      if (value === undefined || value === null) return "";
-      return String(value).trim().slice(0, 200);
-    },
-    z.string().max(200)
-  ),
 });
 
 export const Schema = z.object({
@@ -66,20 +38,20 @@ export const Schema = z.object({
   audience: z
     .string()
     .min(2)
-    .max(140)
+    .max(220)
     .default("Customer experience leaders & frontline service teams"),
   tipTitle: z.string().min(5).max(80).default("Ask One Powerful Question"),
   positioningStatement: z
     .string()
     .min(10)
-    .max(500)
+    .max(420)
     .default(
       "Anchor your feedback surveys around a single, high-yield question to surface actionable insights quickly."
     ),
   keyQuestion: z
     .string()
     .min(5)
-    .max(120)
+    .max(160)
     .default('“What could we improve to better support you?”'),
   modusOperandiHeading: z
     .string()
@@ -94,28 +66,19 @@ export const Schema = z.object({
       {
         title: "Frame the intent",
         detail:
-          "Explain that you value honest reflections and will act on the suggestions gathered.",
+          "Share why candid feedback matters, how the results will drive real improvements, and the commitment to act on the insights gathered.",
       },
       {
         title: "Ask the catalytic question",
         detail:
-          "Lead with an open-ended prompt like “What could we improve?” to invite detailed narratives.",
+          "Lead with a focused, open-ended prompt like “What could we improve?” to spark reflective, specific responses.",
       },
       {
         title: "Probe for specifics",
         detail:
-          "Follow up with clarifying prompts—“Which moments feel awkward?” “Where did we exceed expectations?”—to surface precise improvement paths.",
+          "Follow up with focused prompts—ask where the journey felt strained, where service excelled, and what specific improvements customers expect next.",
       },
     ]),
-  heroImage: heroImageSchema.optional().default(
-    heroImageSchema.parse({
-      __image_url__: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-      __image_prompt__: "Customer workshop",
-    })
-  )
-    .meta({
-      description: "Supporting image illustrating collaborative customer feedback work.",
-    }),
   impactHeading: z
     .string()
     .min(3)
@@ -138,7 +101,7 @@ export const Schema = z.object({
   closingNote: z
     .string()
     .min(5)
-    .max(600)
+    .max(820)
     .default(
       "Integrate the findings into your customer excellence roadmap to close the loop and demonstrate responsiveness."
     ),
@@ -152,8 +115,7 @@ interface A4OnePagerLayoutProps {
 
 const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
   const content = Schema.parse(data ?? {});
-  const heroImageUrl = content.heroImage?.__image_url__;
-  const hasHeroImage = Boolean(heroImageUrl && heroImageUrl.length > 0);
+  const textContainerClasses = `space-y-3`;
 
   return (
     <>
@@ -163,11 +125,12 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
       />
 
       <div
-        className="relative mx-auto w-full max-w-[960px] aspect-[210/297] overflow-hidden rounded-lg border shadow-md"
+        className="relative mx-auto flex w-full max-w-[860px] justify-center overflow-hidden rounded-lg border shadow-md"
         style={{
           fontFamily: "Inter, sans-serif",
           backgroundColor: palette.background,
           borderColor: palette.border,
+          aspectRatio: "210 / 297",
         }}
       >
         <div className="absolute inset-0 pointer-events-none">
@@ -175,29 +138,29 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
           <div className="absolute left-[-50px] bottom-[-70px] h-[180px] w-[180px] rounded-full bg-[rgba(216,198,181,0.25)]" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col gap-6 p-8">
-          <header className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-[620px] space-y-4">
+        <div className="relative z-10 flex h-full w-full flex-col gap-4 p-6 md:p-7">
+          <header className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div className={textContainerClasses}>
               <p
-                className="text-[11px] uppercase tracking-[0.42em]"
+                className="text-[10.5px] uppercase tracking-[0.4em]"
                 style={{ color: palette.secondary }}
               >
                 {content.section}
               </p>
               <h1
-                className="text-[32px] font-semibold leading-snug md:text-[36px]"
+                className="text-[24px] font-semibold leading-snug md:text-[28px]"
                 style={{ color: palette.primary }}
               >
                 {content.tipTitle}
               </h1>
               <p
-                className="text-sm leading-relaxed md:text-[15px]"
+                className="text-[12px] leading-relaxed md:text-[12.5px]"
                 style={{ color: palette.secondary }}
               >
                 {content.positioningStatement}
               </p>
               <div
-                className="rounded-lg border px-5 py-4 text-[13px] leading-relaxed shadow-sm md:max-w-[380px]"
+                className="rounded-lg border px-3.5 py-2.5 text-[11px] leading-relaxed shadow-sm md:max-w-[340px]"
                 style={{ backgroundColor: palette.surface, borderColor: palette.border }}
               >
                 <p className="font-semibold" style={{ color: palette.primary }}>
@@ -206,151 +169,143 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                 <p style={{ color: palette.secondary }}>{content.audience}</p>
               </div>
             </div>
-            {hasHeroImage && (
-              <div className="relative w-full max-w-[260px] overflow-hidden rounded-lg border shadow-sm">
-                <img
-                  src={heroImageUrl}
-                  alt={content.heroImage.__image_prompt__ || "Customer excellence illustration"}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/20" />
-              </div>
-            )}
           </header>
 
-          <section
-            className="grid flex-1 gap-5 rounded-lg border p-5 shadow-sm md:grid-cols-[180px_auto]"
-            style={{ backgroundColor: palette.surface, borderColor: palette.border }}
-          >
-            <div className="flex flex-col gap-4">
-              <div>
-                <p
-                  className="text-[11px] font-semibold uppercase tracking-[0.3em]"
-                  style={{ color: palette.secondary }}
-                >
-                  Category
-                </p>
-                <p className="text-[15px] font-semibold" style={{ color: palette.primary }}>
-                  {content.category}
-                </p>
-              </div>
-              <div>
-                <p
-                  className="text-[11px] font-semibold uppercase tracking-[0.3em]"
-                  style={{ color: palette.secondary }}
-                >
-                  Sub-Category
-                </p>
-                <p className="text-[15px] font-semibold" style={{ color: palette.primary }}>
-                  {content.subCategory}
-                </p>
-              </div>
-              <div
-                className="rounded-md border px-4 py-4 text-[15px] font-medium"
-                style={{
-                  backgroundColor: palette.highlight,
-                  borderColor: palette.border,
-                  color: palette.primary,
-                }}
-              >
-                Anchor Question
-                <span
-                  className="mt-2 block text-sm font-normal italic"
-                  style={{ color: palette.secondary }}
-                >
-                  {content.keyQuestion}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-6">
-              <div>
-                <h2
-                  className="text-lg font-semibold"
-                  style={{ color: palette.primary }}
-                >
-                  {content.modusOperandiHeading}
-                </h2>
-                <div className="mt-3 grid gap-3">
-                  {content.modusOperandiSteps.map((step, index) => (
-                    <div
-                      key={index}
-                      className="flex gap-3 rounded-md border px-3 py-3"
-                      style={{
-                        borderColor: palette.border,
-                        backgroundColor: "#fbf9f5",
-                      }}
-                    >
-                      <div
-                        className="flex h-6 w-6 flex-none items-center justify-center rounded-full text-[11px] font-semibold"
-                        style={{
-                          backgroundColor: palette.accent,
-                          color: palette.primary,
-                        }}
-                      >
-                        {index + 1}
-                      </div>
-                      <div>
-                        <p
-                          className="text-[15px] font-semibold"
-                          style={{ color: palette.primary }}
-                        >
-                          {step.title}
-                        </p>
-                        <p
-                          className="mt-1 text-[13px] leading-relaxed"
-                          style={{ color: palette.secondary }}
-                        >
-                          {step.detail}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+          <div className="flex-1">
+            <section
+              className="grid h-full gap-3 rounded-lg border p-3 pr-4 shadow-sm md:grid-cols-[170px_auto]"
+              style={{ backgroundColor: palette.surface, borderColor: palette.border }}
+            >
+              <div className="flex flex-col gap-3">
+                <div>
+                  <p
+                  className="text-[10px] font-semibold uppercase tracking-[0.3em]"
+                    style={{ color: palette.secondary }}
+                  >
+                    Category
+                  </p>
+                  <p className="text-[12.5px] font-semibold" style={{ color: palette.primary }}>
+                    {content.category}
+                  </p>
                 </div>
-              </div>
-
-              <div className="flex flex-col gap-5">
-                <h2
-                  className="text-lg font-semibold"
-                  style={{ color: palette.primary }}
-                >
-                  {content.impactHeading}
-                </h2>
-                <ul className="mt-3 grid gap-2 text-[14px]">
-                  {content.impactHighlights.map((highlight, index) => (
-                    <li
-                      key={index}
-                      className="flex items-start gap-2 rounded-md px-3 py-2.5"
-                      style={{
-                        backgroundColor: "#fbf9f5",
-                        border: `1px solid ${palette.border}`,
-                        color: palette.secondary,
-                      }}
-                    >
-                      <span
-                        className="mt-[6px] h-1.5 w-1.5 flex-none rounded-full"
-                        style={{ backgroundColor: palette.primary }}
-                      />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <p
+                  className="text-[10px] font-semibold uppercase tracking-[0.3em]"
+                    style={{ color: palette.secondary }}
+                  >
+                    Sub-Category
+                  </p>
+                  <p className="text-[12.5px] font-semibold" style={{ color: palette.primary }}>
+                    {content.subCategory}
+                  </p>
+                </div>
                 <div
-                  className="rounded-md border px-4 py-4 text-[13px] leading-relaxed"
+                className="rounded-md border px-3.5 py-2.5 text-[12px] font-medium"
                   style={{
+                    backgroundColor: palette.highlight,
                     borderColor: palette.border,
-                    backgroundColor: "#f7f1ea",
-                    color: palette.secondary,
+                    color: palette.primary,
                   }}
                 >
-                  {content.closingNote}
+                  Anchor Question
+                  <span
+                    className="mt-2 block text-[12px] font-normal italic"
+                    style={{ color: palette.secondary }}
+                  >
+                    {content.keyQuestion}
+                  </span>
+                </div>
+                </div>
+
+              <div className="flex flex-col gap-4">
+                <div>
+                  <h2
+                    className="text-[15px] font-semibold"
+                    style={{ color: palette.primary }}
+                  >
+                    {content.modusOperandiHeading}
+                  </h2>
+                  <div className="mt-3 grid gap-2">
+                    {content.modusOperandiSteps.map((step, index) => (
+                      <div
+                        key={index}
+                        className="flex gap-3 rounded-md border px-3.5 py-2.5"
+                        style={{
+                          borderColor: palette.border,
+                          backgroundColor: "#fbf9f5",
+                        }}
+                      >
+                        <div
+                          className="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-full text-[9.5px] font-semibold"
+                          style={{
+                            backgroundColor: palette.accent,
+                            color: palette.primary,
+                          }}
+                        >
+                          {index + 1}
+                        </div>
+                        <div>
+                          <p
+                            className="text-[13px] font-semibold"
+                            style={{ color: palette.primary }}
+                          >
+                            {step.title}
+                          </p>
+                          <p
+                            className="mt-1 text-[11px] leading-relaxed"
+                            style={{ color: palette.secondary }}
+                          >
+                            {step.detail}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  <h2
+                    className="text-[15px] font-semibold"
+                    style={{ color: palette.primary }}
+                  >
+                    {content.impactHeading}
+                  </h2>
+                  <ul className="mt-2 grid gap-2 text-[11.5px] md:grid-cols-2">
+                    {content.impactHighlights.map((highlight, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-2 rounded-md px-3.5 py-2.5"
+                        style={{
+                          backgroundColor: "#fbf9f5",
+                          border: `1px solid ${palette.border}`,
+                          color: palette.secondary,
+                        }}
+                      >
+                        <span
+                          className="mt-[7px] h-1.5 w-1.5 flex-none rounded-full"
+                          style={{ backgroundColor: palette.primary }}
+                        />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div
+                    className="rounded-md border px-3.5 py-2.5 text-[11px] leading-relaxed"
+                    style={{
+                      borderColor: palette.border,
+                      backgroundColor: "#f7f1ea",
+                      color: palette.secondary,
+                    }}
+                  >
+                    {content.closingNote}
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
 
           <footer
-            className="mt-2 flex items-center justify-between rounded-md px-4 py-2 text-[11px]"
+            className="mt-2 flex items-center justify-between rounded-md px-4 py-2 text-[10px]"
             style={{
               backgroundColor: palette.background,
               color: palette.secondary,
@@ -365,7 +320,7 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
             <img
               src="/ab4c-logo.png"
               alt="AB4C Logo"
-              className="h-9 w-9 object-contain"
+              className="h-8 w-8 object-contain"
             />
           </footer>
         </div>
