@@ -1,5 +1,10 @@
 {
   "description": "AB4C single-slide template optimized for A4 dimensions",
   "ordered": false,
-  "default": false
+  "default": false,
+  "slideDimensions": {
+    "width": 820,
+    "height": 1160,
+    "unit": "px"
+  }
 }

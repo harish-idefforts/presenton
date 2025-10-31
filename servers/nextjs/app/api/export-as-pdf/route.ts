@@ -58,9 +58,58 @@ export async function POST(req: NextRequest) {
       console.log("Warning: Some content may not have loaded completely:", error);
     }
 
+    await page
+      .waitForFunction(
+        () => {
+          const wrapper = document.getElementById("presentation-slides-wrapper");
+          if (!wrapper) return false;
+          return Boolean(
+            wrapper.querySelector("[data-slide-root]") ||
+              wrapper.querySelector(":scope > div > div")
+          );
+        },
+        { timeout: 300000 }
+      )
+      .catch(() => undefined);
+
+    const { width: slideWidth, height: slideHeight } = await page.evaluate(() => {
+      const wrapper = document.getElementById("presentation-slides-wrapper");
+      const parseDimension = (value: string | null | undefined) => {
+        if (!value) return NaN;
+        const parsed = parseFloat(value);
+        return Number.isFinite(parsed) ? parsed : NaN;
+      };
+
+      let width = parseDimension(wrapper?.getAttribute("data-slide-width"));
+      let height = parseDimension(wrapper?.getAttribute("data-slide-height"));
+
+      if (!width || !height) {
+        const slideRoot = wrapper?.querySelector("[data-slide-root]") || wrapper?.querySelector(":scope > div > div");
+        if (slideRoot) {
+          const rect = (slideRoot as HTMLElement).getBoundingClientRect();
+          width = rect.width;
+          height = rect.height;
+        }
+      }
+
+      if (!width || !height) {
+        width = 1280;
+        height = 720;
+      }
+
+      return { width, height };
+    });
+
+    if (slideWidth && slideHeight) {
+      await page.setViewport({
+        width: Math.round(slideWidth),
+        height: Math.round(slideHeight),
+      });
+    }
+
     const pdfBuffer = await page.pdf({
-      width: "1280px",
-      height: "720px",
+      width: `${Math.round(slideWidth || 1280)}px`,
+      height: `${Math.round(slideHeight || 720)}px`,
       printBackground: true,
       margin: { top: 0, right: 0, bottom: 0, left: 0 },
     });

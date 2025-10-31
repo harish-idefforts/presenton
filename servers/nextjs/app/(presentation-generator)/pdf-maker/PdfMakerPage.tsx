@@ -22,7 +22,8 @@ const PresentationPage = ({ presentation_id }: { presentation_id: string }) => {
   const { renderSlideContent, loading } = useTemplateLayouts();
   const pathname = usePathname();
   const [contentLoading, setContentLoading] = useState(true);
-  const { getCustomTemplateFonts } = useLayout()
+  const { getCustomTemplateFonts, getTemplateSetting } = useLayout()
+  const [slideDimensions, setSlideDimensions] = useState<{ width: number; height: number; unit?: string } | null>(null);
   const dispatch = useDispatch();
   const { presentationData } = useSelector(
     (state: RootState) => state.presentationGeneration
@@ -36,6 +37,24 @@ const PresentationPage = ({ presentation_id }: { presentation_id: string }) => {
       useFontLoader(fonts || []);
     }
   }, [presentationData, loading]);
+  useEffect(() => {
+    if (presentationData?.slides && presentationData.slides.length > 0) {
+      const firstSlideLayout = presentationData.slides[0].layout || "";
+      const templateID = firstSlideLayout.split(":")[0];
+      if (templateID) {
+        const settings = getTemplateSetting(templateID);
+        if (settings?.slideDimensions?.width && settings.slideDimensions.height) {
+          setSlideDimensions({
+            width: settings.slideDimensions.width,
+            height: settings.slideDimensions.height,
+            unit: settings.slideDimensions.unit,
+          });
+        } else {
+          setSlideDimensions(null);
+        }
+      }
+    }
+  }, [presentationData, getTemplateSetting]);
   useEffect(() => {
     if (presentationData?.slides[0].layout.includes("custom")) {
       const existingScript = document.querySelector(
@@ -100,7 +119,16 @@ const PresentationPage = ({ presentation_id }: { presentation_id: string }) => {
         <div className="">
           <div
             id="presentation-slides-wrapper"
+            data-slide-width={slideDimensions?.width ?? ""}
+            data-slide-height={slideDimensions?.height ?? ""}
             className="mx-auto flex flex-col items-center  overflow-hidden  justify-center   "
+            style={
+              slideDimensions
+                ? {
+                    width: `${slideDimensions.width}px`,
+                  }
+                : undefined
+            }
           >
             {!presentationData ||
               loading ||

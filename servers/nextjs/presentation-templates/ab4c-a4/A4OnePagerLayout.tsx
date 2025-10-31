@@ -125,6 +125,7 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
       />
 
       <div
+        data-slide-root
         className="relative mx-auto flex w-full max-w-[860px] justify-center overflow-hidden rounded-lg border shadow-md"
         style={{
           fontFamily: "Inter, sans-serif",
