@@ -25,10 +25,13 @@ const stepSchema = z.object({
   detail: z
     .string()
     .min(5)
-    .max(360)
+    .max(220)
     .default(
       "Position the survey around a single strategic question to encourage reflective, narrative responses."
-    ),
+    )
+    .meta({
+      description: "Brief explanation of the step. MAX 220 characters - keep to ~2 sentences.",
+    }),
 });
 
 export const Schema = z.object({
@@ -39,19 +42,25 @@ export const Schema = z.object({
     .string()
     .min(2)
     .max(220)
-    .default("Customer experience leaders & frontline service teams"),
+    .default("Customer experience leaders & frontline service teams")
+    .meta({
+      description: "Target audience for this tip. MAX 220 characters - be specific but concise.",
+    }),
   tipTitle: z.string().min(5).max(80).default("Ask One Powerful Question"),
   positioningStatement: z
     .string()
     .min(10)
-    .max(420)
+    .max(320)
     .default(
-      "Anchor your feedback surveys around a single, high-yield question to surface actionable insights quickly."
-    ),
+      "Use one powerful question to gather focused, actionable customer feedback."
+    )
+    .meta({
+      description: "Brief positioning statement explaining the tip's value. MAX 320 characters - keep it to 2 sentences.",
+    }),
   keyQuestion: z
     .string()
     .min(5)
-    .max(160)
+    .max(165)
     .default('“What could we improve to better support you?”'),
   modusOperandiHeading: z
     .string()
@@ -66,17 +75,17 @@ export const Schema = z.object({
       {
         title: "Frame the intent",
         detail:
-          "Share why candid feedback matters, how the results will drive real improvements, and the commitment to act on the insights gathered.",
+          "Explain why feedback matters and how results will drive improvements.",
       },
       {
         title: "Ask the catalytic question",
         detail:
-          "Lead with a focused, open-ended prompt like “What could we improve?” to spark reflective, specific responses.",
+          "Lead with an open-ended prompt to spark reflective responses.",
       },
       {
         title: "Probe for specifics",
         detail:
-          "Follow up with focused prompts—ask where the journey felt strained, where service excelled, and what specific improvements customers expect next.",
+          "Follow up to understand where service excelled and what needs improvement.",
       },
     ]),
   impactHeading: z
@@ -89,22 +98,31 @@ export const Schema = z.object({
       z
         .string()
         .min(5)
-        .max(260)
+        .max(180)
+        .meta({
+          description: "Single impact point. MAX 180 characters - keep to 1 concise sentence.",
+        })
     )
     .min(2)
     .max(5)
     .default([
-      "Shows genuine care by centering the customer’s voice, not the company’s assumptions.",
-      "Uncovers rich qualitative feedback that pinpoints process gaps and innovation opportunities.",
-      "Increases engagement by keeping surveys focused and respectful of customer time.",
-    ]),
+      "Centers the customer's voice rather than company assumptions.",
+      "Uncovers qualitative feedback highlighting process gaps.",
+      "Respects customer time with focused surveys.",
+    ])
+    .meta({
+      description: "2-5 key benefits or impacts. Each point MAX 180 characters.",
+    }),
   closingNote: z
     .string()
     .min(5)
-    .max(820)
+    .max(320)
     .default(
-      "Integrate the findings into your customer excellence roadmap to close the loop and demonstrate responsiveness."
-    ),
+      "Use these insights to refine your customer excellence strategy."
+    )
+    .meta({
+      description: "Brief closing note or call to action. Keep it concise - MAX 320 characters. Should be 1-2 sentences.",
+    }),
 });
 
 export type A4OnePagerData = z.infer<typeof Schema>;
@@ -113,9 +131,77 @@ interface A4OnePagerLayoutProps {
   data?: Partial<A4OnePagerData>;
 }
 
+const truncateValue = (value: unknown, max: number) => {
+  if (typeof value !== "string") {
+    return value;
+  }
+
+  if (value.length <= max) {
+    return value;
+  }
+
+  const sliceLength = Math.max(max - 3, 0);
+  return `${value.slice(0, sliceLength)}...`;
+};
+
+const sanitizeData = (raw: Partial<A4OnePagerData>): Partial<A4OnePagerData> => {
+  const sanitized: Partial<A4OnePagerData> = { ...raw };
+
+  const applyTruncation = <K extends keyof A4OnePagerData>(key: K, max: number) => {
+    const value = raw[key];
+    if (typeof value === "string") {
+      sanitized[key] = truncateValue(value, max) as A4OnePagerData[K];
+    }
+  };
+
+  applyTruncation("section", 60);
+  applyTruncation("category", 60);
+  applyTruncation("subCategory", 60);
+  applyTruncation("audience", 220);
+  applyTruncation("tipTitle", 80);
+  applyTruncation("positioningStatement", 320);
+  applyTruncation("keyQuestion", 165);
+  applyTruncation("modusOperandiHeading", 80);
+  applyTruncation("impactHeading", 80);
+  applyTruncation("closingNote", 320);
+
+  if (raw.modusOperandiSteps) {
+    sanitized.modusOperandiSteps = raw.modusOperandiSteps.map((step) => ({
+      ...step,
+      title:
+        typeof step.title === "string"
+          ? (truncateValue(
+              step.title,
+              60
+            ) as A4OnePagerData["modusOperandiSteps"][number]["title"])
+          : step.title,
+      detail:
+        typeof step.detail === "string"
+          ? (truncateValue(
+              step.detail,
+              220
+            ) as A4OnePagerData["modusOperandiSteps"][number]["detail"])
+          : step.detail,
+    }));
+  }
+
+  if (raw.impactHighlights) {
+    sanitized.impactHighlights = raw.impactHighlights.map(
+      (highlight) =>
+        typeof highlight === "string"
+          ? (truncateValue(
+              highlight,
+              180
+            ) as A4OnePagerData["impactHighlights"][number])
+          : highlight
+    );
+  }
+
+  return sanitized;
+};
+
 const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
-  const content = Schema.parse(data ?? {});
-  const textContainerClasses = `space-y-3`;
+  const content = Schema.parse(sanitizeData(data ?? {}));
 
   return (
     <>
@@ -139,29 +225,29 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
           <div className="absolute left-[-50px] bottom-[-70px] h-[180px] w-[180px] rounded-full bg-[rgba(216,198,181,0.25)]" />
         </div>
 
-        <div className="relative z-10 flex h-full w-full flex-col gap-4 p-6 md:p-7">
-          <header className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <div className={textContainerClasses}>
+        <div className="relative z-10 flex h-full w-full flex-col gap-2.5 p-5 md:p-6">
+          <header className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+            <div className="space-y-2">
               <p
-                className="text-[10.5px] uppercase tracking-[0.4em]"
+                className="text-[10px] uppercase tracking-[0.35em]"
                 style={{ color: palette.secondary }}
               >
                 {content.section}
               </p>
               <h1
-                className="text-[24px] font-semibold leading-snug md:text-[28px]"
+                className="text-[22px] font-semibold leading-tight md:text-[24px] md:max-w-[540px]"
                 style={{ color: palette.primary }}
               >
                 {content.tipTitle}
               </h1>
               <p
-                className="text-[12px] leading-relaxed md:text-[12.5px]"
+                className="text-[11px] leading-relaxed md:text-[11.5px] md:max-w-[560px]"
                 style={{ color: palette.secondary }}
               >
                 {content.positioningStatement}
               </p>
               <div
-                className="rounded-lg border px-3.5 py-2.5 text-[11px] leading-relaxed shadow-sm md:max-w-[340px]"
+                className="rounded-md border px-3 py-2 text-[10.5px] leading-relaxed shadow-sm md:max-w-[400px]"
                 style={{ backgroundColor: palette.surface, borderColor: palette.border }}
               >
                 <p className="font-semibold" style={{ color: palette.primary }}>
@@ -174,34 +260,34 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
 
           <div className="flex-1">
             <section
-              className="grid h-full gap-3 rounded-lg border p-3 pr-4 shadow-sm md:grid-cols-[170px_auto]"
+              className="grid h-full gap-2.5 rounded-md border p-3 shadow-sm sm:grid-cols-[190px_auto]"
               style={{ backgroundColor: palette.surface, borderColor: palette.border }}
             >
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5 sm:pr-2">
                 <div>
                   <p
-                  className="text-[10px] font-semibold uppercase tracking-[0.3em]"
+                  className="text-[9px] font-semibold uppercase tracking-[0.25em]"
                     style={{ color: palette.secondary }}
                   >
                     Category
                   </p>
-                  <p className="text-[12.5px] font-semibold" style={{ color: palette.primary }}>
+                  <p className="text-[11.5px] font-semibold" style={{ color: palette.primary }}>
                     {content.category}
                   </p>
                 </div>
                 <div>
                   <p
-                  className="text-[10px] font-semibold uppercase tracking-[0.3em]"
+                  className="text-[9px] font-semibold uppercase tracking-[0.25em]"
                     style={{ color: palette.secondary }}
                   >
                     Sub-Category
                   </p>
-                  <p className="text-[12.5px] font-semibold" style={{ color: palette.primary }}>
+                  <p className="text-[11.5px] font-semibold" style={{ color: palette.primary }}>
                     {content.subCategory}
                   </p>
                 </div>
                 <div
-                className="rounded-md border px-3.5 py-2.5 text-[12px] font-medium"
+                className="rounded-md border px-3 py-2.5 text-[10.5px] font-medium"
                   style={{
                     backgroundColor: palette.highlight,
                     borderColor: palette.border,
@@ -210,7 +296,7 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                 >
                   Anchor Question
                   <span
-                    className="mt-2 block text-[12px] font-normal italic"
+                    className="mt-1 block text-[10.5px] font-normal italic"
                     style={{ color: palette.secondary }}
                   >
                     {content.keyQuestion}
@@ -218,26 +304,26 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                 </div>
                 </div>
 
-              <div className="flex flex-col gap-4">
-                <div>
+              <div className="flex flex-col gap-2.5 sm:pr-1">
+                <div className="sm:pr-2">
                   <h2
-                    className="text-[15px] font-semibold"
+                    className="text-[14px] font-semibold md:text-[15px]"
                     style={{ color: palette.primary }}
                   >
                     {content.modusOperandiHeading}
                   </h2>
-                  <div className="mt-3 grid gap-2">
+                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
                     {content.modusOperandiSteps.map((step, index) => (
                       <div
                         key={index}
-                        className="flex gap-3 rounded-md border px-3.5 py-2.5"
+                        className="flex gap-2.5 rounded-md border px-3 py-2"
                         style={{
                           borderColor: palette.border,
                           backgroundColor: "#fbf9f5",
                         }}
                       >
                         <div
-                          className="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-full text-[9.5px] font-semibold"
+                          className="flex h-[20px] w-[20px] flex-none items-center justify-center rounded-full text-[9px] font-semibold"
                           style={{
                             backgroundColor: palette.accent,
                             color: palette.primary,
@@ -247,13 +333,13 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                         </div>
                         <div>
                           <p
-                            className="text-[13px] font-semibold"
+                            className="text-[12px] font-semibold"
                             style={{ color: palette.primary }}
                           >
                             {step.title}
                           </p>
                           <p
-                            className="mt-1 text-[11px] leading-relaxed"
+                            className="mt-0.5 text-[10.25px] leading-snug"
                             style={{ color: palette.secondary }}
                           >
                             {step.detail}
@@ -264,18 +350,18 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-1.5">
                   <h2
-                    className="text-[15px] font-semibold"
+                    className="text-[14px] font-semibold"
                     style={{ color: palette.primary }}
                   >
                     {content.impactHeading}
                   </h2>
-                  <ul className="mt-2 grid gap-2 text-[11.5px] md:grid-cols-2">
+                  <ul className="grid gap-1.5 text-[10.5px] sm:grid-cols-2">
                     {content.impactHighlights.map((highlight, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-2 rounded-md px-3.5 py-2.5"
+                        className="flex items-start gap-2 rounded-md px-3 py-2"
                         style={{
                           backgroundColor: "#fbf9f5",
                           border: `1px solid ${palette.border}`,
@@ -283,15 +369,15 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
                         }}
                       >
                         <span
-                          className="mt-[7px] h-1.5 w-1.5 flex-none rounded-full"
+                          className="mt-[5px] h-1.5 w-1.5 flex-none rounded-full"
                           style={{ backgroundColor: palette.primary }}
                         />
-                        <span>{highlight}</span>
+                        <span className="text-[10.25px] leading-relaxed">{highlight}</span>
                       </li>
                     ))}
                   </ul>
                   <div
-                    className="rounded-md border px-3.5 py-2.5 text-[11px] leading-relaxed"
+                    className="rounded-md border px-3 py-2 text-[10.5px] leading-relaxed"
                     style={{
                       borderColor: palette.border,
                       backgroundColor: "#f7f1ea",
@@ -306,7 +392,7 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
           </div>
 
           <footer
-            className="mt-2 flex items-center justify-between rounded-md px-4 py-2 text-[10px]"
+            className="mt-1.5 flex items-center justify-between rounded-md px-3 py-1.5 text-[9px]"
             style={{
               backgroundColor: palette.background,
               color: palette.secondary,
@@ -314,14 +400,13 @@ const A4OnePagerLayout: React.FC<A4OnePagerLayoutProps> = ({ data }) => {
             }}
           >
             <span>Do not share without permission</span>
-            <span>
-              © 2025 AB4C Compliance &amp; Customer Relations. All rights
-              reserved.
+            <span className="text-center">
+              © 2025 AB4C Compliance &amp; Customer Relations
             </span>
             <img
               src="/ab4c-logo.png"
               alt="AB4C Logo"
-              className="h-8 w-8 object-contain"
+              className="h-6 w-6 object-contain"
             />
           </footer>
         </div>
