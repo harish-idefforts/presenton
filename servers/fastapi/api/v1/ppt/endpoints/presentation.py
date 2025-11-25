@@ -118,7 +118,7 @@ async def get_presentation(
     )
 
 
-@PRESENTATION_ROUTER.delete("/{id}", status_code=204)
+@PRESENTATION_ROUTER.delete("/{id}")
 async def delete_presentation(
     id: uuid.UUID, sql_session: AsyncSession = Depends(get_async_session)
 ):
@@ -128,6 +128,9 @@ async def delete_presentation(
 
     await sql_session.delete(presentation)
     await sql_session.commit()
+
+    # Return JSON so clients parsing the response don't error on 204 No Content
+    return {"success": True}
 
 
 @PRESENTATION_ROUTER.post("/create", response_model=PresentationModel)
