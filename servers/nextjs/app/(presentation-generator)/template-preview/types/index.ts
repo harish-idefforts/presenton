@@ -9,10 +9,17 @@ export interface LayoutInfo {
     layoutId: string
 }
 
+export interface SlideDimensions {
+    width: number
+    height: number
+    unit?: string
+}
+
 export interface TemplateSetting {
     description: string;
     ordered: boolean;
     default?: boolean;
+    slideDimensions?: SlideDimensions;
 }
 
 export interface TemplateResponse {

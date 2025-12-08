@@ -49,8 +49,16 @@ export async function GET(request: NextRequest) {
     );
     const slides_pptx_models =
       convertElementAttributesToPptxSlides(slides_attributes);
+    const firstSlideDimensions = slides_attributes.find((slide) => slide.slideDimensions)?.slideDimensions;
     const presentation_pptx_model: PptxPresentationModel = {
       slides: slides_pptx_models,
+      slideDimensions: firstSlideDimensions
+        ? {
+            width: Math.round(firstSlideDimensions.width),
+            height: Math.round(firstSlideDimensions.height),
+            unit: "px",
+          }
+        : undefined,
     };
 
     await closeBrowserAndPage(browser, page);
@@ -88,6 +96,7 @@ async function getBrowserAndPage(id: string): Promise<[Browser, Page]> {
     waitUntil: "networkidle0",
     timeout: 300000,
   });
+  await adjustViewportToSlide(page);
   return [browser, page];
 }
 
@@ -230,6 +239,56 @@ async function getSlidesAttributes(
     )
   );
   return slideAttributes;
+}
+
+async function adjustViewportToSlide(page: Page) {
+  await page
+    .waitForFunction(
+      () => {
+        const wrapper = document.getElementById("presentation-slides-wrapper");
+        if (!wrapper) return false;
+        return Boolean(
+          wrapper.querySelector("[data-slide-root]") ||
+            wrapper.querySelector(":scope > div > div")
+        );
+      },
+      { timeout: 300000 }
+    )
+    .catch(() => undefined);
+
+  const dimensions = await page.evaluate(() => {
+    const wrapper = document.getElementById("presentation-slides-wrapper");
+    const parseDimension = (value: string | null | undefined) => {
+      if (!value) return NaN;
+      const parsed = parseFloat(value);
+      return Number.isFinite(parsed) ? parsed : NaN;
+    };
+
+    let width = parseDimension(wrapper?.getAttribute("data-slide-width"));
+    let height = parseDimension(wrapper?.getAttribute("data-slide-height"));
+
+    if (!width || !height) {
+      const slideRoot = wrapper?.querySelector("[data-slide-root]") || wrapper?.querySelector(":scope > div > div");
+      if (slideRoot) {
+        const rect = (slideRoot as HTMLElement).getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+      }
+    }
+
+    if (!width || !height) {
+      width = 1280;
+      height = 720;
+    }
+
+    return { width, height };
+  });
+
+  await page.setViewport({
+    width: Math.round(dimensions.width || 1280),
+    height: Math.round(dimensions.height || 720),
+    deviceScaleFactor: 1,
+  });
 }
 
 async function getSlidesAndSpeakerNotes(page: Page) {
@@ -477,6 +536,10 @@ async function getAllChildElementsAttributes({
     return {
       elements: sortedElements,
       backgroundColor,
+      slideDimensions: {
+        width: Math.round(rootRect!.width ?? 1280),
+        height: Math.round(rootRect!.height ?? 720),
+      },
     };
   } else {
     return {

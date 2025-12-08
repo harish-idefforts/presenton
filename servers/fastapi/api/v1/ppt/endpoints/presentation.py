@@ -129,7 +129,7 @@ async def delete_presentation(
     await sql_session.delete(presentation)
     await sql_session.commit()
 
-    # Return JSON so clients parsing the response don't error on 204 No Content
+    # Return a JSON body so clients that parse JSON on delete don't throw on 204
     return {"success": True}
 
 
