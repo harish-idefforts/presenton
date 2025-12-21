@@ -188,13 +188,18 @@ async def refresh_presentation_images(payload: RefreshPresentationRequest, sql_s
             url = image_dict.get("__image_url__", "")
             if not prompt:
                 continue
-            # Only target pixabay.com or pexels.com
+            # Target pixabay.com, pexels.com, or placeholder images
             try:
-                host = ""
-                if isinstance(url, str) and (url.startswith("http://") or url.startswith("https://")):
-                    from urllib.parse import urlparse
-                    host = urlparse(url).hostname or ""
-                needs_regen = host.endswith("pixabay.com") or host.endswith("pexels.com") or (".pixabay.com" in host) or (".pexels.com" in host)
+                needs_regen = False
+                if isinstance(url, str):
+                    # Check for placeholder images
+                    if "placeholder" in url.lower():
+                        needs_regen = True
+                    # Check for pixabay/pexels URLs
+                    elif url.startswith("http://") or url.startswith("https://"):
+                        from urllib.parse import urlparse
+                        host = urlparse(url).hostname or ""
+                        needs_regen = host.endswith("pixabay.com") or host.endswith("pexels.com") or (".pixabay.com" in host) or (".pexels.com" in host)
             except Exception:
                 needs_regen = False
 
