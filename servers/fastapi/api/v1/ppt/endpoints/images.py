@@ -218,7 +218,8 @@ async def refresh_presentation_images(payload: RefreshPresentationRequest, sql_s
                         final_url = cached or result
                     else:
                         final_url = finalize_local_path(result) or result
-                if final_url:
+                # Skip if result is still a placeholder (image generation failed)
+                if final_url and "placeholder" not in final_url.lower():
                     image_dict["__image_url__"] = final_url
                     set_dict_at_path(slide.content, path, image_dict)
                     slide_changed = True
