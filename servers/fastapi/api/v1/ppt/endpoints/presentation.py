@@ -471,6 +471,9 @@ async def export_presentation_as_pptx_or_pdf(
     export_as: Annotated[
         Literal["pptx", "pdf"], Body(description="Format to export the presentation as")
     ] = "pptx",
+    filename: Annotated[
+        Optional[str], Body(description="Custom filename for export (without extension)")
+    ] = None,
     upload_to_sharepoint: Annotated[
         bool, Body(description="Upload exported file to SharePoint")
     ] = False,
@@ -491,6 +494,7 @@ async def export_presentation_as_pptx_or_pdf(
         id,
         presentation.title or str(uuid.uuid4()),
         export_as,
+        filename_override=filename,
         upload_to_sharepoint=upload_to_sharepoint,
         sharepoint_base_folder=sharepoint_base_folder,
         sharepoint_category=sharepoint_category,
@@ -785,6 +789,7 @@ async def generate_presentation_handler(
             presentation.title or str(uuid.uuid4()),
             request.export_as,
             temp_dir=temp_dir,
+            filename_override=request.filename,
             upload_to_sharepoint=request.upload_to_sharepoint,
             sharepoint_base_folder=request.sharepoint_base_folder,
             sharepoint_category=request.sharepoint_category,
@@ -945,6 +950,7 @@ async def edit_presentation_with_new_content(
         presentation.id,
         presentation.title or str(uuid.uuid4()),
         data.export_as,
+        filename_override=data.filename,
         upload_to_sharepoint=data.upload_to_sharepoint,
         sharepoint_base_folder=data.sharepoint_base_folder,
         sharepoint_category=data.sharepoint_category,
@@ -990,6 +996,7 @@ async def derive_presentation_from_existing_one(
         new_presentation.id,
         new_presentation.title or str(uuid.uuid4()),
         data.export_as,
+        filename_override=data.filename,
         upload_to_sharepoint=data.upload_to_sharepoint,
         sharepoint_base_folder=data.sharepoint_base_folder,
         sharepoint_category=data.sharepoint_category,

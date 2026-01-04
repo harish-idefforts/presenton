@@ -21,11 +21,15 @@ async def export_presentation(
     title: str,
     export_as: Literal["pptx", "pdf"],
     temp_dir: Optional[str] = None,
+    filename_override: Optional[str] = None,
     # SharePoint upload parameters
     upload_to_sharepoint: bool = False,
     sharepoint_base_folder: Optional[str] = None,
     sharepoint_category: Optional[str] = None,
 ) -> PresentationAndPath:
+
+    # Use filename_override if provided, otherwise use title
+    safe_filename = sanitize_filename(filename_override or title or str(uuid.uuid4()))
 
     if export_as == "pptx":
         # This flag tells us if we are responsible for cleaning up the directory
@@ -64,7 +68,7 @@ async def export_presentation(
             export_directory = get_exports_directory()
             pptx_path = os.path.join(
                 export_directory,
-                f"{sanitize_filename(title or str(uuid.uuid4()))}.pptx",
+                f"{safe_filename}.pptx",
             )
             pptx_creator.save(pptx_path)
 
@@ -77,7 +81,7 @@ async def export_presentation(
                     file_path=pptx_path,
                     base_folder=sharepoint_base_folder,
                     category=sharepoint_category,
-                    filename=title,
+                    filename=safe_filename,
                     extension="pptx",
                 )
 
@@ -99,7 +103,7 @@ async def export_presentation(
                 "http://localhost/api/export-as-pdf",
                 json={
                     "id": str(presentation_id),
-                    "title": sanitize_filename(title or str(uuid.uuid4())),
+                    "title": safe_filename,
                 },
             ) as response:
                 response_json = await response.json()
@@ -115,7 +119,7 @@ async def export_presentation(
                 file_path=pdf_path,
                 base_folder=sharepoint_base_folder,
                 category=sharepoint_category,
-                filename=title,
+                filename=safe_filename,
                 extension="pdf",
             )
 
@@ -163,14 +167,14 @@ async def _upload_to_sharepoint(
 
         folder_path = "/".join(folder_parts)
 
-        # Sanitize filename and add extension
-        safe_filename = f"{sanitize_filename(filename)}.{extension}"
+        # Filename is already sanitized, just add extension
+        full_filename = f"{filename}.{extension}"
 
-        print(f"Uploading to SharePoint: {folder_path}/{safe_filename}")
+        print(f"Uploading to SharePoint: {folder_path}/{full_filename}")
 
         sharepoint_url, download_url = await SHAREPOINT_SERVICE.upload_file(
             folder_path=folder_path,
-            filename=safe_filename,
+            filename=full_filename,
             file_path=file_path,
         )
 

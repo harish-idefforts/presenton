@@ -12,6 +12,7 @@ class EditPresentationRequest(BaseModel):
     presentation_id: uuid.UUID
     slides: List[SlideContentUpdate]
     export_as: Literal["pptx", "pdf"] = "pptx"
+    filename: Optional[str] = None
     # SharePoint upload parameters
     upload_to_sharepoint: bool = False
     sharepoint_base_folder: Optional[str] = None
