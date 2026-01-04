@@ -471,6 +471,15 @@ async def export_presentation_as_pptx_or_pdf(
     export_as: Annotated[
         Literal["pptx", "pdf"], Body(description="Format to export the presentation as")
     ] = "pptx",
+    upload_to_sharepoint: Annotated[
+        bool, Body(description="Upload exported file to SharePoint")
+    ] = False,
+    sharepoint_base_folder: Annotated[
+        Optional[str], Body(description="Base folder path for SharePoint (e.g., 'training/english')")
+    ] = None,
+    sharepoint_category: Annotated[
+        Optional[str], Body(description="Category folder for SharePoint")
+    ] = None,
     sql_session: AsyncSession = Depends(get_async_session),
 ):
     presentation = await sql_session.get(PresentationModel, id)
@@ -482,6 +491,9 @@ async def export_presentation_as_pptx_or_pdf(
         id,
         presentation.title or str(uuid.uuid4()),
         export_as,
+        upload_to_sharepoint=upload_to_sharepoint,
+        sharepoint_base_folder=sharepoint_base_folder,
+        sharepoint_category=sharepoint_category,
     )
 
     return PresentationPathAndEditPath(
@@ -772,7 +784,10 @@ async def generate_presentation_handler(
             presentation_id,
             presentation.title or str(uuid.uuid4()),
             request.export_as,
-            temp_dir=temp_dir  # <--- PASS THE DIRECTORY HERE
+            temp_dir=temp_dir,
+            upload_to_sharepoint=request.upload_to_sharepoint,
+            sharepoint_base_folder=request.sharepoint_base_folder,
+            sharepoint_category=request.sharepoint_category,
         )
 
         response = PresentationPathAndEditPath(
@@ -927,7 +942,12 @@ async def edit_presentation_with_new_content(
     await sql_session.commit()
 
     presentation_and_path = await export_presentation(
-        presentation.id, presentation.title or str(uuid.uuid4()), data.export_as
+        presentation.id,
+        presentation.title or str(uuid.uuid4()),
+        data.export_as,
+        upload_to_sharepoint=data.upload_to_sharepoint,
+        sharepoint_base_folder=data.sharepoint_base_folder,
+        sharepoint_category=data.sharepoint_category,
     )
 
     return PresentationPathAndEditPath(
@@ -967,7 +987,12 @@ async def derive_presentation_from_existing_one(
     await sql_session.commit()
 
     presentation_and_path = await export_presentation(
-        new_presentation.id, new_presentation.title or str(uuid.uuid4()), data.export_as
+        new_presentation.id,
+        new_presentation.title or str(uuid.uuid4()),
+        data.export_as,
+        upload_to_sharepoint=data.upload_to_sharepoint,
+        sharepoint_base_folder=data.sharepoint_base_folder,
+        sharepoint_category=data.sharepoint_category,
     )
 
     return PresentationPathAndEditPath(

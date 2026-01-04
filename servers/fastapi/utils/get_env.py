@@ -95,3 +95,30 @@ def get_extended_reasoning_env():
 
 def get_web_grounding_env():
     return os.getenv("WEB_GROUNDING")
+
+
+# SharePoint environment variables
+def get_sharepoint_tenant_id_env():
+    return os.getenv("SHAREPOINT_TENANT_ID")
+
+
+def get_sharepoint_client_id_env():
+    return os.getenv("SHAREPOINT_CLIENT_ID")
+
+
+def get_sharepoint_client_secret_env():
+    return os.getenv("SHAREPOINT_CLIENT_SECRET")
+
+
+def get_sharepoint_site_id_env():
+    return os.getenv(
+        "SHAREPOINT_SITE_ID",
+        "ab4ccompliancecustomerrelat.sharepoint.com,28a95b2b-b80f-48f1-9091-df6496238e4e,60fd3796-be58-4c42-b56c-f8bc49f12a8c",
+    )
+
+
+def get_sharepoint_drive_id_env():
+    return os.getenv(
+        "SHAREPOINT_DRIVE_ID",
+        "b!K1upKA-48UiQkd9kliOOTpY3_WBYvkJMtWz4vEnxKox582fHmgeZT40Plq2iqMSN",
+    )

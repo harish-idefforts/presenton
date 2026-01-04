@@ -40,3 +40,13 @@ class GeneratePresentationRequest(BaseModel):
     trigger_webhook: bool = Field(
         default=False, description="Whether to trigger subscribed webhooks"
     )
+    # SharePoint upload parameters
+    upload_to_sharepoint: bool = Field(
+        default=False, description="Whether to upload the exported file to SharePoint"
+    )
+    sharepoint_base_folder: Optional[str] = Field(
+        default=None, description="Base folder path for SharePoint (e.g., 'training/english', 'onepager/french')"
+    )
+    sharepoint_category: Optional[str] = Field(
+        default=None, description="Category folder for SharePoint"
+    )

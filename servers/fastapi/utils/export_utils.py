@@ -20,7 +20,11 @@ async def export_presentation(
     presentation_id: uuid.UUID,
     title: str,
     export_as: Literal["pptx", "pdf"],
-    temp_dir: Optional[str] = None, # <-- NEW ARGUMENT
+    temp_dir: Optional[str] = None,
+    # SharePoint upload parameters
+    upload_to_sharepoint: bool = False,
+    sharepoint_base_folder: Optional[str] = None,
+    sharepoint_category: Optional[str] = None,
 ) -> PresentationAndPath:
 
     if export_as == "pptx":
@@ -64,9 +68,24 @@ async def export_presentation(
             )
             pptx_creator.save(pptx_path)
 
+            # Upload to SharePoint if requested
+            sharepoint_url = None
+            sharepoint_download_url = None
+
+            if upload_to_sharepoint:
+                sharepoint_url, sharepoint_download_url = await _upload_to_sharepoint(
+                    file_path=pptx_path,
+                    base_folder=sharepoint_base_folder,
+                    category=sharepoint_category,
+                    filename=title,
+                    extension="pptx",
+                )
+
             return PresentationAndPath(
                 presentation_id=presentation_id,
                 path=pptx_path,
+                sharepoint_url=sharepoint_url,
+                sharepoint_download_url=sharepoint_download_url,
             )
         finally:
             # 4. CLEAN UP ONLY IF THIS FUNCTION CREATED THE DIRECTORY
@@ -74,7 +93,7 @@ async def export_presentation(
                 print(f"Cleaning up temporary export directory: {temp_dir}")
                 shutil.rmtree(temp_dir)
 
-    else: # The PDF path remains unchanged
+    else:  # PDF export
         async with aiohttp.ClientSession() as session:
             async with session.post(
                 "http://localhost/api/export-as-pdf",
@@ -85,7 +104,80 @@ async def export_presentation(
             ) as response:
                 response_json = await response.json()
 
+        pdf_path = response_json["path"]
+
+        # Upload to SharePoint if requested
+        sharepoint_url = None
+        sharepoint_download_url = None
+
+        if upload_to_sharepoint:
+            sharepoint_url, sharepoint_download_url = await _upload_to_sharepoint(
+                file_path=pdf_path,
+                base_folder=sharepoint_base_folder,
+                category=sharepoint_category,
+                filename=title,
+                extension="pdf",
+            )
+
         return PresentationAndPath(
             presentation_id=presentation_id,
-            path=response_json["path"],
+            path=pdf_path,
+            sharepoint_url=sharepoint_url,
+            sharepoint_download_url=sharepoint_download_url,
         )
+
+
+async def _upload_to_sharepoint(
+    file_path: str,
+    base_folder: Optional[str],
+    category: Optional[str],
+    filename: str,
+    extension: str,
+) -> tuple[Optional[str], Optional[str]]:
+    """
+    Helper function to upload a file to SharePoint.
+
+    Args:
+        file_path: Local path to the file
+        base_folder: Base folder path (e.g., 'training/english', 'onepager/french')
+        category: Category subfolder
+        filename: Desired filename (without extension)
+        extension: File extension (pptx/pdf)
+
+    Returns:
+        Tuple of (sharepoint_url, sharepoint_download_url)
+    """
+    from services.sharepoint_service import SHAREPOINT_SERVICE
+
+    if not SHAREPOINT_SERVICE.is_configured():
+        print("SharePoint not configured, skipping upload")
+        return None, None
+
+    try:
+        # Build folder path: presentations/{base_folder}/{category}
+        folder_parts = ["presentations"]
+        if base_folder:
+            folder_parts.append(base_folder.strip("/"))
+        if category:
+            folder_parts.append(sanitize_filename(category))
+
+        folder_path = "/".join(folder_parts)
+
+        # Sanitize filename and add extension
+        safe_filename = f"{sanitize_filename(filename)}.{extension}"
+
+        print(f"Uploading to SharePoint: {folder_path}/{safe_filename}")
+
+        sharepoint_url, download_url = await SHAREPOINT_SERVICE.upload_file(
+            folder_path=folder_path,
+            filename=safe_filename,
+            file_path=file_path,
+        )
+
+        print(f"SharePoint upload successful: {sharepoint_url}")
+        return sharepoint_url, download_url
+
+    except Exception as e:
+        print(f"SharePoint upload failed: {e}")
+        # Don't fail the entire export if SharePoint upload fails
+        return None, None
