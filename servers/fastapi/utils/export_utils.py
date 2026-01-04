@@ -29,7 +29,10 @@ async def export_presentation(
 ) -> PresentationAndPath:
 
     # Use filename_override if provided, otherwise use title
-    safe_filename = sanitize_filename(filename_override or title or str(uuid.uuid4()))
+    # sanitize_filename handles OS-level invalid chars, but we also need to handle
+    # SharePoint-specific problematic chars like # (URL fragment identifier)
+    raw_filename = filename_override or title or str(uuid.uuid4())
+    safe_filename = sanitize_filename(raw_filename).replace("#", "")
 
     if export_as == "pptx":
         # This flag tells us if we are responsible for cleaning up the directory
